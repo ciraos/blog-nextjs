@@ -172,6 +172,8 @@ export const friendlink = [
             { name: '朽丘秋雨', link: 'https://koxiuqiu.cn', avatar: 'https://cdn.koxiuqiu.cn/koxiuqiu/img/favicon.webp', descr: '一定会和喜欢的人在夏日夜晚牵手慢步' },
             { name: '弈鸣小筑', link: 'https://blog.lwtools.site', avatar: 'https://static.lwtools.site/static/img/favicon.ico', descr: '功不唐捐，玉汝于成' },
             { name: 'XingJi', link: 'https://love.xingji.fun', avatar: 'https://i.p-i.vip/47/20240920-66ed7b168c38c.jpg', descr: '迄今所有人生都大写着失败，但不妨碍我继续向前✨', siteshot: 'https://i.p-i.vip/47/20240920-66ed7b6730ca9.png' },
+            { name: '钧言极客', link: 'https://www.jinjun.top', avatar: 'https://www.jinjun.top/img/avatar.jpg', descr: '记录生活、爱好学习、不爱折腾' },
+            { name: '胜天半子', link: 'https://blog.291055.xyz', avatar: 'https://i1.wp.com/ruom.wuaze.com/i/2024/11/02/166823.webp', descr: '事已至此，先吃饭吧😋', siteshot: 'https://i1.wp.com/ruom.wuaze.com/i/2024/11/08/350149.webp' },
             // { name: '', link: '', avatar: '', descr: '' },
         ],
     },

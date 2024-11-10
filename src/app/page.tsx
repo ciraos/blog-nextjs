@@ -1,12 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import {Icon} from "@iconify/react"
-import { getAllPosts } from "@/lib/posts";
 import moment from 'moment';
-
-// import { motion } from "framer-motion";
 import * as motion from "framer-motion/client";
 
+import { getAllPosts } from "@/lib/posts";
 import Aside from "@/components/aside";
 
 export default async function Homepage () {

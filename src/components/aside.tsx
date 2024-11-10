@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import moment from "moment";
-import { Icon } from "@iconify/react";
 import { getAllPosts } from "@/lib/posts";
+
+import { Icon } from "@iconify/react";
 import ciraos from "@/app/images/avatar1.avif";
-import Toc from "./_partial/toc";
 
 export default async function Aside() {
     const posts = await getAllPosts();
@@ -26,10 +26,10 @@ export default async function Aside() {
                     <p className="indent-4 text-sm dark:text-white">欢迎来到我的博客🦆</p>
                 </div>
 
-                <div className="px-2 py-2 bg-white rounded-xl shadow-sm hover:shadow-md dark:bg-dacard">
+                {/* <div className="px-2 py-2 bg-white rounded-xl shadow-sm hover:shadow-md dark:bg-dacard">
                     <div className="flex items-center"><Icon icon="material-symbols:toc" width="1.4em" height="1.4em" className="mr-1 text-blue-400" /><span className="dark:text-white">目录</span></div>
                     <Toc />
-                </div>
+                </div> */}
 
                 <div className="px-2 py-2 bg-white rounded-xl shadow-sm hover:shadow-md dark:bg-dacard">
                     <div className="flex items-center"><Icon icon="ion:time-outline" className="mr-1 text-blue-400" /><span className="dark:text-white">最近更新</span></div>
