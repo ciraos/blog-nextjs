@@ -45,7 +45,7 @@ export default function Navbar() {
           <div onClick={()=>{}} className="mo-nav transition-all hidden hover:rotate-45 max-768:block"><Icon icon="hugeicons:menu-square" /></div>
         </div>
 
-        <ul id="dd_menu" className="dd_menu open">
+        <ul id="dd_menu" className="dd_menu">
           <li><Image src={avatar1} alt="avatar1" title="avatar1" className="w-20 h-20 mx-auto rounded-[50%]" /><hr className="my-2" /></li>
           {navList?.map((item, index) => (
             <li key={index} className="dd_menu_li">
