@@ -1,0 +1,215 @@
+---
+title: mdx创建文章
+date: 2024-10-24 9:55:56
+updated: 2024-10-24 9:55:56
+tags: [mdx]
+categories: [mdx]
+keywords: mdx创建文章
+description: mdx创建文章
+cover:
+author: 葱苓sama
+---
+
+## Todo
+
+首先，下载必要的依赖：
+
+``` bash
+npm i @next/mdx @mdx-js/loader @mdx-js/react @types/mdx
+```
+
+更新根目录下的`next.config.mjs`：
+
+``` mjs
+import createMDX from '@next/mdx';
+
+/** @type {import('next').NextConfig} */
+
+const nextConfig = {
+    pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+};
+
+const withMDX = createMDX({
+    extension: /\.mdx?$/,
+    options: {}
+})
+
+export default withMDX(nextConfig)
+```
+
+在根目录创建`mdx-components.tsx`文件：
+
+``` tsx
+import Image, { ImageProps } from 'next/image';
+import type { MDXComponents } from 'mdx/types';
+
+export function useMDXComponents(components: MDXComponents): MDXComponents {
+    return {
+        del: ({ children }) => (<del className='line-through'>{children}</del>),
+        h1: ({ children }) => (<h1>{children}</h1>),
+        img: (props) => (<Image sizes=""style={{}}{...(props as ImageProps)}/>),
+        ...components,
+    }
+}
+```
+
+再在博客根目录创建`posts`文件夹，在这里创建markdown文章（记住，文章格式后缀是`mdx!!!`）！
+
+## next-mdx-remote
+
+下载必要依赖：
+
+``` bash
+npm i next-mdx-remote gray-matter
+```
+
+需要再额外下载两个插件：
+
+``` bash
+npm i moment
+npm i -D @iconify/react
+```
+
+在`src/app`文件夹创建`lib`文件夹，再创建一个`posts.ts`文件：
+
+``` ts
+import fs from "fs";
+import { join } from "path";
+import matter from "gray-matter";
+import readingTime from 'reading-time';
+
+const postsDir = join(process.cwd(), "posts");
+type readingTime = {
+    text: string;
+    minutes: string;
+    time: number;
+    words: number;
+};
+type MetaData = {
+    title: string;
+    date: Date;
+    updated: Date;
+    tags: string[];
+    categories: string[];
+    cover?: string;
+    keywords?: string,
+    descr?: string;
+    draft?: boolean;
+    author?: string;
+    readingTime?: readingTime;
+};
+
+export function getPostBySlug(slug: string) {
+    const realSlug = slug.replace(/\.mdx$/, "");
+    const fullPath = join(postsDir, `${realSlug}.mdx`);
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+    const { data, content, excerpt } = matter(fileContents, { excerpt: true, });
+    const readTime = readingTime(content);
+    const meta = { ...data, readingTime: readTime } as unknown as MetaData;
+    return { slug: realSlug, meta, content, excerpt };
+}
+
+export function getAllPosts() {
+    const slugs = fs.readdirSync(postsDir);
+    const posts = slugs.map((slug) => getPostBySlug(slug)).filter((c) => !/\.draft$/.test(c.slug));
+    return posts.sort((a, b) => +b.meta.date - +a.meta.date);
+}
+```
+
+在、`src/app/posts/[slug]`文件夹下创建`page.tsx`,这个页面就是具体的文章页面，就是本页面：
+
+``` tsx
+import { MDXRemote } from "next-mdx-remote/rsc";
+import { Icon } from "@iconify/react";
+import { getPostBySlug, getAllPosts } from "@/lib/posts";
+import moment from "moment";
+import Image from "next/image";
+import Link from "next/link";
+
+type Props = {
+  params: { slug: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+async function getPost(params: Props["params"]) {
+  const post = getPostBySlug(params.slug);
+  return { post };
+}
+
+export const dynamicParams = false;
+export async function generateStaticParams() {
+  const posts = getAllPosts();
+  return posts.map((post) => ({ slug: post.slug }));
+}
+
+export default async function Post({ params }: Props) {
+  const { post } = await getPost(params);
+  return (
+    <>
+      <div className="w-full max-w-6xl my-10 mx-auto max-768:px-4 max-768:py-4">
+        <div className="flex mt-5 max-768:w-full max-768:flex-col">
+          <div className="w-3/4 max-768:w-full">
+            <div className="post-container bg-white rounded-t-xl px-8 py-4 shadow-sm hover:shadow-md">
+              <MDXRemote source={post.content} components={{}} options={{}} />
+            </div>
+            <div className="bg-white my-0 mx-auto py-1 px-0">
+              <div className="w-4/5 my-0 mx-auto py-4 border-2 border-solid border-miku-green rounded-md">
+                <Image src={} alt="avatar1" title="avatar1" className="w-16 h-16 -mt-10 mx-auto rounded-[50%]"></Image>
+                <div className="w-full mt-2 mx-auto flex items-center justify-center"><Icon icon="ic:outline-article" className="mr-1 text-xl" /><div className="w-12 h-max mx-1 bg-orange-400 text-center content-center rounded-md">原创</div><div className="text-lg">{post.meta?.title}</div></div>
+                <div className="my-2 mx-0 flex items-center justify-center">
+                  <div className="w-28 h-8 bg-red-400 text-lg text-center content-center rounded-xl">投币</div>
+                  <div className=""></div>
+                </div>
+                <div className="text-center text-xs text-gray-400">本博客所有文章除特别声明外，均采用<Link href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer" className="underline mx-1 text-slate-500">CC BY-NC-SA 4.0</Link>许可协议，转载请注明来自葱苓sama！</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+```
+
+再在`src/app/posts/`下创建`page.tsx`，它和主页一样，用来显示文章列表：
+
+``` tsx
+import Image from "next/image";
+import Link from "next/link";
+import Aside from "@/components/aside";
+import { getAllPosts } from "@/lib/posts";
+import { Icon } from "@iconify/react";
+import moment from "moment";
+
+import type { Metadata } from "next";
+export const metadata:Metadata = {  
+  title: "文章 - 葱苓sama",
+}
+
+export default function Posts() {
+    const posts = getAllPosts();
+    return (
+      <>
+        <div className="w-full max-w-6xl py-[40px] px-[15px] my-0 mx-auto max-768:flex-col">
+          <div id="recent-post" className="w-[840px] mx-auto max-768:w-full">
+            {posts?.map((post, index) => (
+              <div id="recent-post-item" className="h-40 py-4 px-4 bg-white rounded-xl overflow-hidden flex flex-col justify-center max-600:w-full max-768:flex-col" key={index}>
+                <Link href={`/posts/${post.slug}`} className="text-2xl">{post.meta?.title}</Link>
+                <div className="text-base text-slate-400">{post.meta?.descr}</div>
+                <div className="w-full flex flex-wrap text-xs text-gray-600 divide-x-2 divide-solid divide-gray-200">
+                  <time className="h-max pr-2 flex items-center before:content-['发布于'] before:mr-1"><Icon icon="clarity:date-line" className="mr-1" />{moment(post.meta?.date).format('YYYY-MM-DD')}</time>
+                  <time className="h-max px-2 flex items-center before:content-['更新于'] before:mr-1"><Icon icon="lets-icons:date-fill" className="mr-1" />{moment(post.meta?.updated).format('YYYY-MM-DD')}</time>
+                  <Link href={`/tags/${post.meta?.tags}`} className="h-max px-2 flex items-center"><Icon icon="mdi:tag-outline" className="mr-1 divide-x-2 divide-dashed divide-orange-600" />{post.meta?.tags}</Link>
+                  <Link href={`/categories/${post.meta?.categories}`} className="h-max px-2 flex items-center"><Icon icon="material-symbols:category-outline" className="mr-1" />{post.meta?.categories}</Link>
+                  <span className="h-max px-2 flex items-center after:content-['条评论']"><Icon icon="mingcute:comment-fill" className="mr-1" />114514</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </>
+    )
+}
+```
+
+## 扩展
