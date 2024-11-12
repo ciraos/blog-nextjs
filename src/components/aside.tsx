@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import moment from "moment";
 import { getAllPosts } from "@/lib/posts";
-
 import { Icon } from "@iconify/react";
 import ciraos from "@/app/images/avatar1.avif";
 
@@ -13,8 +12,8 @@ export default async function Aside() {
             <div className="aside w-1/4 pl-4 max-425:w-full max-425:pl-0">
 
                 <div className="h-72 bg-miku-green rounded-xl py-2 px-0 text-center shadow-sm hover:shadow-md dark:bg-dacard1 max-425:hidden">
-                    <div className=""><div className="w-24 h-max px-2 py-1 mx-auto text-sm font-bold border-[1px] border-solid border-white rounded-xl">Welcome!!</div></div>
-                    <div className="mt-10">
+                    <div className="w-24 h-max py-1 px-2 mt-5 mx-auto text-sm font-bold border-[1px] border-solid border-white rounded-xl">Welcome!!</div>
+                    <div className="mt-5">
                         <Image src={ciraos} alt="avatar" className="w-24 h-24 mt-2 mx-auto rounded-[50%]" loading="lazy" />
                         <div className="mt-2 text-xl">葱苓sama</div>
                         <p className="-mt-2 text-sm">a small blog station.</p>

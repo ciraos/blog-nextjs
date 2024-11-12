@@ -8,22 +8,14 @@ import avatar1 from "@/app/images/avatar1.avif";
 
 export default function Navbar() {
   const [isOpen, setisOpen] = useState(false);
-  function addOpenClass(element: HTMLElement) {
-    if (!isOpen) {
-      element.classList.add("open");
-      setisOpen(true);
-    } else {
-      element.classList.remove("open");
-      setisOpen(false);
-    }
-  }
+  function addOpenClass() {}
   return (
     <>
-      <div id="navbar" className="w-full max-w-6xl h-16 my-0 mx-auto px-4 flex justify-between items-center rounded-b-xl shadow-lg hover:shadow-xl dark:bg-dacard">
+      <div id="navbar" className="w-full max-w-6xl h-16 my-0 mx-auto py-0 px-4 flex rounded-b-xl shadow-lg hover:shadow-xl dark:bg-dacard">
 
-        <Link href="/" className="w-1/3 h-16 flex items-center text-base text-black transition-all max-425:w-max dark:text-white">葱苓samaの博客</Link>
+        <Link href="/" className="w-32 h-16 text-left text-base text-black content-center transition-all max-425:w-max dark:text-white">葱苓sama<sup className="ml-1 text-orange-600">2.0</sup></Link>
 
-        <ul className="navlink w-1/3 h-16 flex items-center justify-center gap-0 dark:text-white">
+        <ul className="navlink w-[calc(100%-128px-240px)] h-16 flex items-center gap-0 dark:text-white">
           {navList?.map((item, index) => (
             <li key={index} className="btli w-24 text-center">
               <div className="no-underline hover:underline hover:underline-offset-2">
@@ -38,11 +30,11 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="w-1/3 h-16 flex items-center justify-end text-xl gap-2 dark:text-white">
-          <div id="randonPost" className="cursor-pointer"><Icon width="1.1em" height="1.1em" icon="game-icons:perspective-dice-six-faces-random" /></div>
-          <div id="search" className="cursor-pointer"><Icon width="1.1em" height="1.1em" icon="iconamoon:search-duotone" /></div>
-          <div className=""><Link href="https://admin.ciraos.top" target="_blank" rel="noopener noreferrer"><Icon widths="0.9em" height="0.9em" icon="subway:admin" /></Link></div>
-          <div onClick={()=>{}} className="mo-nav transition-all hidden hover:rotate-45 max-768:block"><Icon icon="hugeicons:menu-square" /></div>
+        <div id="search" className="search w-60 h-8 bg-slate-200 my-auto content-center gap-2 rounded-lg dark:text-white">
+          <form action="" className="px-4 flex items-center gap-0">
+            <Icon width="1.1em" height="1.1em" icon="iconamoon:search-duotone" />
+            <input type="text" placeholder="搜索..." className="bg-slate-200 ml-2 text-md" />
+          </form>
         </div>
 
         <ul id="dd_menu" className="dd_menu">

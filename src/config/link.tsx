@@ -37,7 +37,7 @@ export const friendlink = [
             { name: '小康', link: 'https://www.antmoe.com', avatar: 'https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/friends/xiaokang.avif', descr: '一个收藏回忆与分享技术的地方！'},
             { name: 'Colsrch', link: 'https://colsrch.cn', avatar: 'https://bu.dusays.com/2022/02/23/cb173cbdcc7c6.png', descr: '愿多年以后，我可以酌一杯清酒，烂醉如泥，梦中回到我们的曾经。'},
             { name: 'Black Flies', link: 'https://www.yyyzyyyz.cn', avatar: 'https://npm.elemecdn.com/imgscdn/img/202111191951780.JPG', descr: 'When nothing goes right,just go left.', siteshot: 'https://npm.elemecdn.com/imgscdn/img/202111191934973.jpg'},
-            { name: "Tianli", link: 'https://tianli-blog.club', avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=507249007&spec=640', descr: '自知之明是最可贵的知识！'},
+            { name: "Tianli", link: 'https://blog.tianli0.top', avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=507249007&spec=640', descr: '自知之明是最可贵的知识！'},
             { name: 'Redish101', link: 'https://blog.redish101.top', avatar: 'https://avatars.githubusercontent.com/u/64068446?v=4', descr: '学生，人，活的。' },
             { name: "铭心石刻", link:"https://blog.kouseki.cn", avatar:"https://blog.kouseki.cn/imgs/avatar.webp", descr:"愿岁并谢，与友长兮"},
             { name: "伍十七", link:"https://blog.everfu.cn", avatar:"https://ui.everfu.cn/c625e37b3cf9054d92a52ec04ce8abf0.png/avatar", descr:"我是一名正在上大一的前端爱好者,专注于构建优秀的应用程序。"}

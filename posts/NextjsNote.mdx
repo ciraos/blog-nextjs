@@ -1,16 +1,168 @@
 ---
-title: mdx创建文章
-date: 2024-10-24 9:55:56
-updated: 2024-10-24 9:55:56
-tags: [mdx]
-categories: [mdx]
-keywords: mdx创建文章
-description: mdx创建文章
+title:  Nextjs笔记
+date: 2024-09-17 13:36:55
+updated: 2024-09-24 12:34:20
+tags: [ Nextjs笔记]
+categories: [ Nextjs笔记]
 cover:
+keywords:
+descr: Nextjs笔记
 author: 葱苓sama
 ---
 
-## Todo
+## markdown语法测试
+
+### 排版
+
+**粗体**
+
+*斜体* 
+
+~~这是一段加了删除线的文本~~
+
+> 这是一段引用，巴拉巴拉巴拉。
+
+有序列表:
+ 1. 支持Vim
+ 2. 支持Emacs
+ 
+无序列表:
+ - 项目1
+ - 项目2
+
+### 图片与链接
+
+![图片测试](https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/erciyuan/ganyu5.avif)
+
+[这是去往我的主页的链接](https://ciraos.top)
+
+### 标题
+
+以下是各级标题, 最多支持6级标题
+
+# h1
+## h2
+### h3
+#### h4
+##### h5
+###### h6
+
+### 代码
+
+```c title="hello.c"
+#include <stdio.h>
+int main() {
+  printf("hello nextJs!\n");
+  return 0;
+}
+```
+
+### Markdown 扩展
+
+Markdown 扩展支持:
+* 表格
+* 定义型列表
+* Html 标签
+* 脚注
+* 目录
+* 时序图与流程图
+* MathJax 公式
+
+### 表格
+
+| Item     | Value |
+| -------- | --- |
+| Computer | \$1600 |
+| Phone    | \$12 |
+| Pipe     | \$1 |
+
+可以指定对齐方式, 如Item列左对齐, Value列右对齐, Qty列居中对齐
+ 
+| Item     | Value | Qty   |
+| :------- | ----: | :---: |
+| Computer | \$1600 |  5    |
+| Phone    | \$12   |  12   |
+| Pipe     | \$1    |  234  |
+
+### 定义型列表
+ 
+名词 1
+:   定义 1（左侧有一个可见的冒号和四个不可见的空格）
+ 
+代码块 2
+:   这是代码块的定义（左侧有一个可见的冒号和四个不可见的空格）
+ 
+        代码块（左侧有八个不可见的空格）
+
+### html标签
+
+支持在 Markdown 语法中嵌套 Html 标签，譬如，你可以用 Html 写一个纵跨两行的表格：
+ 
+
+ 
+**提示**, 如果想对图片的宽度和高度进行控制, 你也可以通过img标签, 如:
+ 
+<img src="http://leanote.com/images/logo/leanote_icon_blue.png" width="50px" />
+
+### 脚注
+
+Leanote[^footnote]来创建一个脚注
+  [^footnote]: Leanote是一款强大的开源云笔记产品.
+
+### 目录
+
+通过 `[TOC]` 在文档中插入目录。
+
+### 时序图与流程图
+
+### MathJax 公式
+
+## 记一次1Panel的nodejs运行环境部署博客
+
+### 说在前面
+
+Hexo博客和1Panel用很久了，前段时间突发奇想用**React**和**nextjs**重构博客，
+
+### 安装1Panel
+
+因为我用的`Ubuntu Server 20.04 LTS 64bit`，所以直接命令行：
+
+``` bash
+curl -sSL https://resource.fit2cloud.com/1panel/package/quick_start.sh -o quick_start.sh && sudo bash quick_start.sh
+```
+安装好了之后去应用商店安装`Nodejs运行环境`。
+
+### 上传文件
+
+在1panel侧边栏点击<kbd>主机</kbd>-><kbd>文件</kbd>，找到`home/ubuntu`文件夹，
+
+### package.json
+
+``` json
+{
+  //...
+  "scripts": {
+    // ...
+    "move": "cp -r _next/static _next/standalone/_next && cp -r public _next/standalone",
+    "run": "npm run build && npm run move && export PORT=3500 && node _next/standalone/server.js"
+  },
+  // ...
+}
+```
+
+## 标签挂件
+
+### note
+
+<Note_default text="这是一个 note 的 default 标签。" />
+<Note_success text="这是一个 note 的 success 标签。" />
+<Note_warn text="这是一个 note 的 warn 标签。" />
+
+### button
+
+## mdx
+
+### Todo
 
 首先，下载必要的依赖：
 
@@ -55,7 +207,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 
 再在博客根目录创建`posts`文件夹，在这里创建markdown文章（记住，文章格式后缀是`mdx!!!`）！
 
-## next-mdx-remote
+### next-mdx-remote
 
 下载必要依赖：
 
@@ -212,4 +364,4 @@ export default function Posts() {
 }
 ```
 
-## 扩展
+### 扩展

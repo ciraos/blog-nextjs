@@ -56,15 +56,11 @@ export default async function Post({ params }: Props) {
               {/* <TianliGPT /> */}
               <MDXRemote source={post.content} components={{Button, Note_default, Note_success, Note_warn}} options={{}} />
             </div>
-            <hr className="" />
-            <div className="bg-white mt-0 mx-auto py-0 px-0 dark:bg-dacard">
-              <div className="w-4/5 my-0 mx-auto py-4 rounded-md">
+            {/* <hr className="0" /> */}
+            <div className="bg-white my-0 mx-auto py-5 px-0 dark:bg-dacard">
+              <div className="w-[70%] bg-slate-200 my-0 mx-auto py-2 px-2 rounded-md">
                 <Image src={ciraos} alt="avatar1" title="avatar1" className="w-16 h-16 my-0 mx-auto rounded-[50%]"></Image>
                 <div className="w-full mt-2 mx-auto flex items-center justify-center"><Icon icon="ic:outline-article" className="mr-1 text-xl dark:text-white" /><div className="w-12 h-max mx-1 bg-orange-400 text-center content-center rounded-md">原创</div><div className="text-lg dark:text-white">{post.meta?.title}</div></div>
-                <div className="my-2 mx-0 flex items-center justify-center">
-                  <div className="w-28 h-8 bg-red-400 text-lg text-center content-center rounded-xl">投币</div>
-                  <div className=""></div>
-                </div>
                 <div className="text-center text-xs text-gray-400">本博客所有文章除特别声明外，均采用<Link href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer" className="underline mx-1 text-slate-500">CC BY-NC-SA 4.0</Link>许可协议，转载请注明来自葱苓sama！</div>
               </div>
             </div>
