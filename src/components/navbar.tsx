@@ -11,7 +11,7 @@ export default function Navbar() {
   function addOpenClass() {}
   return (
     <>
-      <div id="navbar" className="w-full max-w-6xl h-16 my-0 mx-auto py-0 px-4 flex rounded-b-xl shadow-lg hover:shadow-xl dark:bg-dacard">
+      <div id="navbar" className="w-full max-w-6xl h-16 my-0 mx-auto py-0 px-2 flex rounded-b-xl shadow-lg hover:shadow-xl dark:bg-dacard">
 
         <Link href="/" className="w-32 h-16 text-left text-base text-black content-center transition-all max-425:w-max dark:text-white">葱苓sama<sup className="ml-1 text-orange-600">2.0</sup></Link>
 

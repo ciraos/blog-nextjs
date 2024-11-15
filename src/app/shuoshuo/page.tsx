@@ -27,7 +27,7 @@ export default function Shuoshuo() {
                   <div className="my-1 columns-4 gap-1 transition-all hover:columns-3">{item.images}</div>
                   <hr className="my-2" />
                   <div className="w-full flex items-center justify-between text-sm">
-                    <span className="before:content-['#'] before:mr-[1px]">{item.tag}</span>
+                    <span className="bg-slate-200 py-[1px] px-[4px] rounded-md before:content-['#'] before:mr-[1px]">{item.tag}</span>
                     <span className="">{moment(item.time).format('YYYY-MM-DD')}</span>
                   </div>
                 </li>

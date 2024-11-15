@@ -11,6 +11,8 @@ import Button from "./mdx/button";
 import Note_default from "./mdx/note_default";
 import Note_success from "./mdx/note_success";
 import Note_warn from "./mdx/note_warn";
+import { CodeBlock } from "./mdx/codeblock";
+import { highlight } from "@/lib/shared";
 
 import TianliGPT from "@/components/thirdParty/tianliGPT";
 
@@ -54,7 +56,7 @@ export default async function Post({ params }: Props) {
           <div className="w-3/4 max-768:w-full">
             <div className="post-container bg-white rounded-t-xl px-8 py-4 shadow-sm hover:shadow-md dark:bg-dacard dark:text-white">
               {/* <TianliGPT /> */}
-              <MDXRemote source={post.content} components={{Button, Note_default, Note_success, Note_warn}} options={{}} />
+              <MDXRemote source={post.content} components={{Button, Note_default, Note_success, Note_warn, CodeBlock}} options={{}} />
             </div>
             {/* <hr className="0" /> */}
             <div className="bg-white my-0 mx-auto py-5 px-0 dark:bg-dacard">
