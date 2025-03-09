@@ -1,0 +1,14 @@
+{
+    "editor.fontFamily": "'Fira code', Consolas, 'Courier New', monospace",
+    "editor.fontSize": 13,
+    "editor.formatOnSave": true,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.sortOrder": "type",
+    "files.autoSave": "onFocusChange",
+    "picgo.customOutputFormat": "${url}",
+    "picgo.customUploadName": "${fileName}${extName}",
+    "picgo.picBed.current": "smms",
+    "picgo.picBed.smms.token": "zZZ8qNx2CwSHnQw9jmaIAqoIRCj49PRk",
+    "workbench.colorTheme": "Dracula Theme Soft"
+}
