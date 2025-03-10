@@ -197,6 +197,7 @@ export const friendlink = [
             { name: "凌尘k", link: "https://b.icxk.cn", avatar: "https://cdn.jsdelivr.net/gh/lck68/imagehost/img/tx.webp", descr: "于高山之巅，方见大河奔涌；于群峰之上，更觉长风浩荡。" },
             { name: "岚天小窝", link: "https://blog.ltya.top", avatar: "https://gravatar.ltya.top/avatar/5af06b461740fb2bd7467b8561399703?s=500", descr: "一只鸽子住在这里~" },
             { name: "微霞", link: "https://yuuu.org", avatar: "https://cdn.yuuu.org/img/avatar.webp", descr: "水风清，晚霞明" },
+            { name: "OnewBlog", link: "https://blog.onew.us.kg", avatar: "https://img.onew.us.kg/file/1741045424366_logo.jpg", descr: "学习是进步的阶梯", siteshot: "https://img.onew.us.kg/file/1741069370097_bg.jpg" },
             // { name: "", link: "", avatar: "", descr: "" },
         ],
     },

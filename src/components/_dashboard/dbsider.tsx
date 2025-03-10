@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 import avatar from "@/app/images/avatar.avif";
 import { Icon } from "@iconify/react";
-import { Avatar, Button } from "antd";
+import { Button } from "antd";
 import "@ant-design/v5-patch-for-react-19";
 import { dbNavlist } from "@/config/_dashboard/dbnavlist";
 
