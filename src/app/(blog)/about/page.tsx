@@ -6,6 +6,7 @@ import Aside from "@/components/aside";
 import ciraos from "@/app/images/avatar.avif";
 import { ClockCircleOutlined } from "@ant-design/icons";
 import { Timeline } from "antd";
+import "@ant-design/v5-patch-for-react-19";
 
 export const metadata: Metadata = {
   title: "关于窝 - 葱苓sama",

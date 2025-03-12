@@ -1,13 +1,21 @@
-interface dbNavlist {
+// import { Icon } from "@iconify/react";
+
+interface dbnavlist {
     name: string,
-    link: string
+    link: string,
+    icon: string
 }
 
-export const dbNavlist = [
+export const dbnavlist = [
     { name: "仪表盘", link: "/dashboard" },
-    { name: "文章", link: "/article" },
-    { name: "说说", link: "/bb" },
-    { name: "友情链接", link: "/myfriends" },
+    { name: "页面", link: "" },
+    { name: "文章", link: "/" },
+    { name: "标签", link: "/" },
+    { name: "分类", link: "/" },
+    { name: "友链", link: "/" },
+    { name: "说说", link: "/" },
+    { name: "数据", link: "/" },
+    { name: "评论", link: "/" },
+    { name: "文件", link: "/" },
     { name: "设置", link: "/settings" },
-    // { name: "", link: "/" },
 ]

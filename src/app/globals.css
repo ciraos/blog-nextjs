@@ -20,13 +20,6 @@ body {
   }
 }
 
-.HomePage_banner {
-  background-image: url('https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/erciyuan/ganyu5.avif');
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-}
-
 .aside-categories,
 .aside-tags {
   word-break: break-all;
@@ -390,10 +383,6 @@ body {
   border-radius: 6px;
   margin: 0 4px;
 }
-
-/*! */
-/* .ant-menu {} */
-/* .ant-menu-submenu {} */
 
 /*! */
 @media (prefers-color-scheme: light) {

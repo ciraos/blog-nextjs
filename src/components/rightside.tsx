@@ -1,5 +1,6 @@
 'use client';
 import { FloatButton } from 'antd';
+import "@ant-design/v5-patch-for-react-19";
 
 export default function Rightside() {
   return (

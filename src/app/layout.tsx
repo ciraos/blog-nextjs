@@ -1,4 +1,6 @@
+
 import type { Metadata } from "next";
+import NextTopLoader from "nextjs-toploader";
 import "./globals.css";
 import "./twikoo.css";
 import "./fclite.css";
@@ -13,7 +15,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="zh-CN">
       <body className="">
-        <div id="CIRAOS" className="">{children}</div>
+        <div id="CIRAOS" className="">
+          <NextTopLoader color="#39c5bb" easing="ease" showSpinner={false} />
+          {children}
+        </div>
       </body>
     </html>
   );

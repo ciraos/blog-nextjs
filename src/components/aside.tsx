@@ -3,6 +3,7 @@ import { Image } from "antd";
 
 // import moment from "moment";
 import { Button } from "antd";
+import "@ant-design/v5-patch-for-react-19";
 import { getAllPosts } from "@/lib/posts";
 
 import Busuanzi from "./_partial/aside/busuanzi";

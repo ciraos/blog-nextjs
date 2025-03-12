@@ -8,6 +8,7 @@ import type { CollapseProps } from "antd";
 import { Image } from "antd";
 // import isReachable from "is-reachable";
 import { friendlink } from "@/config/link";
+import "@ant-design/v5-patch-for-react-19";
 
 export const metadata: Metadata = {
     title: "友人帐 - 葱苓sama",

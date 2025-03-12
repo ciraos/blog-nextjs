@@ -23,7 +23,7 @@
 /* .tk-content {} */
 
 .tk-content a:not(.tk-ruser) {
-    text-decoration: underline rgb(111, 111, 218) solid 4px;
+    text-decoration: underline rgb(111, 111, 218) wavy auto;
 }
 
 .tk-content a:not(.tk-ruser):hover {
