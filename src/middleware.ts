@@ -4,7 +4,7 @@ export function middleware(req: NextRequest) {
     const isLoggedIn = checkUserIsLLoggedIn(req);
     const { pathname } = req.nextUrl;
     if (!isLoggedIn && pathname.startsWith('/dashboard') && pathname !== '/login') {
-        return NextResponse.redirect(new URL('/login', req.url));
+        // return NextResponse.redirect(new URL('/login', req.url));
     }
     return NextResponse.next();
 }

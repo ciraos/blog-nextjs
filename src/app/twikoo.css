@@ -38,6 +38,11 @@
     text-decoration: underline;
 }
 
+.tk-replies>.tk-comment,
+.tk-replies>.tk-comment:hover {
+    box-shadow: none;
+}
+
 @media (prefers-color-scheme: light) {
     .tk-comment {
         background-color: #fff;

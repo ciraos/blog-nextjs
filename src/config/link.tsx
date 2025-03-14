@@ -198,6 +198,7 @@ export const friendlink = [
             { name: "岚天小窝", link: "https://blog.ltya.top", avatar: "https://gravatar.ltya.top/avatar/5af06b461740fb2bd7467b8561399703?s=500", descr: "一只鸽子住在这里~" },
             { name: "微霞", link: "https://yuuu.org", avatar: "https://cdn.yuuu.org/img/avatar.webp", descr: "水风清，晚霞明" },
             { name: "OnewBlog", link: "https://blog.onew.us.kg", avatar: "https://img.onew.us.kg/file/1741045424366_logo.jpg", descr: "学习是进步的阶梯", siteshot: "https://img.onew.us.kg/file/1741069370097_bg.jpg" },
+            { name: "南蛮子懋和", link: "https://www.dao.js.cn", avatar: "https://img.dao.js.cn/zb_users/upload/2021/10/202110151634246697912592.png-webp", descr: "李懋和，俗名李栋梁。书法、国画爱好者，互联网安全与前端建设者。" },
             // { name: "", link: "", avatar: "", descr: "" },
         ],
     },
