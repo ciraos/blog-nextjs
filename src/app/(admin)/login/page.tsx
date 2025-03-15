@@ -7,15 +7,12 @@ import "@ant-design/v5-patch-for-react-19";
 type FieldType = {
     username?: string;
     password?: string;
-    remember?: string;
-};
-
-const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = (errorInfo) => {
-    console.log('Failed:', errorInfo);
+    // remember?: string;
 };
 
 export default function Login() {
     const router = useRouter();
+
     const onFinish: FormProps<FieldType>['onFinish'] = async (values) => {
         const b = await fetch('/api/login', {
             method: 'POST',
@@ -27,6 +24,11 @@ export default function Login() {
         // console.log(data);
         // console.log('Success:', values);
     };
+
+    const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = (errorInfo) => {
+        console.log('Failed:', errorInfo);
+    };
+
     return (
         <>
             <div className='w-full h-full top-0 left-0 bottom-0 right-0 absolute bg-white flex items-center justify-center'>

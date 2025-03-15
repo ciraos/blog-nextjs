@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 declare const postChat_load: () => void;
+
 export default function PostChat() {
     const [loaded, setLoaded] = useState(0);
     const pathname = usePathname();

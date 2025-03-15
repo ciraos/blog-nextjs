@@ -5,6 +5,7 @@ export default defineConfigs({
     server: process.env.NODE_ENV === "production" ? "https://blog.ciraos.top" : "http://localhost:3500",
     description: "a small blog station.",
     twikoo: {
-        envId: "https://twikoo.ciraos.top"
+        envId: "https://twikoo.ciraos.top",
+        el: '#tcomment'
     }
 });
