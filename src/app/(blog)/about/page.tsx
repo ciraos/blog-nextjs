@@ -25,7 +25,7 @@ export default function About() {
         <div className="main-container">
           <h2>Who am I</h2>
           <p>葱苓sama - 一个对写代码灰常感兴趣的机车乘务员</p>
-          <Timeline mode="alternate" className="dark:bg-slate-300"
+          <Timeline mode="alternate" className="mx-10 dark:text-slate-300"
             items={[
               {
                 color: 'blue',

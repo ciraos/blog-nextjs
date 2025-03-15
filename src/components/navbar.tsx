@@ -1,11 +1,10 @@
 'use client';
-import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 import { navList } from "@/config/navlist";
-import avatar from "@/app/images/avatar.avif";
 
 export default function Navbar() {
+  // const posts = await getAllPosts();
   return (
     <>
       <div id="navbar" className="w-full max-w-6xl h-14 mx-auto px-5 rounded-md transition-all flex items-center justify-between bg-white shadow-md hover:shadow-xl dark:bg-[#2c303f] max-425:mt-0">
@@ -30,26 +29,40 @@ export default function Navbar() {
         </ul>
 
         {/* 导航栏右侧按钮 */}
-        <div className="buttons max-425:flex max-425:gap-1">
+        <div className="buttons max-425:flex max-425:gap-1 dark:text-white">
           <button className="search"><Icon icon="material-symbols:search" className="w-6 h-6" /></button>
-          <div onClick={() => { const a = document.getElementById("mobile") as HTMLElement; const b = document.getElementById('menu-mask') as HTMLElement; a.style.display = "block"; b.style.display = "block"; }} id="mobile-btn" className="mobile-btn hidden max-425:block"><Icon icon="material-symbols-light:menu" width="26.6666" height="26.6666" /></div>
+          <div onClick={() => {
+            const a = document.querySelector('#mobile') as HTMLElement;
+            const b = document.querySelector('#menu-mask') as HTMLElement;
+            a.classList.add('open')
+            b.classList.add('open')
+          }} id="mobile-btn" className="mobile-btn hidden max-425:block"><Icon icon="material-symbols-light:menu" width="26.6666" height="26.6666" /></div>
         </div>
 
         {/* 移动端侧边导航栏遮罩 */}
-        <div onClick={() => { const a = document.getElementById("mobile") as HTMLElement; const b = document.getElementById('menu-mask') as HTMLElement; a.style.display = "none"; b.style.display = "none"; }} id="menu-mask" className=""></div>
+        <div onClick={() => {
+          const a = document.querySelector("#mobile") as HTMLElement;
+          const b = document.querySelector('#menu-mask') as HTMLElement;
+          a.classList.remove('open')
+          b.classList.remove('open')
+        }} id="menu-mask" className=""></div>
 
         {/* 移动端侧边导航栏  */}
-        <ul id="mobile" className="mobile dark:bg-slate-600">
-          <Image src={avatar} alt="avatar" className="w-20 h-20 my-4 mx-auto rounded-full" />
+        <ul id="mobile" className="mobile">
           <hr className="w-4/5 my-2 mx-auto text-slate-600" />
           {navList?.map((item, index) => (
-            <li key={index} className="">
+            <li key={index} className="mobile-item">
               <div className="">
                 <div className="mb-1 ml-2 text-slate-500 text-sm dark:text-slate-200">{item.list}</div>
-                <ul className="flex flex-wrap">
+                <ul className="mobile-item-item flex flex-wrap">
                   {item.child.map((link, index) => (
-                    <li onClick={() => { const a = document.getElementById("mobile") as HTMLElement; const b = document.getElementById('menu-mask') as HTMLElement; a.style.display = "none"; b.style.display = "none"; }} key={index} className="w-[calc(50%-15px)] h-14 my-1 mx-1 border-[1px] border-solid border-black rounded-lg py-0 px-0 content-center bg-white dark:bg-slate-800">
-                      <Link href={link.link} className="flex flex-col justify-center items-center">
+                    <li onClick={() => {
+                      const a = document.querySelector("#mobile") as HTMLElement;
+                      const b = document.querySelector('#menu-mask') as HTMLElement;
+                      a.classList.remove('open')
+                      b.classList.remove('open')
+                    }} key={index} className="w-[calc(50%-8px)] h-max my-1 mx-1 content-center">
+                      <Link href={link.link} className="mobile-link w-[7rem] h-[4.2rem] flex flex-col justify-center items-center border-2 rounded-xl">
                         <div className="text-sm dark:text-slate-300"></div>
                         <div className="text-sm dark:text-slate-300">{link.name}</div>
                       </Link>
