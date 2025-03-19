@@ -1,27 +1,30 @@
 'use client';
-import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from "next/navigation";
-
-import avatar from "@/app/images/avatar.avif";
+import {
+    useRouter,
+} from "next/navigation";
 import { dbnavlist } from "@/config/_dashboard/dbnavlist"
 import { Icon } from "@iconify/react";
-import { Button } from 'antd';
+import { Avatar, Button } from 'antd';
 import "@ant-design/v5-patch-for-react-19";
 
-export default function Dbsider() {
+export default function DBSider() {
     const router = useRouter();
+
     const handlerLogout = async () => {
         const c = await fetch('/api/logout', {
             method: "DELETE",
         })
         const data = await c.json();
-        if (data.success) { router.push('/login') };
+        if (data.success) {
+            router.push('/login')
+        };
     };
+
     return (
         <>
-            <div className="w-64 h-screen bg-white border-r-2 max-425:hidden">
-                <div className='h-16 flex items-center justify-center gap-2 text-center text-slate-600 border-b-2'><Icon icon="material-symbols-light:dashboard-customize-rounded" width="24" height="24" />葱苓の后台QwQ</div>
+            <div className="w-64 h-screen bg-white max-425:hidden">
+                <div className='h-16 flex items-center justify-center gap-2 text-center text-slate-600 border-b-1'><Icon icon="material-symbols-light:dashboard-customize-rounded" width="24" height="24" />葱苓の后台QwQ</div>
 
                 <div className='w-64 py-3 flex flex-col'>
                     <div className='pl-5 text-slate-500'>链接</div>
@@ -30,8 +33,8 @@ export default function Dbsider() {
                     ))}
                 </div>
 
-                <div className='w-64 h-16 mx-auto px-0 flex justify-center items-center bottom-0 absolute border-t-2 gap-5'>
-                    <Image src={avatar} alt='avatar' className='w-10 h-10 rounded-full' />
+                <div className='w-64 h-16 mx-auto px-0 flex justify-center items-center bottom-0 absolute border-t-1 gap-5'>
+                    <Avatar style={{ backgroundColor: '#fde3cf', color: '#f56a00' }}>C</Avatar>
                     <Button onClick={handlerLogout} className='bg-[#f4f4f4]'><Icon icon="material-symbols-light:logout-sharp" className='w-6 h-6' /><span className='text-6'>登出</span></Button>
                 </div>
 

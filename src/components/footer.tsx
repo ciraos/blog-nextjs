@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react";
 export default function Footer() {
   return (
     <>
-      <div id="footer" className="footer w-4/5 relative clear-both mx-auto py-2 text-center rounded-t-xl max-425:w-full">
+      <div className="footer w-full absolute clear-both mx-auto py-0 text-center max-425:w-full">
 
         <div className="mx-auto flex h-6 w-1/2 items-center justify-center gap-4 dark:text-gray-400">
           <ul className="text-2xl">

@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
-
-import Aside from "@/components/aside";
 import moment from "moment";
-import { sslist } from "@/config/shuoshuo"
+import { sslist } from "@/config/moments"
 import Twikoo from "@/components/thirdParty/twikoo";
 
 export const metadata: Metadata = {
   title: "说说 - 葱苓sama",
 };
 
-export default function Shuoshuo() {
+export default function Moments() {
   return (
     <>
       <div className="w-3/4 max-425:w-full">
@@ -28,7 +26,6 @@ export default function Shuoshuo() {
         </div>
         <Twikoo />
       </div>
-      <Aside />
     </>
   );
 }

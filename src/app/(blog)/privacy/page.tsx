@@ -1,8 +1,5 @@
-// import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-
-import Aside from "@/components/aside";
 import Twikoo from "@/components/thirdParty/twikoo";
 
 export const metadata: Metadata = {
@@ -118,7 +115,6 @@ export default function Privacy() {
 
         <Twikoo />
       </div>
-      <Aside />
     </>
   )
 }

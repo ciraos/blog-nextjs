@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 
 // import { Icon } from "@iconify/react";
 import { getAllPosts } from "@/lib/posts";
-import Aside from "@/components/aside";
 
 export const metadata: Metadata = {
     title: '分类 - 葱苓sama',
@@ -22,7 +21,6 @@ export default async function Tags() {
                     ))}
                 </div>
             </div>
-            <Aside />
         </>
     )
 }

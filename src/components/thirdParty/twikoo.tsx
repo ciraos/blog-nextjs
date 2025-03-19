@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import { getConfig } from "@/lib/config";
-import "@/app/twikoo.css"
 
 export default function Twikoo() {
     const [loadingStatus, setLoadingStatus] = useState<"loading" | "error">(

@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 export function middleware(req: NextRequest) {
     const isLoggedIn = checkUserIsLLoggedIn(req);
     const { pathname } = req.nextUrl;
-    if (!isLoggedIn && pathname.startsWith('/dashboard') && pathname !== '/login') {
+    if (!isLoggedIn && pathname !== '/login') {
         // return NextResponse.redirect(new URL('/login', req.url));
     }
     return NextResponse.next();
@@ -24,6 +24,6 @@ export const config = {
          * - favicon.ico, sitemap.xml, robots.txt (metadata files)
          */
         '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)',
-        '/(admin)/:path',
+        // '/admin/:path',
     ],
 }

@@ -1,12 +1,9 @@
 // import Image from "next/image";
 import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
-
-import Aside from "@/components/aside";
 import { Icon } from "@iconify/react";
 import moment from "moment";
 import Twikoo from "@/components/thirdParty/twikoo";
-
 import { getPostBySlug, getAllPosts } from "@/lib/posts";
 import Del from "@/components/tagPlugins/del";
 import Note_default from "@/components/tagPlugins/note_default";
@@ -35,7 +32,8 @@ export default async function Post({ params }: Props) {
   const { post } = await getPost(params);
   return (
     <>
-      <div className="flex flex-col">
+      <div className="w-3/4 flex flex-col max-425:w-full">
+
         {/* 文章内容说明 */}
         <div className="post-header w-full max-w-6xl h-60 mx-auto px-2 py-2 flex flex-col items-start justify-center dark:text-white">
           <div className="">
@@ -52,24 +50,22 @@ export default async function Post({ params }: Props) {
           </div>
         </div>
 
-        <div className="w-full max-w-6xl mx-auto flex flex-row max-425:flex-col">
-          <div className="w-3/4 max-425:w-full">
-            {/* 文章 */}
-            <div className="post-container rounded-xl px-8 py-4 bg-white shadow-sm transition-all hover:shadow-md dark:bg-[#2c303f] dark:text-white max-425:px-2">
-              <MDXRemote source={post.content} components={{ Note_default, Note_success, Note_warn, Del, Psw }} options={{}} />
-            </div>
-            {/*  */}
-            <div className="post-copyright w-full mt-5 mx-auto py-2 px-4 border-[1px] border-solid border-slate-400 rounded-md dark:text-white">
-              <div className="text-xs">&nbsp;&nbsp;-&nbsp;&nbsp;本博客所有文章除特别声明外，均采用<Link href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer" className="underline">CC BY-NC-SA 4.0</Link>许可协议，转载请注明来自葱苓sama！</div>
-              <div className="text-sm mt-1">作者：<span>{post.meta?.author}</span></div>
-              <div className="text-sm">标题：<span>{post.meta?.title}</span></div>
-              <div className="text-sm">链接：<Link href={`https://blog.ciraos.top/posts/${post.slug}`} className="underline">https://blog.ciraos.top/posts/{post.slug}</Link></div>
-            </div>
-            {/* Twikoo */}
-            <Twikoo />
+        <div className="">
+          {/* 文章 */}
+          <div className="post-container rounded-xl px-8 py-4 bg-white shadow-sm transition-all hover:shadow-md dark:bg-[#2c303f] dark:text-white max-425:px-2">
+            <MDXRemote source={post.content} components={{ Note_default, Note_success, Note_warn, Del, Psw }} options={{}} />
           </div>
-          <Aside />
+          {/*  */}
+          <div className="post-copyright w-full mt-5 mx-auto py-2 px-4 border-[1px] border-solid border-slate-400 rounded-md dark:text-white">
+            <div className="text-xs">&nbsp;&nbsp;-&nbsp;&nbsp;本博客所有文章除特别声明外，均采用<Link href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer" className="underline">CC BY-NC-SA 4.0</Link>许可协议，转载请注明来自葱苓sama！</div>
+            <div className="text-sm mt-1">作者：<span>{post.meta?.author}</span></div>
+            <div className="text-sm">标题：<span>{post.meta?.title}</span></div>
+            <div className="text-sm">链接：<Link href={`https://blog.ciraos.top/posts/${post.slug}`} className="underline">https://blog.ciraos.top/posts/{post.slug}</Link></div>
+          </div>
+          {/* Twikoo */}
+          <Twikoo />
         </div>
+
       </div>
     </>
   );

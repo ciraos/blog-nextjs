@@ -1,8 +1,5 @@
 import Image from "next/image";
-// import Link from "next/link";
 import type { Metadata } from "next";
-
-import Aside from "@/components/aside";
 import ciraos from "@/app/images/avatar.avif";
 import { ClockCircleOutlined } from "@ant-design/icons";
 import { Timeline } from "antd";
@@ -63,7 +60,6 @@ export default function About() {
           />
         </div>
       </div>
-      <Aside />
     </>
   );
 }

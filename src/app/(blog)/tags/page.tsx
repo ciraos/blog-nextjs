@@ -1,9 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-
-// import { Icon } from "@iconify/react";
 import { getAllPosts } from "@/lib/posts";
-import Aside from "@/components/aside";
 
 export const metadata: Metadata = {
     title: "标签 - 葱苓sama",
@@ -21,7 +18,6 @@ export default async function Tags() {
                     ))}
                 </div>
             </div>
-            <Aside />
         </>
     )
 }

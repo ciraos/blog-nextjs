@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next";
 import NextTopLoader from "nextjs-toploader";
 import "./globals.css";
@@ -14,9 +13,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="zh-CN">
-      <body className="">
-        <div id="CIRAOS" className="">
-          <NextTopLoader color="#39c5bb" easing="ease" showSpinner={false} />
+      <body>
+        <NextTopLoader color="#39c5bb" easing="ease" showSpinner={false} />
+        <div id="CIRAOS">
           {children}
         </div>
       </body>

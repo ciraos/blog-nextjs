@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 
-import Aside from "@/components/aside";
 import moment from "moment";
 import { getAllPosts } from "@/lib/posts";
 
@@ -25,7 +24,6 @@ export default async function Archives() {
           ))}
         </div>
       </div>
-      <Aside />
     </>
   );
 }

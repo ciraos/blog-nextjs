@@ -25,7 +25,7 @@ export const navList = [
         list: "我的",
         child: [
             { name: '关于窝', link: '/about' },
-            { name: '说说', link: '/shuoshuo' },
+            { name: '说说', link: '/moments' },
         ]
     }, {
         list: "协议",

@@ -1,12 +1,9 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-
-import Aside from "@/components/aside";
 import Twikoo from "@/components/thirdParty/twikoo";
 import { Collapse } from "antd";
 import type { CollapseProps } from "antd";
 import { Image } from "antd";
-// import isReachable from "is-reachable";
 import { friendlink } from "@/config/link";
 import "@ant-design/v5-patch-for-react-19";
 
@@ -22,8 +19,7 @@ const items: CollapseProps['items'] = [
     }
 ];
 
-// const friendLater = []
-// {
+// const friendLater = [] {
 //     friendlink.map((e) => {
 //         e.child.map((e) => {
 //             const data = []
@@ -64,7 +60,6 @@ export default async function Friends() {
                 <Collapse accordion items={items} activeKey={1} />
                 <Twikoo />
             </div>
-            <Aside />
         </>
     )
 }

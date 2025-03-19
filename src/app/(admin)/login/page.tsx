@@ -22,18 +22,18 @@ export default function Login() {
         await b.json();
         router.push('/dashboard')
         // console.log(data);
-        // console.log('Success:', values);
+        // console.log('成功:', values);
     };
 
     const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = (errorInfo) => {
-        console.log('Failed:', errorInfo);
+        console.log('失败:', errorInfo);
     };
 
     return (
         <>
             <div className='w-full h-full top-0 left-0 bottom-0 right-0 absolute bg-white flex items-center justify-center'>
                 <Form
-                    className='py-3 px-5 bg-slate-100 rounded-xl shadow-sm hover:shadow-md'
+                    className='py-3 px-6 bg-slate-100 rounded-xl shadow-sm hover:shadow-md'
                     name="basic"
                     labelCol={{ span: 8 }}
                     wrapperCol={{ span: 16 }}
