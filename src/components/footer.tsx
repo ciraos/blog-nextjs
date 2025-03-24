@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Icon } from "@iconify/react";
+import { footernav } from "@/config/footernav";
 
 export default function Footer() {
   return (
@@ -17,6 +18,22 @@ export default function Footer() {
             <li><Link href="mailto:ciraos@yeah.net"><Icon icon="tabler:mail-filled" className="w-5 h-5" /></Link></li>
           </ul>
         </div>
+
+        <div className="w-full my-1 px-40 text-left gap-5 flex flex-wrap justify-center">
+          {footernav?.map((a, index) => (
+            <div key={index} className="w-32">
+              <div className="mb-1 select-none font-semibold text-slate-600 dark:text-slate-200">{a.list}</div>
+              <ul>
+                {a.child.map((b, index) => (
+                  <li key={index}>
+                    <Link href={b.link} target={b.target} rel={b.rel} className="dark:text-slate-100">{b.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
         <p className="dark:text-slate-400 max-425:text-md">All rights reserved to ©葱苓sama 2024 - {new Date().getFullYear()}.</p>
         <Link href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" className="text-slate-600">皖ICP备2023018992号-1</Link>
         <span className="mx-1">|</span>

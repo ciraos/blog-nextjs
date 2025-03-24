@@ -1,16 +1,50 @@
 'use client';
 import Link from "next/link";
+// import { useRouter } from 'next/navigation';
+// import { DownOutlined, SmileOutlined } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
+import {
+  // Avatar,
+  Dropdown,
+  Space
+} from 'antd';
 import { Icon } from "@iconify/react";
 import { navList } from "@/config/navlist";
 
 export default function Navbar() {
-  // const posts = await getAllPosts();
+  // const router = useRouter();
+  const items: MenuProps['items'] = [
+    {
+      key: '1',
+      label: (
+        <Link href="/dashboard">仪表盘</Link>
+      ),
+    },
+    {
+      key: '2',
+      label: (
+        <Link href="/settings">账户设置</Link>
+      ),
+      // icon: <SmileOutlined />,
+      // disabled: true,
+    },
+    {
+      key: '3',
+      label: '登出',
+      onClick: async () => {
+        const c = await fetch('/api/logout', {
+          method: "DELETE",
+        })
+        await c.json();
+      },
+    },
+  ];
   return (
     <>
       <div id="navbar" className="w-full max-w-6xl h-14 mx-auto px-5 rounded-md transition-all flex items-center justify-between bg-white shadow-md hover:shadow-xl dark:bg-[#2c303f] max-425:mt-0">
 
         {/* 导航栏左侧标题 */}
-        <Link href="/" className="w-32 h-14 text-left text-base flex items-center dark:text-white max-425:w-max">葱苓语畔<sup className="ml-1 text-orange-600 font-semibold">2.0</sup></Link>
+        <Link href="/" className="w-32 h-14 text-left text-base flex items-center dark:text-white max-425:w-max">葱苓小筑<sup className="ml-1 text-orange-600 font-semibold">2.0</sup></Link>
 
         {/* 导航栏中部链接 */}
         <ul className="navlink w-max h-14 flex items-center dark:text-white max-425:hidden">
@@ -29,7 +63,12 @@ export default function Navbar() {
         </ul>
 
         {/* 导航栏右侧按钮 */}
-        <div className="buttons max-425:flex max-425:gap-1 dark:text-white">
+        <div className="buttons flex items-center gap-1 dark:text-white">
+          <Dropdown menu={{ items }} className="hover:cursor-pointer">
+            <a onClick={(e) => e.preventDefault()}>
+              <Space>用户</Space>
+            </a>
+          </Dropdown>
           <button className="search"><Icon icon="material-symbols:search" className="w-6 h-6" /></button>
           <div onClick={() => {
             const a = document.querySelector('#mobile') as HTMLElement;

@@ -1,4 +1,5 @@
 "use client";
+import Script from "next/script";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
@@ -7,6 +8,7 @@ declare const postChat_load: () => void;
 export default function PostChat() {
     const [loaded, setLoaded] = useState(0);
     const pathname = usePathname();
+
     useEffect(() => {
         const script = document.createElement("script");
         script.src = "https://ai.tianli0.top/static/public/postChatUser_summary.min.js";
@@ -20,6 +22,7 @@ export default function PostChat() {
             document.body.removeChild(script);
         };
     }, []);
+
     useEffect(() => {
         if (loaded == 1) {
             postChat_load();
@@ -28,13 +31,16 @@ export default function PostChat() {
         }
         (window as any).history.onpushstate = null;
     }, [loaded]);
+
     useEffect(() => {
         if (loaded) (window as any).tianliGPT.checkURLAndRun();
     }, [pathname]);
+
     return (
         <>
             <link rel="stylesheet" href="https://ai.tianli0.top/static/public/postChatUser_summary.min.css" />
-            <script
+            <Script
+                id="post_Chat"
                 dangerouslySetInnerHTML={{
                     __html: `
                         let tianliGPT_postSelector='.post-container';

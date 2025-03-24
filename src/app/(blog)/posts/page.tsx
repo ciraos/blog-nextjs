@@ -5,7 +5,7 @@ import moment from 'moment';
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "文章 | 葱苓语畔",
+  title: "文章 | 葱苓小筑",
 };
 
 export default async function Homepage() {

@@ -20,21 +20,8 @@ body {
   }
 }
 
-.aside-categories,
-.aside-tags {
-  word-break: break-all;
-}
-
-/* .bangumis-item>a {} */
-
-.aside-categories>a,
-.aside-tags>a {
-  margin-right: 12px;
-}
-
-.tags-item,
-.categories-item {
-  color: #000 !important;
+.rightside-buttons>button:not(:first-child) {
+  margin-top: 8px;
 }
 
 .aside>div:not(:first-child),
@@ -42,29 +29,44 @@ body {
   margin-top: 10px;
 }
 
+.aside-categories>a,
+.aside-tags>a {
+  margin-right: 12px;
+}
+
+.friends>.flink-item:not(:first-child),
 .recent-post>.recent-post-item:not(:first-child) {
   margin-top: 20px;
 }
 
-/* .recent-post-item:nth-child(even) {} */
-/* .recent-post>.recent-post-item {} */
+.aside-categories,
+.aside-tags {
+  word-break: break-all;
+}
+
+.tags-item,
+.categories-item {
+  color: #000 !important;
+}
 
 .btli:hover .droplist {
   display: block;
 }
 
-.flink-span {
-  width: max-content;
-  height: fit-content;
-  border-radius: 12px 0 11px 0;
-  padding: 4px 8px;
-  margin: 0;
-}
+/*! antd */
 
-/* .rightside-buttons {} */
 
-.rightside-buttons>button:not(:first-child) {
-  margin-top: 8px;
+/*! Dashboard */
+.tkdiv::after {
+  content: "Twikoo";
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  padding: 2px 4px;
+  color: #b8b5b5;
+  font-size: 16.66px;
+  user-select: none;
+  font-style: italic;
 }
 
 /*! 导航栏 */
@@ -85,7 +87,6 @@ body {
 }
 
 /*! Tag plugins */
-
 .del {
   text-decoration-line: line-through;
 }
@@ -138,11 +139,6 @@ body {
 }
 
 /*! title */
-
-.post-container h2 {
-  border-bottom: 1px solid rgba(68, 68, 68, .1);
-}
-
 .post-container h1,
 .main-container h1,
 .post-container h2,
@@ -175,6 +171,10 @@ body {
   font-size: 1.5rem;
   /* border-left: 10px solid pink; */
   /* padding: 0 10px; */
+}
+
+.post-container h2 {
+  border-bottom: 1px solid rgba(68, 68, 68, .1);
 }
 
 .post-container h3,
@@ -245,21 +245,12 @@ body {
 
 /* .post-container pre>code, .main-container pre>code {} */
 
-.post-container pre::-webkit-scrollbar,
-.main-container::-webkit-scrollbar {
-  height: 8px;
-}
-
+/* .post-container pre::-webkit-scrollbar,
+.main-container::-webkit-scrollbar {}
 .post-container pre::-webkit-scrollbar-thumb,
-.main-container::-webkit-scrollbar-thumb {
-  background-color: orangered;
-}
-
+.main-container::-webkit-scrollbar-thumb {}
 .post-container pre::-webkit-scrollbar-track,
-.main-container pre::-webkit-scrollbar-track {
-  border-radius: 10px;
-  background-color: transparent;
-}
+.main-container pre::-webkit-scrollbar-track {} */
 
 /* .post-container>p code,
 .main-container>p code {} */
@@ -444,7 +435,6 @@ body {
 }
 
 /*! */
-
 /* @media screen and (max-width: 320px) {} */
 
 @media screen and (max-width: 425px) {

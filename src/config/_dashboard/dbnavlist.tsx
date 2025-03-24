@@ -7,6 +7,7 @@ interface dbnavlist {
 }
 
 export const dbnavlist = [
+    { name: "博客首页", link: "/" },
     { name: "仪表盘", link: "/dashboard" },
     { name: "页面", link: "" },
     { name: "文章", link: "/" },

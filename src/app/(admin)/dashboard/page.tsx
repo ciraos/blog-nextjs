@@ -16,12 +16,11 @@ export default async function Dashboard() {
                     <span className="text-2xl">文章数量</span>
                     <div className="text-lg">{posts.length}</div>
                 </div>
-                <div className="w-64 h-28 py-4 px-6 bg-white rounded-xl border-1 flex flex-col justify-between relative max-425:w-1/2">
+                <div className="tkdiv w-64 h-28 py-4 px-6 bg-white rounded-xl border-1 flex flex-col justify-between relative max-425:w-1/2">
                     <div>
                         <span className="text-2xl">评论数量</span>
                         <div className="text-lg">0</div>
                     </div>
-                    <div className="py-1 px-2 text-slate-300 italic capitalize absolute bottom-0 right-0 select-none">twikoo</div>
                 </div>
                 <div className="w-64 h-28 py-4 px-6 bg-white rounded-xl border-1 flex flex-col justify-between max-425:w-1/2"><span className="text-2xl">友链数量</span><div className="text-lg">0</div></div>
                 <div className="w-64 h-28 py-4 px-6 bg-white rounded-xl border-1 flex flex-col justify-between max-425:w-1/2"><span className="text-2xl">说说数量</span><div className="text-lg">0</div></div>
@@ -44,8 +43,6 @@ export default async function Dashboard() {
                     <div id="articlelist" className="py-2 px-4 bg-white rounded-lg shadow-md hover:shadow-lg">b</div>
                 </div>
             </div>
-
-            <div className="h-8 absolute bottom-0">Designed by ©葱苓ciraos {'2025' + '-' + new Date().getFullYear()} with <span className="animate-pulse">❤</span></div>
         </>
     )
 }
