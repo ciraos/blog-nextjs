@@ -22,13 +22,7 @@ const items: TabsProps['items'] = [
     }, {
         key: '2',
         label: '我的信息',
-        children: <><pre><code className="language-yaml">
-            <span >- </span><span>name</span>: &quot;葱苓小筑&quot;<br />
-            &nbsp;&nbsp;link: &quot;https://blog.ciraos.top&quot;<br />
-            &nbsp;&nbsp;avatar: &quot;https://blog.ciraos.top/avatar.avif&quot;<br />
-            &nbsp;&nbsp;desc: &quot;Don&quot;t worry, be happy.&quot;<br />
-            &nbsp;&nbsp;siteshot: &quot;https://blog.ciraos.top/siteshot.avif&quot;
-        </code></pre></>,
+        children: <>-&nbsp;name: &quot;葱苓小筑&quot;<br />&nbsp;&nbsp;link: &quot;https://blog.ciraos.top&quot;<br />&nbsp;&nbsp;avatar: &quot;https://blog.ciraos.top/avatar.avif&quot;<br />&nbsp;&nbsp;desc: &quot;Don&quot;t worry, be happy.&quot;<br />&nbsp;&nbsp;siteshot: &quot;https://blog.ciraos.top/siteshot.avif&quot;</>
     }
 ];
 
@@ -75,7 +69,7 @@ export default async function Friends() {
 
                 <hr className="my-5 mx-auto" />
                 <ConfigProvider theme={{ token: {}, }}>
-                    <Tabs animated items={items} centered defaultActiveKey="2" className="px-2 rounded-xl border-2" />
+                    <Tabs animated items={items} centered defaultActiveKey="2" className="" />
                 </ConfigProvider>
                 <Twikoo />
             </div>

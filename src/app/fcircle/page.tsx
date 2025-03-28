@@ -1,6 +1,6 @@
 // import Link from "next/link";
 import { Metadata } from "next";
-import FcLite from "@/components/_partial/fclite";
+import FcLite from "@/components/thirdParty/fclite";
 
 export const metadata: Metadata = {
   title: "友链朋友圈 - 葱苓sama",

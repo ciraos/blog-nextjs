@@ -19,10 +19,10 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="w-full my-1 px-40 text-left gap-5 flex flex-wrap justify-center">
+        <div className="w-full my-1 px-40 text-left gap-5 flex flex-wrap justify-between max-425:px-5">
           {footernav?.map((a, index) => (
-            <div key={index} className="w-32">
-              <div className="mb-1 select-none font-semibold text-slate-600 dark:text-slate-200">{a.list}</div>
+            <div key={index} className="w-20">
+              <div className="mb-[1px] select-none text-lg font-semibold text-slate-500 dark:text-slate-400">{a.list}</div>
               <ul>
                 {a.child.map((b, index) => (
                   <li key={index}>

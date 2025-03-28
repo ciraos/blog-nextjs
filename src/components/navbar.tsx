@@ -1,6 +1,7 @@
 'use client';
 import Link from "next/link";
 // import { useRouter } from 'next/navigation';
+
 // import { DownOutlined, SmileOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import {
@@ -9,6 +10,7 @@ import {
   Space
 } from 'antd';
 import { Icon } from "@iconify/react";
+
 import { navList } from "@/config/navlist";
 
 export default function Navbar() {
@@ -17,11 +19,16 @@ export default function Navbar() {
     {
       key: '1',
       label: (
+        <Link href="/login">登录</Link>
+      )
+    }, {
+      key: '2',
+      label: (
         <Link href="/dashboard">仪表盘</Link>
       ),
     },
     {
-      key: '2',
+      key: '3',
       label: (
         <Link href="/settings">账户设置</Link>
       ),
@@ -29,7 +36,7 @@ export default function Navbar() {
       // disabled: true,
     },
     {
-      key: '3',
+      key: '4',
       label: '登出',
       onClick: async () => {
         const c = await fetch('/api/logout', {

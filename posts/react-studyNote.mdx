@@ -1,0 +1,88 @@
+---
+title: react笔记
+date: 2025-03-18 22:43:12
+updated: 2025-03-18 22:43:12
+tags: [react笔记]
+categories: [react笔记,]
+cover: https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/erciyuan/genshin6.avif
+keywords: react笔记
+descr: react笔记
+author: 葱苓sama
+---
+
+## 列表渲染
+
+依赖 JavaScript 的特性，例如**for循环**、**array**的 **map()** 函数来渲染组件列表。
+
+假设有这么一个列表： 
+
+```typescript
+export const list = [
+    {name: "小明", age: 18}
+    {name: "老王", age: 19}
+    {name: "张三", age: 20}
+]
+```
+
+那么，如何让它在前端页面显示呢？
+
+``` typescript
+{list.map((item, index) => (
+    <div key={index}>我叫{item.name}，我今年{item.age}岁了。</div>
+))}
+```
+
+如上图所示，这既是简单的列表渲染，那如果我想渲染[友链](/friends)那种成组的列表该怎么办呢？
+
+``` typescript
+exprot const listWithGroup = [
+    {
+        order: "男生",
+        list: [
+            {name: "小明", age: 18}
+            {name: "老王", age: 19}
+        ]
+    },{
+        order: "女生",
+        list: [
+            {name: "小娟", age: 20}
+            {name: "小靓", age: 24}
+        ]
+    }
+]
+```
+
+如上所示，一个简单的组列表渲染就已经成型了，接下来就是和之前一样，在前端将其按组渲染出来：
+
+``` typescript
+{ListWithGroup.map((item, index) => (
+    <div key={index}>
+        <div>这里是{item.order}组。</div>
+        // 如下，开始嵌套渲染
+        <div>
+            {item.list.map((staff, index) => (
+                <div key={index}>我叫{staff.name}，我今年{staff.age}岁了。</div>
+            ))}
+        </div>
+    </div>
+))}
+```
+
+同时，不要忘记给你的列表设置属性：
+
+``` typescript
+interface list {
+    name: string;
+    age: number;
+}
+```
+**嵌套列表**：
+
+```
+interface ListWithGroup {
+    order: string;
+    list: list[];
+    name: string;
+    age: number;
+}
+```

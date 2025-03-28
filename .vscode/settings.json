@@ -5,6 +5,9 @@
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "explorer.sortOrder": "type",
+    "files.associations": {
+        "*.mdx": "markdown"
+    },
     "files.autoSave": "onFocusChange",
     "picgo.customOutputFormat": "${url}",
     "picgo.customUploadName": "${fileName}${extName}",

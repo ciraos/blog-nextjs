@@ -23,7 +23,8 @@
 /* .tk-content {} */
 
 .tk-content a:not(.tk-ruser) {
-    text-decoration: underline rgb(111, 111, 218) wavy auto;
+    /* text-decoration: underline rgb(111, 111, 218) wavy auto; */
+    text-decoration: underline rgb(111, 111, 218) solid 2px;
 }
 
 .tk-content a:not(.tk-ruser):hover {
@@ -43,8 +44,23 @@
     box-shadow: none;
 }
 
+.tk-expand-wrap {
+    width: 43%;
+    margin: 10px auto 0;
+}
+
+/* .tk-expand-wrap:hover {} */
+
+.tk-expand {
+    border-radius: 12px;
+}
+
 @media (prefers-color-scheme: light) {
     .tk-comment {
+        background-color: #fff;
+    }
+
+    .tk-expand {
         background-color: #fff;
     }
 }
@@ -77,6 +93,11 @@
 
     .tk-comments-no {
         color: #f4f4f4;
+    }
+
+    .tk-expand-wrap {
+        background-color: #2c303f;
+        color: #fff;
     }
 }
 

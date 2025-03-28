@@ -1,13 +1,11 @@
-import { Image } from "antd";
-// import Link from "next/link";
-// import moment from "moment";
-import { Button } from "antd";
+import Link from "next/link";
+
+// import { Icon } from "@iconify/react";
+import moment from "moment";
+import { Button, Image } from "antd";
 import "@ant-design/v5-patch-for-react-19";
+
 import { getAllPosts } from "@/lib/posts";
-import AsideCategories from "./_partial/aside/categories";
-import AsideRuntime from "./_partial/aside/runtime";
-import AsideTotalWords from "./_partial/aside/totalword";
-import AsideLastUpdated from "./_partial/aside/lastupdated";
 
 export default async function Aside() {
     const posts = await getAllPosts();
@@ -35,7 +33,6 @@ export default async function Aside() {
                 {/* 文章目录 */}
                 {/* <div className="px-2 py-2 bg-white rounded-xl shadow-md hover:shadow-xl dark:bg-[#2c303f]">
                     <div className="flex items-center"><Icon icon="material-symbols:toc" width="1.4em" height="1.4em" className="mr-1 text-blue-400" /><span className="dark:text-white">目录</span></div>
-                    <Toc />
                 </div> */}
 
                 {/* 最近更新的文章 */}
@@ -43,7 +40,7 @@ export default async function Aside() {
                     <div className="flex items-center"><span className="dark:text-white">最近更新</span></div>
                 </div>
 
-                {/*  */}
+                {/* 最新评论 */}
                 <div className="px-2 py-2 bg-white rounded-xl shadow-md hover:shadow-xl dark:bg-[#2c303f]">
                     <div className="flex items-center"><span className="dark:text-white">最新评论</span></div>
                 </div>
@@ -51,29 +48,45 @@ export default async function Aside() {
                 {/* 统计  */}
                 <div className="px-2 py-2 bg-white rounded-xl shadow-md hover:shadow-xl dark:bg-[#2c303f]">
                     <div className="flex items-center"><span className="dark:text-white">统计</span></div>
-                    <AsideCategories />
+                    {/* categories分类 */}
+                    <div className="aside-categories py-2">
+                        {posts.map((post, index) => (
+                            <Link href={`/categories/${post.meta?.categories}`} key={index} className="capitalize text-sm text-slate-600 dark:text-slate-300">{post.meta?.tags}</Link>
+                        ))}
+                    </div>
                     <hr />
+                    {/* 文章总数 and 运行时间 */}
                     <div className="py-1 px-2">
-                        <div className="flex justify-between mt-1 text-slate-600 text-sm dark:text-slate-200"><span className="flex items-center">文章总数</span><span className="">{posts.length}</span></div>
-                        <div className="flex justify-between mt-1 text-slate-600 text-sm dark:text-slate-200"><span className="flex items-center">建站天数</span><span><AsideRuntime /></span></div>
-                        <AsideTotalWords />
-                        {/* <Busuanzi /> */}
+                        <div className="flex justify-between mt-1 text-slate-600 text-sm dark:text-slate-200"><span className="flex items-center">文章总数</span><span>{posts.length}</span></div>
+                        <div className="flex justify-between mt-1 text-slate-600 text-sm dark:text-slate-200"><span className="flex items-center">建站天数</span><span>{AsideRuntime()}</span></div>
+                        {/* 访问计数 */}
                         <div>
                             <div className="flex justify-between mt-1 text-slate-600 text-sm dark:text-slate-200">
                                 <span>本站访客数</span>
-                                <span id="busuanzi_value_site_uv"></span>
+                                <span></span>
                             </div>
                             <div className="flex justify-between mt-1 text-slate-600 text-sm dark:text-slate-200">
                                 <span>本站总访问量</span>
-                                <span id="busuanzi_value_site_pv"></span>
+                                <span></span>
                             </div>
                         </div>
-                        <AsideLastUpdated />
                     </div>
                 </div>
 
             </div>
 
+        </>
+    )
+}
+
+function AsideRuntime() {
+    const startDate = moment('2025-02-03').format('YYYY-MM-DD');
+    const curreDate = moment().format('YYYY-MM-DD');
+    const days = moment(curreDate).diff(startDate, 'days');
+
+    return (
+        <>
+            <div>{days + '天'}</div>
         </>
     )
 }
