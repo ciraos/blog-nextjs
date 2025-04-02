@@ -9,7 +9,6 @@ import Navbar from "@/components/navbar";
 import Aside from "@/components/aside";
 import Footer from "@/components/footer";
 import Rightside from "@/components/rightside";
-import PostChat from "@/components/thirdParty/postchat";
 
 export const metadata: Metadata = {
   title: "葱苓小筑",
@@ -34,7 +33,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <Footer />
         </div>
         <Rightside />
-        <PostChat />
       </body>
     </html>
   );
