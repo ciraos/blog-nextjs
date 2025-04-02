@@ -1,21 +1,20 @@
 import blogConfig from "../../blog.config";
 
 export interface twikooConfig {
-    envId: string
-    el: string
-    // Katex: string[]
+    envId: string;
+    el: string;
 }
 
 export interface blogConfig {
-    name: string
-    server: string
-    description: string
-    twikoo?: twikooConfig
+    name: string;
+    server: string;
+    description: string;
+    twikoo?: twikooConfig;
 }
 export function defineConfigs(options: blogConfig) {
-    return options
+    return options;
 }
 
 export function getConfig() {
-    return blogConfig
+    return blogConfig;
 }

@@ -53,6 +53,10 @@ body {
   display: block;
 }
 
+.recent-post-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
 /*! antd */
 
 /*! 导航栏 */
@@ -218,28 +222,24 @@ body {
 .post-container pre,
 .main-container pre {
   padding: 6px 8px;
-  overflow: scroll;
-  /* background-color: ; */
-  /* color: ; */
+  overflow: auto;
   border-radius: 12px;
+  box-shadow: var(--box-shadow);
+}
+
+.post-container pre:hover,
+.main-container pre:hover {
+  box-shadow: var(--box-shadow-hover);
 }
 
 /* .post-container pre code,
-.main-container pre code {} */
-
+.main-container pre code {}
 .post-container pre::-webkit-scrollbar,
-.main-container::-webkit-scrollbar {
-  /* width: ; */
-  height: 4px;
-  border-radius: 10px;
-  /* background-color: ; */
-}
-
+.main-container::-webkit-scrollbar {}
 .post-container pre::-webkit-scrollbar-thumb,
 .main-container::-webkit-scrollbar-thumb {}
-
 .post-container pre::-webkit-scrollbar-track,
-.main-container pre::-webkit-scrollbar-track {}
+.main-container pre::-webkit-scrollbar-track {} */
 
 /*! Pre End */
 
@@ -375,11 +375,7 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 244, 244, 244;
-    --background-start-rgb: 15, 20, 35;
-    --background-end-rgb: 20, 20, 20;
-  }
+  /* :root {} */
 
   :where(.css-dev-only-do-not-override-1v613y0).ant-timeline .ant-timeline-item-tail {
     border-inline-start: 2px solid #aaa;
@@ -463,6 +459,10 @@ body {
     backdrop-filter: blur(5px);
     /* overflow-y: scroll; */
     z-index: 15;
+  }
+
+  .recent-post-item:nth-child(even) {
+    flex-direction: column;
   }
 }
 

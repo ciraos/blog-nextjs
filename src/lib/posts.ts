@@ -25,7 +25,7 @@ type MetaData = {
     author?: string;
     comments?: boolean,
     readingTime?: readingTime,
-    index?: number
+    sticky?: number
 };
 
 export function getPostBySlug(slug: string) {

@@ -26,17 +26,6 @@ const items: TabsProps['items'] = [
     }
 ];
 
-// const friendLater = [] {
-//     friendlink.map((e) => {
-//         e.child.map((e) => {
-//             const data = []
-//             data.push(e.name, e.link, e.avatar)
-//             friendLater.push(data)
-//             console.log(data)
-//         })
-//     })
-// }
-
 export default async function Friends() {
     return (
         <>

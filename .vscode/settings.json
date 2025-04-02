@@ -1,12 +1,13 @@
 {
-    "editor.fontFamily": "'Fira code', Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "'Maple Mono Normal', 'Fira code', 微软雅黑, Arial, Consolas, 'Courier New', monospace",
     "editor.fontSize": 13,
     "editor.formatOnSave": true,
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "explorer.sortOrder": "type",
     "files.associations": {
-        "*.mdx": "markdown"
+        "*.mdx": "markdown",
+        "*.tsx": "typescriptreact"
     },
     "files.autoSave": "onFocusChange",
     "picgo.customOutputFormat": "${url}",

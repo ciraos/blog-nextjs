@@ -54,21 +54,21 @@ export default async function Post({ params }: Props) {
           </div>
         </div>
 
-        <div className="">
-          {/* 文章 */}
-          <div className="post-container rounded-xl px-8 py-4 bg-white shadow-sm transition-all hover:shadow-md dark:bg-[#2c303f] dark:text-white max-425:px-2">
-            <MDXRemote source={post.content} components={{ Note_default, Note_success, Note_warn, Del, Psw }} options={{}} />
-          </div>
-          {/*  */}
-          <div className="post-copyright w-full mt-5 mx-auto py-2 px-4 border-[1px] border-solid border-slate-400 rounded-md dark:text-white">
-            <div className="text-xs">&nbsp;&nbsp;-&nbsp;&nbsp;本博客所有文章除特别声明外，均采用<Link href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer" className="underline">CC BY-NC-SA 4.0</Link>许可协议，转载请注明来自葱苓sama！</div>
-            <div className="text-sm mt-1">作者：<span>{post.meta?.author}</span></div>
-            <div className="text-sm">标题：<span>{post.meta?.title}</span></div>
-            <div className="text-sm">链接：<Link href={`https://blog.ciraos.top/posts/${post.slug}`} className="underline">https://blog.ciraos.top/posts/{post.slug}</Link></div>
-          </div>
-          {/* Twikoo */}
-          <Twikoo />
+        {/* 文章 */}
+        <div className="post-container rounded-xl px-8 py-4 bg-white shadow-sm transition-all hover:shadow-md dark:bg-[#2c303f] dark:text-white max-425:px-2">
+          <MDXRemote source={post.content} components={{ Note_default, Note_success, Note_warn, Del, Psw }} options={{}} />
         </div>
+
+        {/*  */}
+        <div className="post-copyright w-full mt-5 mx-auto py-2 px-4 border-[1px] border-solid border-slate-400 rounded-md dark:text-white">
+          <div className="text-xs">&nbsp;&nbsp;-&nbsp;&nbsp;本博客所有文章除特别声明外，均采用<Link href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer" className="underline">CC BY-NC-SA 4.0</Link>许可协议，转载请注明来自葱苓sama！</div>
+          <div className="text-sm mt-1">作者：<span>{post.meta?.author}</span></div>
+          <div className="text-sm">标题：<span>{post.meta?.title}</span></div>
+          <div className="text-sm">链接：<Link href={`https://blog.ciraos.top/posts/${post.slug}`} className="underline">https://blog.ciraos.top/posts/{post.slug}</Link></div>
+        </div>
+
+        {/* Twikoo */}
+        <Twikoo />
 
       </div>
     </>

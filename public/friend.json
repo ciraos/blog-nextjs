@@ -71,6 +71,11 @@
             "https://blog.kouseki.cn/imgs/avatar.webp"
         ],
         [
+            "纸鹿摸鱼处",
+            "https://blog.zhilu.cyou",
+            "https://www.zhilu.cyou/api/avatar.png"
+        ],
+        [
             "小N同学",
             "https://www.imcharon.com",
             "https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/friends/nesxc.ico"
@@ -89,11 +94,6 @@
             "花裱",
             "https://dingzh.cc",
             "https://npm.elemecdn.com/ding-blogdemo@1.0.4/img/Favicon.png"
-        ],
-        [
-            "一川·MOLIPRE·BLOG",
-            "https://blog.molipre.com",
-            "https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/friends/molipre.avif"
         ],
         [
             "未央",
@@ -122,7 +122,7 @@
         ],
         [
             "陈鑫磊",
-            "https://www.cxl2020mc.top",
+            "https://blog.cxl2020mc.top",
             "https://public.img.cxl2020mc.top/avatar.png"
         ],
         [
@@ -166,11 +166,6 @@
             "https://q1.qlogo.cn/g?b=qq&nk=2496091142&s=640"
         ],
         [
-            "小朊朋友圈",
-            "https://www.xrpyq.com",
-            "https://q.qlogo.cn/g?b=qq&nk=227389436&s=640"
-        ],
-        [
             "奇梦博客",
             "https://www.mryunqi.com",
             "https://q1.qlogo.cn/g?b=qq&nk=434658198&s=100"
@@ -186,19 +181,9 @@
             "https://moeci.com/images/avatar.png"
         ],
         [
-            "Mx",
-            "https://www.wwru.cn",
-            "https://static.mx142.cn/img/logo.png"
-        ],
-        [
             "鹿啵包",
             "https://pochacco.top",
             "https://pochacco.top/img/Avatar.gif"
-        ],
-        [
-            "Shine",
-            "https://blog.shineyu.cn",
-            "https://s3.bmp.ovh/imgs/2022/11/23/129c19d56d22c637.png"
         ],
         [
             "LyShark",
@@ -256,16 +241,6 @@
             "https://bu.dusays.com/2023/06/10/648499e1299d0.jpg"
         ],
         [
-            "Ganzhe",
-            "https://ganzhe2028.github.io",
-            "https://pic.imgdb.cn/item/64895d391ddac507cce97bc3.webpg"
-        ],
-        [
-            "别亦难",
-            "https://lazyingman.com",
-            "https://bu.dusays.com/2023/06/23/64959cf745a4d.png"
-        ],
-        [
             "rencai",
             "https://www.btrencai.top",
             "https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/friends/rencai.avif"
@@ -283,7 +258,8 @@
         [
             "阿豪",
             "https://ahao.ah.cn",
-            "https://image.ahao.ah.cn/3cccc50598660ee1cece6e10be840f2.jpg"
+            "https://image.ahao.ah.cn/3cccc50598660ee1cece6e10be840f2.jpg",
+            "人间值得，未来可期"
         ],
         [
             "牛魔博客",
@@ -557,7 +533,7 @@
         ],
         [
             "可执行程序の天境小屋🥝",
-            "https://hanta.us.kg",
+            "https://blog.hanta2011.top/",
             "https://pic.imgdb.cn/item/65fe67989f345e8d03923ea6.jpg"
         ],
         [
@@ -569,11 +545,6 @@
             "小妖客栈",
             "https://wangkay.top",
             "https://picture.wangkay.tech/zibill/2024/04/20240412165509269.png"
-        ],
-        [
-            "辉辉博客",
-            "https://www.hui.vin",
-            "https://www.hui.vin/img/logo.png"
         ],
         [
             "InsectMk",
@@ -589,11 +560,6 @@
             "PeterJXL",
             "https://www.peterjxl.com",
             "https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/friends/peterJXL.avif"
-        ],
-        [
-            "小染笔记",
-            "https://onoe.cn",
-            "https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/404_1.avif"
         ],
         [
             "Ymkiux",
@@ -616,19 +582,9 @@
             "https://7.isyangs.cn/85/67b33ac68d72d-85.webp"
         ],
         [
-            "Joker2Yue",
-            "https://blog.joker2yue.cn",
-            "https://resource.joker2yue.cn/blog/images/avatar_joker.jpg"
-        ],
-        [
             "lmz",
             "https://blog.imz.me",
             "https://pic.imgdb.cn/item/66cfd951d9c307b7e96dcfea.webp"
-        ],
-        [
-            "Darian.Ming",
-            "https://blog.darian-ming.cn",
-            "https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/404_1.avif"
         ],
         [
             "青稚",
@@ -652,7 +608,7 @@
         ],
         [
             "eastwind",
-            "https://ew.windydante.top",
+            "https://1wind.cn",
             "https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/friends/eastwind.avif"
         ],
         [
@@ -664,11 +620,6 @@
             "一粒微尘",
             "https://blog.667408.xyz",
             "https://blog.667408.xyz/favicon.ico"
-        ],
-        [
-            "Yuexin",
-            "https://wyxogo.top",
-            "https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/404_1.avif"
         ],
         [
             "p6oy",
@@ -719,11 +670,6 @@
             "Hinai",
             "https://blog.woo.moe",
             "https://data.woo.moe/img/ico/104491469_0_r.png"
-        ],
-        [
-            "洋洋",
-            "https://yangy.co",
-            "https://yangy.co/upload/logo.png"
         ],
         [
             "花生莲子粥",
@@ -797,13 +743,53 @@
         ],
         [
             "OnewBlog",
-            "https://blog.onew.us.kg",
-            "https://img.onew.us.kg/file/1741045424366_logo.jpg"
+            "https://blog.onedabuliu.cn/",
+            "https://img.onedabuliu.cn/file/1741045424366_logo.jpg"
         ],
         [
             "南蛮子懋和",
             "https://www.dao.js.cn",
             "https://img.dao.js.cn/zb_users/upload/2021/10/202110151634246697912592.png-webp"
+        ],
+        [
+            "皓子",
+            "https://howiehz.top",
+            "https://howiehz.top/upload/ico.ico"
+        ],
+        [
+            "Ganzhe",
+            "https://ganzhe2028.github.io",
+            "https://pic.imgdb.cn/item/64895d391ddac507cce97bc3.webpg"
+        ],
+        [
+            "拂晓不辍",
+            "https://aowu.dog",
+            "https://aowu.dog/touxiang.png"
+        ],
+        [
+            "幻想の日常",
+            "https://blog.someo.top",
+            "https://blog.someo.top/data/img/tx.jpeg"
+        ],
+        [
+            "笔搁纸鸯",
+            "https://b.wihi.top",
+            "https://b.wihi.top/img/avatar.png"
+        ],
+        [
+            "水深火乐",
+            "https://webly.fun/blog",
+            "https://webly.fun/favicon.ico"
+        ],
+        [
+            "莫言小筑",
+            "https://www.myxz.top",
+            "https://www.myxz.top/img/avatar.avif"
+        ],
+        [
+            "小染笔记",
+            "https://onoe.cn",
+            "https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/404_1.avif"
         ],
         [
             "呆逼",
@@ -857,7 +843,7 @@
         ],
         [
             "HopeBlog",
-            "http: //8.140.32.159:400",
+            "http://8.140.32.159:400",
             "https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/404_1.avif"
         ],
         [
@@ -888,6 +874,11 @@
         [
             "DeCheng",
             "https://hexo.dc6.fun",
+            "https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/404_1.avif"
+        ],
+        [
+            "DeCheng",
+            "https://cyolc932.github.io",
             "https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/404_1.avif"
         ],
         [
@@ -949,6 +940,51 @@
             "LinuxWin",
             "https://lw232.jsd.heqia.top",
             "https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/404_1.avif"
+        ],
+        [
+            "一川·MOLIPRE·BLOG",
+            "https://blog.molipre.com",
+            "https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/friends/molipre.avif"
+        ],
+        [
+            "小朊朋友圈",
+            "https://www.xrpyq.com",
+            "https://q.qlogo.cn/g?b=qq&nk=227389436&s=640"
+        ],
+        [
+            "Mx",
+            "https://www.wwru.cn",
+            "https://static.mx142.cn/img/logo.png"
+        ],
+        [
+            "Shine",
+            "https://blog.shineyu.cn",
+            "https://s3.bmp.ovh/imgs/2022/11/23/129c19d56d22c637.png"
+        ],
+        [
+            "别亦难",
+            "https://lazyingman.com",
+            "https://bu.dusays.com/2023/06/23/64959cf745a4d.png"
+        ],
+        [
+            "Yuexin",
+            "https://wyxogo.top",
+            "https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/404_1.avif"
+        ],
+        [
+            "Darian.Ming",
+            "https://blog.darian-ming.cn",
+            "https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/404_1.avif"
+        ],
+        [
+            "Joker2Yue",
+            "https://blog.joker2yue.cn",
+            "https://resource.joker2yue.cn/blog/images/avatar_joker.jpg"
+        ],
+        [
+            "辉辉博客",
+            "https://www.hui.vin",
+            "https://www.hui.vin/img/logo.png"
         ]
     ]
 }

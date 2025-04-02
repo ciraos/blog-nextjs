@@ -1,10 +1,8 @@
 import Link from "next/link";
-
 // import { Icon } from "@iconify/react";
 import moment from "moment";
 import { Button, Image } from "antd";
 import "@ant-design/v5-patch-for-react-19";
-
 import { getAllPosts } from "@/lib/posts";
 
 export default async function Aside() {
@@ -38,12 +36,18 @@ export default async function Aside() {
                 {/* 最近更新的文章 */}
                 <div className="px-2 py-2 bg-white rounded-xl shadow-md hover:shadow-xl dark:bg-[#2c303f]">
                     <div className="flex items-center"><span className="dark:text-white">最近更新</span></div>
+                    {posts?.map((article, index) => (
+                        <Link href={`/posts/${article.slug}`} key={index} className="w-full h-5 overflow-hidden flex justify-between text-sm">
+                            <div className="w-4/5 text-slate-800">{article.meta?.title}</div>
+                            <div className="w-1/5 text-slate-600 text-right">{moment(article.meta?.date).format('MM-DD')}</div>
+                        </Link>
+                    ))}
                 </div>
 
                 {/* 最新评论 */}
-                <div className="px-2 py-2 bg-white rounded-xl shadow-md hover:shadow-xl dark:bg-[#2c303f]">
+                {/* <div className="px-2 py-2 bg-white rounded-xl shadow-md hover:shadow-xl dark:bg-[#2c303f]">
                     <div className="flex items-center"><span className="dark:text-white">最新评论</span></div>
-                </div>
+                </div> */}
 
                 {/* 统计  */}
                 <div className="px-2 py-2 bg-white rounded-xl shadow-md hover:shadow-xl dark:bg-[#2c303f]">
@@ -51,7 +55,7 @@ export default async function Aside() {
                     {/* categories分类 */}
                     <div className="aside-categories py-2">
                         {posts.map((post, index) => (
-                            <Link href={`/categories/${post.meta?.categories}`} key={index} className="capitalize text-sm text-slate-600 dark:text-slate-300">{post.meta?.tags}</Link>
+                            <Link href={`/ categories / ${post.meta?.categories}`} key={index} className="capitalize text-sm text-slate-600 dark:text-slate-300">{post.meta?.tags}</Link>
                         ))}
                     </div>
                     <hr />
