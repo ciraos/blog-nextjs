@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Head from "next/head";
 import NextTopLoader from "nextjs-toploader";
 import "./globals.css";
 import "./twikoo.css";
@@ -19,6 +20,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="zh-CN">
+      <Head>
+        <link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkai/dist/LXGWWenKai-Bold/result.css' />
+      </Head>
       <body>
         <div id="CIRAOS">
           <NextTopLoader color="#39c5bb" easing="ease" shadow="0 0 10px #2299DD,0 0 5px #2299DD" showSpinner={false} />

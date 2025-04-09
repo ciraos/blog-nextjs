@@ -16,7 +16,7 @@ export default async function Aside() {
                     <div className="w-24 h-max py-1 px-2 mt-5 mx-auto text-sm font-bold font-serif rounded-xl dark:text-white">Welcome!!</div>
                     <div className="mt-5">
                         <Image src="/avatar.avif" alt="avatar" preview={false} width={96} height={96} className="mt-2 mx-auto rounded-[100%]" loading="lazy" />
-                        <div className="mt-2 text-xl dark:text-white">葱苓sama</div>
+                        <div className="mt-2 text-xl dark:text-white">葱苓小筑</div>
                         <p className="-mt-2 text-sm dark:text-white">a small blog station.</p>
                     </div>
                     <Button type="link" href="https://ciraos.top" target="_blank" rel="noopener noreferrer" className="my-2">前往我的主页</Button>

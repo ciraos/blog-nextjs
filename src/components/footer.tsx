@@ -34,7 +34,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <p className="dark:text-slate-400 max-425:text-md">All rights reserved to ©葱苓sama 2024 - {new Date().getFullYear()}.</p>
+        <p className="dark:text-slate-400 max-425:text-md">All rights reserved to ©葱苓小筑 2024 - {new Date().getFullYear()}.</p>
         <Link href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" className="text-slate-600">皖ICP备2023018992号-1</Link>
         <span className="mx-1">|</span>
         <Link href="https://icp.gov.moe/?keyword=20230619" target="_blank" rel="noopener noreferrer" className="text-slate-600">萌ICP备20230619号</Link>

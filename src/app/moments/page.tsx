@@ -4,7 +4,7 @@ import { sslist } from "@/config/moments"
 import Twikoo from "@/components/thirdParty/twikoo";
 
 export const metadata: Metadata = {
-  title: "说说 - 葱苓sama",
+  title: "说说 - 葱苓小筑",
 };
 
 export default function Moments() {

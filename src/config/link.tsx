@@ -12,7 +12,6 @@ interface friendlink {
 }
 
 export const friendlink = [
-
     {
         groupName: "框架",
         groupDescr: "框架相关站点",
@@ -21,7 +20,6 @@ export const friendlink = [
             { name: "Nextjs", link: "https://nextjs.org", avatar: "https://nextjs.org/favicon.ico", descr: "React应用开发框架" },
         ]
     },
-
     {
         groupName: "冰糖红茶",
         groupDescr: "一个神秘の组织",
@@ -32,7 +30,6 @@ export const friendlink = [
             { name: "贰猹", link: "https://noionion.top", avatar: "https://pub-noionion.oss-cn-hangzhou.aliyuncs.com/head.jpg", descr: "用这生命中的每一秒，给自己一个不后悔的未来" },
         ],
     },
-
     {
         groupName: "大佬们",
         groupDescr: "dlddw~~~~~",
@@ -48,7 +45,6 @@ export const friendlink = [
             { name: "纸鹿摸鱼处", link: "https://blog.zhilu.cyou", avatar: "https://www.zhilu.cyou/api/avatar.png", descr: "纸鹿至麓不知路，支炉制露不止漉" },
         ],
     },
-
     {
         groupName: "小伙伴们",
         groupDescr: "感谢陪伴~",
@@ -174,7 +170,7 @@ export const friendlink = [
             { name: "Hinai", link: "https://blog.woo.moe", avatar: "https://data.woo.moe/img/ico/104491469_0_r.png", descr: "曇花一現" },
             { name: "花生莲子粥", link: "https://blog.hslzz.cn", avatar: "https://hslzz.cn/favicon.ico", descr: "与世无争，不染于泥。" },
             { name: "彬彬加冰", link: "https://blog.wzwzx.cn", avatar: "https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/friends/binbin-w8sl.avif", descr: "走进我的影子，触摸我的心" },
-            { name: "虫不知喔", link: "https://blog.ssyc.moe", avatar: "https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/friends/ssyc.avif", descr: "我要的正能量会发光！" },
+            { name: "虫不知喔", link: "https://blog.ssyc.moe", avatar: "https://box.ssyc.moe/image/见一.png", descr: "若有韶月熹微，愿作流萤徂岁。" },
             { name: "天翔TNXG", link: "https://tnxgmoe.com", avatar: "https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/friends/tnxg.avif", descr: "明日尚未到来，希望凝于心上", tag: "TNXG" },
             { name: "Chinyuan Tai", link: "https://www.knlde.top", avatar: "https://cdn.jsdmirror.com/gh/Kindle-deep/picx-images-hosting@master/avatar.avif", descr: "LOVE&PEACE", tag: "Knlde" },
             { name: "小智", link: "https://blog.cuixinyu.com", avatar: "https://blog.cuixinyu.com/img/others/avatar.png", descr: "记录学习踩坑" },

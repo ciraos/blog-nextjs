@@ -5,7 +5,7 @@ import moment from "moment";
 import { getAllPosts } from "@/lib/posts";
 
 export const metadata: Metadata = {
-  title: "归档 - 葱苓sama",
+  title: "归档 - 葱苓小筑",
 };
 
 export default async function Archives() {

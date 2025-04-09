@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Twikoo from "@/components/thirdParty/twikoo";
 
 export const metadata: Metadata = {
-  title: "隐私协议 - 葱苓sama",
+  title: "隐私协议 - 葱苓小筑",
 }
 
 export default function Privacy() {

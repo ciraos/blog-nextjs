@@ -9,7 +9,7 @@ import { friendlink } from "@/config/link";
 import Twikoo from "@/components/thirdParty/twikoo";
 
 export const metadata: Metadata = {
-    title: "友人帐 - 葱苓sama",
+    title: "友人帐 - 葱苓小筑",
 };
 
 // const onChange = (key: string) => {};
@@ -18,7 +18,7 @@ const items: TabsProps['items'] = [
     {
         key: '1',
         label: '约法三章',
-        children: <><ol><li>因为我的网站经常炸掉，所以我建议你的链接<strong>不要挂掉</strong>哦；</li><li>网站必须有<strong>强制https协议头</strong>；</li><li>已经添加<strong>葱苓samaの博客</strong>；</li><li>博客内容与生活、科技等等有关，请勿上传违反<strong>大陆法律、法规</strong>的内容；</li><li>网站主体为<strong>个人</strong>，网站类型为<strong>博客</strong>；</li><li>网站现在可以在<strong>中国大陆区域</strong>正常访问；</li><li>网站内容符合中国大陆<strong>法律法规</strong>；</li></ol></>,
+        children: <><ol><li>因为我的网站经常炸掉，所以我建议你的链接<strong>不要挂掉</strong>哦；</li><li>网站必须有<strong>强制https协议头</strong>；</li><li>已经添加<strong>葱苓小筑の博客</strong>；</li><li>博客内容与生活、科技等等有关，请勿上传违反<strong>大陆法律、法规</strong>的内容；</li><li>网站主体为<strong>个人</strong>，网站类型为<strong>博客</strong>；</li><li>网站现在可以在<strong>中国大陆区域</strong>正常访问；</li><li>网站内容符合中国大陆<strong>法律法规</strong>；</li></ol></>,
     }, {
         key: '2',
         label: '我的信息',

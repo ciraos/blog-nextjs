@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import Twikoo from "@/components/thirdParty/twikoo";
 
 export const metadata: Metadata = {
-    title: "cookies - 葱苓sama",
+    title: "cookies - 葱苓小筑",
 }
 
 export default function Cookies() {

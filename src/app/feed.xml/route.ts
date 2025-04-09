@@ -7,14 +7,14 @@ export function GET() {
     try {
         const posts = getAllPosts();
         const feed = new RSS({
-            title: '葱苓sama',
+            title: '葱苓小筑',
             description: 'a small blog station.',
             generator: 'Nextjs',
             feed_url: `${site_url}/feed.xml`,
             site_url: `${site_url}`,
             image_url: `${site_url}/avatar.avif`,
             managingEditor: 'Visual Studio Code',
-            webMaster: '葱苓Ciraos',
+            webMaster: '葱苓sama',
             copyright: "©葱苓sama 2025.",
             language: 'zh-CN',
             pubDate: new Date().toString()

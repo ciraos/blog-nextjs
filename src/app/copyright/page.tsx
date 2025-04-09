@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import Twikoo from "@/components/thirdParty/twikoo";
 
 export const metadata: Metadata = {
-  title: "版权协议 - 葱苓sama",
+  title: "版权协议 - 葱苓小筑",
 };
 
 export default function Copyright() {

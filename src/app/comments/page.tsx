@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Twikoo from "@/components/thirdParty/twikoo";
 
 export const metadata: Metadata = {
-  title: "留言板 - 葱苓sama",
+  title: "留言板 - 葱苓小筑",
   icons: "/avatar.avif",
 };
 

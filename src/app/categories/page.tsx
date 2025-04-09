@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 import { getAllPosts } from "@/lib/posts";
 
 export const metadata: Metadata = {
-    title: '分类 - 葱苓sama',
+    title: '分类 - 葱苓小筑',
 };
 
 export default async function Tags() {
