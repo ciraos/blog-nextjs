@@ -101,6 +101,12 @@
     }
 }
 
+.tk-submit {
+    padding: 8px 10px;
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+}
+
 /*! */
 .tk-avatar {
     flex-shrink: 0;

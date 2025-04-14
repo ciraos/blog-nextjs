@@ -48,7 +48,6 @@ export default function Navbar() {
 
         {/* 移动端侧边导航栏  */}
         <ul id="mobile" className="mobile">
-          <hr className="w-4/5 my-2 mx-auto text-slate-600" />
           {navList?.map((item, index) => (
             <li key={index} className="mobile-item">
               <div className="">

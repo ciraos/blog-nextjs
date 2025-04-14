@@ -3,9 +3,7 @@ import { useEffect, useState } from "react";
 import { getConfig } from "@/lib/config";
 
 export default function Twikoo() {
-    const [loadingStatus, setLoadingStatus] = useState<"loading" | "error">(
-        "loading",
-    );
+    const [loadingStatus, setLoadingStatus] = useState<"loading" | "error">("loading",);
     const config = getConfig();
     useEffect(() => {
         if (config.twikoo) {
@@ -22,6 +20,7 @@ export default function Twikoo() {
                 });
         }
     });
+
     useEffect(() => {
         const script = document.createElement("script");
         script.defer = true;
@@ -31,6 +30,7 @@ export default function Twikoo() {
         document.body.appendChild(script)
         return () => { document.body.removeChild(script) }
     })
+
     useEffect(() => {
         const script = document.createElement("script");
         script.defer = true
@@ -40,6 +40,7 @@ export default function Twikoo() {
         document.body.appendChild(script)
         return () => { document.body.removeChild(script) }
     })
+
     if (config.twikoo) {
         return (
             <div id="tcomment">

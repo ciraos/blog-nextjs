@@ -13,7 +13,7 @@ export default function BlogHome() {
         {posts?.map((post, index) => (
           <div key={index} className="recent-post-item w-full h-40 flex justify-center bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl dark:bg-[#2c303f] max-425:flex-col max-425:w-full max-425:h-max">
 
-            <Link href={`/posts/${post.slug}`} className="w-2/5 max-425:w-full">
+            <Link href={`/posts/${post.slug}`} className="home-post-cover w-2/5 max-425:w-full">
               <Image src={post.meta?.cover} fallback="https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/404_1.avif" alt="post-cover" preview={false} width={307} height={160} className="home-post-cover-img" />
             </Link>
 

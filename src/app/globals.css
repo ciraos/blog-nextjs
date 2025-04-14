@@ -21,8 +21,8 @@ body {
   }
 }
 
-.rightside-buttons>button:not(:first-child) {
-  margin-top: 8px;
+.buttonNav>button:not(:first-child) {
+  margin-top: 10px;
 }
 
 .aside>div:not(:first-child),
@@ -64,12 +64,8 @@ body {
 .mobile {
   width: 18rem;
   height: 0;
-  z-index: 15;
-  /* position: absolute; */
   top: 0;
   right: 0;
-  transition: cubic-bezier(0.165, 0.84, 0.44, 1);
-  /* background-color: ; */
   display: none;
 }
 
@@ -350,7 +346,10 @@ body {
 /*! */
 @media (prefers-color-scheme: light) {
   body {
-    background-color: #f4f4f4;
+    --color: #E1E1E1;
+    background-color: #F3F3F3;
+    background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent);
+    background-size: 55px 55px;
   }
 
   .note>p {
@@ -383,8 +382,10 @@ body {
   }
 
   body {
-    background-color: #201d2c;
-    background-image: none;
+    --color: rgba(114, 114, 114, 0.3);
+    background-color: #191a1a;
+    background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent);
+    background-size: 55px 55px;
   }
 
   .note>p {
@@ -435,6 +436,10 @@ body {
   .main-container::-webkit-scrollbar-thumb {
     background-color: whitesmoke;
   }
+
+  .ant-tabs-tab {
+    color: #f4f4f4 !important;
+  }
 }
 
 /*! */
@@ -446,20 +451,21 @@ body {
     height: 100vh;
     display: block;
     position: fixed;
-    /* backdrop-filter: blur(8px); */
+    z-index: 16;
     padding: 4px 6px;
+    transition: cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 
   #menu-mask.open {
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    display: block;
+    position: fixed;
+    z-index: 15;
     top: 0;
     left: 0;
-    position: absolute;
-    display: block;
-    backdrop-filter: blur(5px);
-    /* overflow-y: scroll; */
-    z-index: 15;
+    backdrop-filter: blur(10px);
+    overflow-y: scroll;
   }
 
   .recent-post-item:nth-child(even) {

@@ -38,8 +38,8 @@ export default async function Aside() {
                     <div className="flex items-center"><span className="dark:text-white">最近更新</span></div>
                     {posts?.map((article, index) => (
                         <Link href={`/posts/${article.slug}`} key={index} className="w-full h-5 overflow-hidden flex justify-between text-sm">
-                            <div className="w-4/5 text-slate-800">{article.meta?.title}</div>
-                            <div className="w-1/5 text-slate-600 text-right">{moment(article.meta?.date).format('MM-DD')}</div>
+                            <div className="w-4/5 text-slate-800 dark:text-slate-300">{article.meta?.title}</div>
+                            <div className="w-1/5 text-slate-600 text-right dark:text-slate-400">{moment(article.meta?.date).format('MM-DD')}</div>
                         </Link>
                     ))}
                 </div>

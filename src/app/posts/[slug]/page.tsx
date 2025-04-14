@@ -15,12 +15,12 @@ import Note_warn from "@/components/tagPlugins/note_warn";
 import Psw from "@/components/tagPlugins/psw";
 
 type Props = {
-  params: { slug: string };
-  searchParams: { [key: string]: string | string[] | undefined };
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
 async function getPost(params: Props["params"]) {
-  const post = getPostBySlug(params.slug);
+  const post = getPostBySlug((await params).slug);
   return { post };
 }
 
@@ -29,14 +29,6 @@ export const dynamicParams = false;
 export async function generateStaticParams() {
   const posts = getAllPosts();
   return posts.map((post) => ({ slug: post.slug }));
-}
-
-export async function generateMetadata({ params }: Props) {
-  const { post } = await getPost(params);
-  return {
-    title: post.meta?.title + ' | ' + '葱苓小筑' || "默认文章标题",
-    description: post.meta?.descr || "默认文章描述",
-  };
 }
 
 export default async function Post({ params }: Props) {
@@ -68,7 +60,7 @@ export default async function Post({ params }: Props) {
 
         {/*  */}
         <div className="post-copyright w-full mt-5 mx-auto py-2 px-4 border-[1px] border-solid border-slate-400 rounded-md dark:text-white">
-          <div className="text-xs">&nbsp;&nbsp;-&nbsp;&nbsp;本博客所有文章除特别声明外，均采用<Link href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer" className="underline">CC BY-NC-SA 4.0</Link>许可协议，转载请注明来自葱苓小筑！</div>
+          <div className="text-xs">&nbsp;&nbsp;-&nbsp;&nbsp;本博客所有文章除特别声明外，均采用<Link href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer" className="underline">CC BY-NC-SA 4.0</Link>许可协议，转载请注明来自葱苓sama！</div>
           <div className="text-sm mt-1">作者：<span>{post.meta?.author}</span></div>
           <div className="text-sm">标题：<span>{post.meta?.title}</span></div>
           <div className="text-sm">链接：<Link href={`https://blog.ciraos.top/posts/${post.slug}`} className="underline">https://blog.ciraos.top/posts/{post.slug}</Link></div>

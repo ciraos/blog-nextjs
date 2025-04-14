@@ -258,8 +258,7 @@
         [
             "阿豪",
             "https://ahao.ah.cn",
-            "https://image.ahao.ah.cn/3cccc50598660ee1cece6e10be840f2.jpg",
-            "人间值得，未来可期"
+            "https://image.ahao.ah.cn/3cccc50598660ee1cece6e10be840f2.jpg"
         ],
         [
             "牛魔博客",
@@ -684,7 +683,7 @@
         [
             "虫不知喔",
             "https://blog.ssyc.moe",
-            "https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/friends/ssyc.avif"
+            "https://box.ssyc.moe/image/见一.png"
         ],
         [
             "天翔TNXG",
@@ -790,6 +789,16 @@
             "小染笔记",
             "https://onoe.cn",
             "https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/404_1.avif"
+        ],
+        [
+            "LineXic书屋",
+            "https://linexic.top",
+            "https://linexic.top/avatar.webp"
+        ],
+        [
+            "Joker2Yue",
+            "https://blog.joker2yue.com",
+            "https://webp-proxy.resource.joker2yue.com/blog/images/avatar_joker.jpg"
         ],
         [
             "呆逼",
