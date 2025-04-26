@@ -19,7 +19,7 @@ export default async function Aside() {
                         <div className="mt-2 text-xl dark:text-white">葱苓小筑</div>
                         <p className="-mt-2 text-sm dark:text-white">a small blog station.</p>
                     </div>
-                    <Button type="link" href="https://ciraos.top" target="_blank" rel="noopener noreferrer" className="my-2">前往我的主页</Button>
+                    <Button type="primary" href="https://ciraos.top" target="_blank" rel="noopener noreferrer" className="my-2">前往我的主页</Button>
                 </div>
 
                 {/* 公告 */}

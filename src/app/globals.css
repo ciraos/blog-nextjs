@@ -215,33 +215,50 @@ body {
 /* .main-container>strong:hover,
 .post-container>strong:hover {} */
 
-/*! Pre */
-.post-container pre,
-.main-container pre {
-  padding: 6px 8px;
-  overflow: auto;
-  border-radius: 12px;
+/*! code */
+
+.post-container code:not(pre>code),
+.main-container code:not(pre>code) {
+  padding: .2rem .4rem;
+  border-radius: 4px;
+  color: #fff;
+  margin: 0 4px;
+  line-height: 2;
   box-shadow: var(--box-shadow);
+  background-color: cadetblue;
 }
 
-.post-container pre:hover,
-.main-container pre:hover {
+.post-container code:not(pre>code):hover,
+.main-container code:not(pre>code):hover {
   box-shadow: var(--box-shadow-hover);
 }
 
-/* .post-container pre code,
-.main-container pre code {}
-.post-container pre::-webkit-scrollbar,
-.main-container::-webkit-scrollbar {}
-.post-container pre::-webkit-scrollbar-thumb,
-.main-container::-webkit-scrollbar-thumb {}
-.post-container pre::-webkit-scrollbar-track,
-.main-container pre::-webkit-scrollbar-track {} */
-
-/*! Pre End */
 
 /* .post-container>p code,
 .main-container>p code {} */
+
+/*! Pre */
+.post-container pre,
+.main-container pre {
+  overflow: auto;
+}
+
+/* .post-container pre:hover,
+.main-container pre:hover {} */
+
+/* .post-container pre code,
+.main-container pre code {} */
+
+/* .post-container pre::-webkit-scrollbar,
+.main-container::-webkit-scrollbar {} */
+
+/* .post-container pre::-webkit-scrollbar-thumb,
+.main-container::-webkit-scrollbar-thumb {} */
+
+/* .post-container pre::-webkit-scrollbar-track,
+.main-container pre::-webkit-scrollbar-track {} */
+
+/*! Pre end  */
 
 .post-container blockquote,
 .main-container blockquote {
@@ -346,10 +363,7 @@ body {
 /*! */
 @media (prefers-color-scheme: light) {
   body {
-    --color: #E1E1E1;
-    background-color: #F3F3F3;
-    background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent);
-    background-size: 55px 55px;
+    background-color: #f4f4f4;
   }
 
   .note>p {
@@ -362,10 +376,6 @@ body {
 
   .mobile-link {
     background-color: #fff;
-  }
-
-  pre {
-    background-color: #f4f4f4;
   }
 
   .post-container pre::-webkit-scrollbar-thumb,
@@ -382,10 +392,7 @@ body {
   }
 
   body {
-    --color: rgba(114, 114, 114, 0.3);
-    background-color: #191a1a;
-    background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent);
-    background-size: 55px 55px;
+    background-color: #201d2c;
   }
 
   .note>p {
@@ -425,11 +432,6 @@ body {
 
   kbd {
     color: #000;
-  }
-
-  pre {
-    background-color: #201d2c;
-    color: #f4f4f4;
   }
 
   .post-container pre::-webkit-scrollbar-thumb,

@@ -2,6 +2,11 @@
   "name": "my-blog-nextjs",
   "version": "0.1.0",
   "private": true,
+  "browserslist": [
+    ">0.3%",
+    "not dead",
+    "not op_mini all"
+  ],
   "scripts": {
     "dev": "next dev -p 3500",
     "build": "next build",
@@ -32,12 +37,14 @@
     "remark-gfm": "^4.0.1",
     "remark-html": "^16.0.1",
     "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
     "remark-stringify": "^11.0.0",
     "remark-toc": "^9.0.0",
     "rss": "^1.2.2",
     "swiper": "^11.2.6",
     "twikoo": "^1.6.42",
     "typescript": "5.7.3",
+    "unified": "^11.0.5",
     "vercount-react": "^0.1.4"
   },
   "devDependencies": {

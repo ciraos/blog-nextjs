@@ -3,6 +3,7 @@
     "editor.fontFamily": "'Maple Mono Normal', 'Fira code', 微软雅黑, Arial, Consolas, 'Courier New', monospace",
     "editor.fontSize": 13,
     "editor.formatOnSave": true,
+    "editor.wordWrap": "off",
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "explorer.sortOrder": "type",

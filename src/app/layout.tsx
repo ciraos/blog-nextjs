@@ -1,14 +1,7 @@
 import type { Metadata } from "next";
-import NextTopLoader from "nextjs-toploader";
 import "./globals.css";
 import "./twikoo.css";
 import "./fclite.css";
-
-import SSBar from "@/components/ssbar";
-import Navbar from "@/components/navbar";
-import Aside from "@/components/aside";
-import Footer from "@/components/footer";
-// import Rightside from "@/components/rightside";
 
 export const metadata: Metadata = {
   title: "葱苓小筑",
@@ -20,19 +13,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="zh-CN">
       <body>
-        <div id="CIRAOS">
-          <NextTopLoader color="#39c5bb" easing="ease" shadow="0 0 10px #2299DD,0 0 5px #2299DD" showSpinner={false} />
-          <Navbar />
-          <div className="main w-full max-w-5xl my-10 mx-auto max-425:px-2">
-            <SSBar />
-            <div className="flex max-425:flex-col">
-              {children}
-              <Aside />
-            </div>
-          </div>
-          <Footer />
-          {/* <Rightside /> */}
-        </div>
+        <div id="CIRAOS">{children}</div>
       </body>
     </html>
   );

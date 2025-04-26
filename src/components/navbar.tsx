@@ -29,7 +29,11 @@ export default function Navbar() {
 
         {/* 导航栏右侧按钮 */}
         <div className="buttons flex items-center gap-1 dark:text-white">
+          {/* <Link href="https://www.travellings.cn/go.html" target="_blank" rel="noopener" title="开往-友链接力">🚇开往</Link> */}
           <button className="search"><Icon icon="material-symbols:search" className="w-6 h-6" /></button>
+          <button>
+            <Icon icon="material-symbols-light:dashboard-rounded" className="w-6 h-6" />
+          </button>
           <div onClick={() => {
             const a = document.querySelector('#mobile') as HTMLElement;
             const b = document.querySelector('#menu-mask') as HTMLElement;

@@ -18,13 +18,15 @@ export const footernav = [
             { name: "关于窝", link: "/about" },
             { name: "说说", link: "/moments" },
         ]
-    }, {
+    },
+    {
         list: "Git",
         child: [
             { name: "Github", link: "https://github.com/ciraos", target: "_blank", rel: "nofollow noopener noreferrer" },
             { name: "Gitee", link: "https://gitee.com/ciraos", target: "_blank", rel: "nofollow noopener noreferrer" }
         ]
-    }, {
+    },
+    {
         list: "协议",
         child: [
             { name: "隐私协议", link: "/privacy" },

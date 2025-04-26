@@ -40,10 +40,10 @@ export default async function Friends() {
                                 <h2 className="text-md">{group.groupName}{"(" + group.child.length + ")"}</h2>
                                 <div className="text-sm text-slate-600 dark:text-slate-200">{group.groupDescr}</div>
                             </div>
-                            <div className="flex flex-wrap justify-between gap-2 transition-all max-425:justify-around">
+                            <div className="flex flex-wrap justify-between gap-1 transition-all max-425:justify-around">
                                 {group.child.map((child, index) => (
                                     <Link key={index} href={child.link} target="_blank" rel="noopener noreferrer" className="w-44 h-20 overflow-hidden bg-white rounded-xl py-1 px-2 flex items-center justify-evenly transition-all relative dark:bg-[#2c303f] max-425:w-40 max-425:h-24 max-425:flex-col">
-                                        <div style={{ display: child.tag ? 'block' : 'none' }} className="absolute w-fit h-4 top-0 left-0 pl-3 pr-2 rounded-br-lg z-1 text-white text-xs font-bold bg-orange-400">{child.tag}</div>
+                                        <div style={{ display: child.tag ? 'block' : 'none' }} className="absolute z-10 w-fit h-4 top-0 left-0 pl-3 pr-2 rounded-br-lg z-1 text-white text-xs font-bold bg-orange-400">{child.tag}</div>
                                         <Image src={child.avatar} alt="friend_avtar" preview={false} width={40} height={40} className="rounded-[50%]" fallback="https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/404_1.avif" />
                                         <div className="w-[calc(100%-40px)] h-16 ml-2 flex flex-col justify-center overflow-hidden max-425:text-center max-425:w-full">
                                             <div className="text-base truncate text-slate-800 overflow-hidden dark:text-slate-300">{child.name}</div>

@@ -1,10 +1,14 @@
 import Link from "next/link";
-import { Icon } from "@iconify/react";
-import { Image } from "antd";
+// import { redirect } from "next/navigation";
+
 import moment from "moment";
+
+import { Icon } from "@iconify/react";
+import { Image, Pagination } from "antd";
 import { getAllPosts } from "@/lib/posts";
 
 export default function BlogHome() {
+  // redirect("/posts/1");
   const posts = getAllPosts();
   return (
     <>
@@ -31,6 +35,7 @@ export default function BlogHome() {
 
           </div>
         ))}
+        <Pagination defaultCurrent={1} total={1} align="center" className="mt-5" />
       </div>
     </>
   )

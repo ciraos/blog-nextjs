@@ -7,9 +7,9 @@ const postsDir = join(process.cwd(), "posts");
 
 type readingTime = {
     text: string;
+    words: number;
     minutes: string;
     time: number;
-    words: number;
 };
 
 type MetaData = {
@@ -24,8 +24,8 @@ type MetaData = {
     draft?: boolean;
     author?: string;
     comments?: boolean,
+    sticky?: boolean,
     readingTime?: readingTime,
-    sticky?: number
 };
 
 export function getPostBySlug(slug: string) {

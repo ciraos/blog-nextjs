@@ -40,8 +40,8 @@ export default async function Post({ params }: Props) {
         {/* 文章内容说明 */}
         <div className="post-header w-full max-w-6xl h-60 mx-auto px-2 py-2 flex flex-col items-start justify-center dark:text-white">
           <div className="">
-            <span className="h-10 flex items-center px-1 float-left"><Icon icon="mdi:tag-outline" className="mr-1" />{post.meta?.tags}</span>
-            <span className="h-10 flex items-center px-1 float-left"><Icon icon="material-symbols:category-outline" className="mr-1" />{post.meta?.categories}</span>
+            <Link href={`tags/${post.meta?.tags}`} className="h-10 flex items-center px-1 float-left"><Icon icon="mdi:tag-outline" className="mr-1" />{post.meta?.tags}</Link>
+            <Link href={`categories/${post.meta?.categories}`} className="h-10 flex items-center px-1 float-left"><Icon icon="material-symbols:category-outline" className="mr-1" />{post.meta?.categories}</Link>
           </div>
           <div className="text-4xl font-bold my-1">{post.meta?.title}</div>
           <div className="">

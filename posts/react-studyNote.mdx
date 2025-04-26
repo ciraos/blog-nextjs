@@ -4,19 +4,21 @@ date: 2025-03-18 22:43:12
 updated: 2025-03-18 22:43:12
 tags: [react笔记]
 categories: [react笔记,]
-cover: https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/erciyuan/genshin6.avif
+cover: https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/erciyuan/miku13.avif
 keywords: react笔记
 descr: react笔记
 author: 葱苓sama
+sticky: false
+comments: true
 ---
 
 ## 列表渲染
 
-依赖 JavaScript 的特性，例如**for循环**、**array**的 **map()** 函数来渲染组件列表。
+依赖JavaScript的特性，例如**for循环**、**array** 的 **map()** 函数来渲染组件列表。
 
 假设有这么一个列表： 
 
-```typescript
+``` typescript
 export const list = [
     {name: "小明", age: 18}
     {name: "老王", age: 19}
@@ -76,9 +78,12 @@ interface list {
     age: number;
 }
 ```
-**嵌套列表**：
 
-```
+## 嵌套列表
+
+aaaaaaaaaaaaaaaaa
+
+``` typescript
 interface ListWithGroup {
     order: string;
     list: list[];

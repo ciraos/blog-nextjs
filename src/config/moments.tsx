@@ -29,7 +29,8 @@ export const sslist = [
     content: "第一条说说！",
     tag: "心情",
     time: "2024-09-09",
-  }, {
+  },
+  {
     id: 3,
     content: "图片测试",
     images: (<>
@@ -41,27 +42,32 @@ export const sslist = [
     </>),
     tag: "记录",
     time: "2024-09-09",
-  }, {
+  },
+  {
     id: 4,
     content: '所以每个页面的标题该怎么改······',
     tag: '记录',
     time: '2024-09-09',
-  }, {
+  },
+  {
     id: 5,
     content: '可恶，还是不会写怎么获取文章信息·····尴尬··',
     tag: '记录',
     time: '2024-09-09',
-  }, {
+  },
+  {
     id: 6,
     content: '因为不会写瀑布流所以只好用flex来实现了。',
     tag: '记录',
     time: '2024-09-13'
-  }, {
+  },
+  {
     id: 7,
     content: "通义灵码很好的解决了我不会说话的问题（",
     tag: '记录',
     time: '2024-09-17'
-  }, {
+  },
+  {
     id: 8,
     content: "想来想去，还是把说说改成这种左右滑动的吧qwq",
     tag: "记录",
@@ -84,12 +90,14 @@ export const sslist = [
     content: "但是grid的话，怎么做自适应啊，移动端只能宽度100%····所以425宽度下改为block算惹。",
     tag: "记录",
     time: "2024-12-09"
-  }, {
+  },
+  {
     id: 12,
     content: "开开心心升级到nextjs15，又闷闷不乐的退回到14了······",
     tag: "心情",
     time: "2024-12-25"
-  }, {
+  },
+  {
     id: 13,
     content: "米塔全成就达成！",
     images: (<><Image src={miside} alt="miside" title="miside" className="rounded-md" priority /></>),
