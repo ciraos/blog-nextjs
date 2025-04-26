@@ -33,6 +33,9 @@ export async function generateStaticParams() {
 
 export default async function Post({ params }: Props) {
   const { post } = await getPost(params);
+  const posts = await getSortedPosts();
+  // const currentPost = posts.find(async post => post.slug === (await params).slug);
+  const { prev, next } = await getAdjcentPosts((await params).slug);
   return (
     <>
       <div className="w-3/4 flex flex-col max-425:w-full">
@@ -66,10 +69,45 @@ export default async function Post({ params }: Props) {
           <div className="text-sm">链接：<Link href={`https://blog.ciraos.top/posts/${post.slug}`} className="underline">https://blog.ciraos.top/posts/{post.slug}</Link></div>
         </div>
 
+        {/*  */}
+        <div className="h-16 mt-5 flex justify-between gap-2">
+          {prev && (
+            <Link href={`/posts/${prev.slug}`} className="w-1/2 bg-white rounded-l-xl flex justify-center items-center">
+              <Icon icon="material-symbols-light:arrow-back-ios" className="w-10 h-10" />
+              <span className="text-md">{prev.meta?.title}</span>
+            </Link>
+          )}
+
+          {next && (
+            <Link href={`/posts/${next.slug}`} className="w-1/2 bg-white rounded-r-xl flex justify-center items-center">
+              <span className="text-md">{next.meta?.title}</span>
+              <Icon icon="material-symbols-light:arrow-forward-ios-rounded" className="w-10 h-10" />
+            </Link>
+          )}
+        </div>
+
         {/* Twikoo */}
         <Twikoo />
 
-      </div>
+      </div >
     </>
   );
+}
+
+async function getSortedPosts() {
+  const posts = await getAllPosts();
+
+  return posts.sort((a, b) => {
+    return new Date(b.meta?.date).getTime() - new Date(a.meta?.date).getTime();
+  });
+};
+
+async function getAdjcentPosts(currentSlug: string) {
+  const posts = await getSortedPosts();
+  const currentIndex = posts.findIndex((post) => post.slug === currentSlug);
+
+  return {
+    prev: currentIndex > 0 ? posts[currentIndex - 1] : null,
+    next: currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null
+  }
 }
