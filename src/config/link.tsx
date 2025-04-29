@@ -186,7 +186,7 @@ export const friendlink = [
             { name: "南蛮子懋和", link: "https://www.dao.js.cn", avatar: "https://img.dao.js.cn/zb_users/upload/2021/10/202110151634246697912592.png-webp", descr: "李懋和，俗名李栋梁。书法、国画爱好者，互联网安全与前端建设者。" },
             { name: "皓子", link: "https://howiehz.top", avatar: "https://howiehz.top/upload/ico.ico", descr: "互联网是一片海洋，网站犹如一座座孤岛漂浮在其上，唯有超链接将它们联系起来。而此处恰好就是一座小岛，欢迎访问皓子的小站。" },
             { name: "Ganzhe", link: "https://ganzhe2028.github.io", avatar: "https://pic.imgdb.cn/item/64895d391ddac507cce97bc3.webpg", descr: "顺其自然，持之以恒" },
-            { name: "拂晓不辍", link: "https://aowu.dog", avatar: "https://aowu.dog/touxiang.png", descr: "老是在幻想自己是主角..." },
+            { name: "拂晓不辍", link: "https://eggk.net", avatar: "https://eggk.net/touxiang.png", descr: "老是在幻想自己是主角..." },
             { name: "幻想の日常", link: "https://blog.someo.top", avatar: "https://blog.someo.top/data/img/tx.jpeg", descr: "心随幻想，梦行无疆" },
             { name: "笔搁纸鸯", link: "https://b.wihi.top", avatar: "https://b.wihi.top/img/avatar.png", descr: "记我所想，记录生活，随心而为，仅此而已" },
             { name: "水深火乐", link: "https://webly.fun/blog", avatar: "https://webly.fun/favicon.ico", descr: "志向和热爱是伟大行为的双翼" },

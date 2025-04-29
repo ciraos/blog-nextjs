@@ -33,7 +33,7 @@ export async function generateStaticParams() {
 
 export default async function Post({ params }: Props) {
   const { post } = await getPost(params);
-  const posts = await getSortedPosts();
+  // const posts = await getSortedPosts();
   // const currentPost = posts.find(async post => post.slug === (await params).slug);
   const { prev, next } = await getAdjcentPosts((await params).slug);
   return (
