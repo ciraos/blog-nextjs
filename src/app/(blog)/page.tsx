@@ -15,10 +15,10 @@ export default function BlogHome() {
       <div id="recent-post" className="recent-post w-3/4 max-425:w-full">
 
         {posts?.map((post, index) => (
-          <div key={index} className="recent-post-item w-full h-40 flex justify-center bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl dark:bg-[#2c303f] max-425:flex-col max-425:w-full max-425:h-max">
+          <div key={index} className="recent-post-item h-40 flex justify-center bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl dark:bg-[#2c303f] max-425:w-96 max-425:h-80 max-425:flex-col max-425:mx-auto">
 
-            <Link href={`/posts/${post.slug}`} className="home-post-cover w-2/5 max-425:w-full">
-              <Image src={post.meta?.cover} fallback="https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/404_1.avif" alt="post-cover" preview={false} width={307} height={160} className="home-post-cover-img" />
+            <Link href={`/posts/${post.slug}`} className="w-2/5 max-425:w-full">
+              <Image src={post.meta?.cover} fallback="https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/404_1.avif" alt="post-cover" preview={false} className="home-post-cover-img" />
             </Link>
 
             <div className="w-3/5 px-10 flex flex-col justify-center max-425:w-full max-425:py-2 max-425:px-3">

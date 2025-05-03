@@ -17,9 +17,9 @@ export default function Navbar() {
             <li key={index} className="btli w-24 text-center">
               <div className="no-underline hover:underline hover:underline-offset-2">
                 <div className="text-base">{item.list}</div>
-                <ul className="droplist hidden absolute w-24 mx-auto rounded-lg overflow-hidden z-10 divide-y-2 divide-solid divide-gray-400 bg-white">
+                <ul className="droplist hidden absolute w-24 mx-auto border-[1px] border-slate-300 rounded-lg overflow-hidden z-10 divide-y-2 divide-solid divide-gray-400 bg-white">
                   {item.child.map((link, index) => (
-                    <li key={index} className="w-full h-10 flex items-center text-base justify-center cotnent-center text-black hover:text-purple-500 text-[15.8px]"><Link href={link.link} className="flex items-center justify-center gap-1">{link.name}</Link></li>
+                    <li key={index} className="w-full h-10 flex items-center text-md justify-center text-black hover:text-purple-500"><Link href={link.link} className="flex items-center justify-center gap-1">{link.name}</Link></li>
                   ))}
                 </ul>
               </div>

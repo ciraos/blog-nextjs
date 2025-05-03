@@ -19,7 +19,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="w-3/5 my-1 mx-auto px-0 text-left gap-5 flex flex-wrap justify-between max-425:px-5">
+        <div className="w-3/5 my-1 mx-auto px-0 text-left gap-5 flex flex-wrap justify-between max-425:w-full max-425:px-5">
           {footernav?.map((a, index) => (
             <div key={index} className="w-20">
               <div className="mb-[1px] select-none text-lg font-semibold text-slate-500 dark:text-slate-400">{a.list}</div>

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 
-import { Image, Tabs } from "antd";
+import { Image, Space, Tabs } from "antd";
 import type { TabsProps } from "antd";
 import "@ant-design/v5-patch-for-react-19";
 
@@ -40,7 +40,7 @@ export default async function Friends() {
                                 <h2 className="text-md">{group.groupName}{"(" + group.child.length + ")"}</h2>
                                 <div className="text-sm text-slate-600 dark:text-slate-200">{group.groupDescr}</div>
                             </div>
-                            <div className="flex flex-wrap justify-between gap-1 transition-all max-425:justify-around">
+                            <Space size="middle" wrap className="transition-all">
                                 {group.child.map((child, index) => (
                                     <Link key={index} href={child.link} target="_blank" rel="noopener noreferrer" className="w-44 h-20 overflow-hidden bg-white rounded-xl py-1 px-2 flex items-center justify-evenly transition-all relative dark:bg-[#2c303f] max-425:w-40 max-425:h-24 max-425:flex-col">
                                         <div style={{ display: child.tag ? 'block' : 'none' }} className="absolute z-10 w-fit h-4 top-0 left-0 pl-3 pr-2 rounded-br-lg z-1 text-white text-xs font-bold bg-orange-400">{child.tag}</div>
@@ -51,7 +51,7 @@ export default async function Friends() {
                                         </div>
                                     </Link>
                                 ))}
-                            </div>
+                            </Space>
                         </div>
                     ))}
                 </div>

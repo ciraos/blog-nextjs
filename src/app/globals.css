@@ -36,6 +36,11 @@ body {
   margin-top: 20px;
 }
 
+.main-container>ul>li:not(:first-child),
+.post-container>ul>li:not(:first-child) {
+  margin-top: 5px;
+}
+
 .aside-categories,
 .aside-tags {
   word-break: break-all;
