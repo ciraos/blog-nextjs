@@ -14,7 +14,8 @@ export default function Moments() {
   return (
     <>
       <div className="w-3/4 max-425:w-full">
-        <div className="">
+
+        <div className="flex flex-row flex-wrap gap-1 justify-start">
           {sslist.map((item) => (
             <div key={item.id} id="ss-item" className="ss-item w-60 h-max bg-white rounded-xl flex flex-col justify-between py-2 px-2 shadow-sm hover:shadow-md dark:bg-[#2c303f] dark:text-white max-425:w-full">
               <p className="">{item.content}</p>
@@ -27,6 +28,7 @@ export default function Moments() {
             </div>
           ))}
         </div>
+
         <Twikoo />
       </div>
     </>

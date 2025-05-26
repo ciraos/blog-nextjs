@@ -13,11 +13,11 @@ export default function BlogLayout({ children }: Readonly<{ children: React.Reac
                 theme={{
                     token: {
                         // Seed Token，影响范围大
-                        colorPrimary: '#ED4192',
+                        colorPrimary: '#39C5BB',
                         borderRadius: 12,
 
                         // 派生变量，影响范围小
-                        colorBgContainer: '#39C5BB',
+                        colorBgContainer: '#ED4192',
                     },
                 }}
             >

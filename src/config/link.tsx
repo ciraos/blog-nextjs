@@ -1,3 +1,4 @@
+
 interface friendlink {
     groupName: string,
     groupDescr: string,
@@ -182,7 +183,7 @@ export const friendlink = [
             { name: "凌尘k", link: "https://b.icxk.cn", avatar: "https://cdn.jsdelivr.net/gh/lck68/imagehost/img/tx.webp", descr: "于高山之巅，方见大河奔涌；于群峰之上，更觉长风浩荡。" },
             { name: "岚天小窝", link: "https://blog.ltya.top", avatar: "https://gravatar.ltya.top/avatar/5af06b461740fb2bd7467b8561399703?s=500", descr: "一只鸽子住在这里~" },
             { name: "微霞", link: "https://yuuu.org", avatar: "https://cdn.yuuu.org/img/avatar.webp", descr: "水风清，晚霞明" },
-            { name: "OnewBlog", link: "https://blog.onedabuliu.cn/", avatar: "https://img.onedabuliu.cn/file/1741045424366_logo.jpg", descr: "学习是进步的阶梯", siteshot: "https://img.onedabuliu.cn/file/Snipaste_2025-03-10_17-08-40.png" },
+            { name: "OnewBlog", link: "https://blog.onew.us.kg", avatar: "https://img.onew.us.kg/file/1741045424366_logo.jpg", descr: "学习是进步的阶梯", siteshot: "https://img.onew.us.kg/file/Snipaste_2025-03-10_17-08-40.png" },
             { name: "南蛮子懋和", link: "https://www.dao.js.cn", avatar: "https://img.dao.js.cn/zb_users/upload/2021/10/202110151634246697912592.png-webp", descr: "李懋和，俗名李栋梁。书法、国画爱好者，互联网安全与前端建设者。" },
             { name: "皓子", link: "https://howiehz.top", avatar: "https://howiehz.top/upload/ico.ico", descr: "互联网是一片海洋，网站犹如一座座孤岛漂浮在其上，唯有超链接将它们联系起来。而此处恰好就是一座小岛，欢迎访问皓子的小站。" },
             { name: "Ganzhe", link: "https://ganzhe2028.github.io", avatar: "https://pic.imgdb.cn/item/64895d391ddac507cce97bc3.webpg", descr: "顺其自然，持之以恒" },
@@ -201,6 +202,9 @@ export const friendlink = [
             { name: "Mikuの极光星", link: "https://blog.sotkg.com", avatar: "https://cravatar.cn/avatar/1012bf78fb01d5b964c3a9a0f515911a.png", descr: "心有多宽，世界就有多远" },
             { name: "我的编程之路", link: "https://yys.zone", avatar: "https://yys.zone/static/avatar.jpg", descr: "一个分享编程知识多年的练习生。" },
             { name: "东方月初", link: "https://blog.biuxin.com", avatar: "https://serv.200038.xyz/2024/09/19/040857.webp", descr: "分享有趣但又无聊的东西。", siteshot: "https://serv.200038.xyz/2024/09/23/930491.webp" },
+            { name: "LeonXie", link: "https://www.leonxie.cn", avatar: "https://www.leonxie.cn/upload/%E7%8C%AB%E7%8C%AB%E5%A4%B4.PNG", descr: "保持热爱，奔赴山海！" },
+            { name: "砂纸", link: "https://blog.dimeta.top", avatar: "https://blog.dimeta.top/upload/avatar.jpg", descr: "主题：砂纸の小屋，科技，游戏，生活为主的blog", siteshot: "https://blog.dimeta.top/upload/website_shot.png", rss: "https://blog.dimeta.top/rss.xml" },
+            { name: "极客日记", link: "https://www.explorexd.com", avatar: "https://halo.cos.explorexd.com/halo/jack.jpeg", descr: "莫愁前路无知己，天下谁人不识君。", rss: "https://www.explorexd.com/rss.xml" },
             // { name: "", link: "", avatar: "", descr: "" },
         ],
     },

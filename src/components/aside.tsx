@@ -9,7 +9,9 @@ export default async function Aside() {
     const posts = await getAllPosts();
     return (
         <>
-            <div id="aside" className="aside w-1/4 pl-4 max-425:w-full max-425:mt-5 max-425:pl-0">
+            <div id="aside"
+                // style={{ display: posts.meta?.aside ? "" : "" }}
+                className="aside w-1/4 pl-4 max-425:w-full max-425:mt-5 max-425:pl-0">
 
                 {/* 基本信息 */}
                 <div className="h-max rounded-xl py-2 px-0 border-[1px] border-solid border-slate-400 text-center shadow-md hover:shadow-xl max-425:hidden">
