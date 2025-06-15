@@ -9,12 +9,13 @@
     "explorer.sortOrder": "type",
     "files.associations": {
         "*.mdx": "markdown",
+        "*.ts": "typescriptreact",
         "*.tsx": "typescriptreact"
     },
     "files.autoSave": "onFocusChange",
     "picgo.customOutputFormat": "${url}",
     "picgo.customUploadName": "${fileName}${extName}",
     "picgo.picBed.current": "smms",
-    "picgo.picBed.smms.token": "zZZ8qNx2CwSHnQw9jmaIAqoIRCj49PRk",
+    "picgo.picBed.smms.token": "",
     "workbench.colorTheme": "Dracula Theme Soft"
 }

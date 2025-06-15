@@ -42,7 +42,6 @@ next-env.d.ts
 
 #!
 _next/
-.vscode/
 publish.sh
 pnpm-lock.yaml
 blog-nextjs.zip
