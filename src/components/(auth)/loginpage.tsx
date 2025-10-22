@@ -1,4 +1,5 @@
 "use client";
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import type {
     FormProps
@@ -9,6 +10,7 @@ import {
     Form,
     Input
 } from 'antd';
+import "@ant-design/v5-patch-for-react-19";
 
 type FieldType = {
     email?: string;
@@ -37,7 +39,7 @@ export default function LoginPage() {
     return (
         <>
             <div
-                className='login-box pt-12 px-6 mx-auto rounded-xl bg-white shadow-md hover:shadow-lg'
+                className='login-box pt-12 pb-2 px-6 mx-auto rounded-xl bg-white shadow-md hover:shadow-lg'
             >
                 <Form
                     name="basic"
@@ -72,6 +74,10 @@ export default function LoginPage() {
                     <Form.Item label={null}>
                         <Button type="primary" htmlType="submit">提交</Button>
                     </Form.Item>
+
+                    <p>
+                        忘记密码了？去<Link href="/forgotpassword">恢复</Link>
+                    </p>
                 </Form>
             </div>
         </>

@@ -15,6 +15,7 @@ import {
     Select,
 } from 'antd';
 import type { DefaultOptionType } from 'antd/es/select';
+import "@ant-design/v5-patch-for-react-19";
 
 interface FormCascaderOption {
     value: string;

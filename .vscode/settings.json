@@ -3,6 +3,7 @@
     "editor.fontLigatures": true,
     "editor.fontSize": 13,
     "editor.fontWeight": "normal",
+    "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "file",
     "explorer.confirmDelete": false,

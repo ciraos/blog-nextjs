@@ -1,5 +1,6 @@
 import Link from "next/link";
 import "../globals.css";
+
 import {
   Button
 } from "antd";
@@ -15,6 +16,7 @@ export default function BlogLayout({ children }: Readonly<{ children: React.Reac
 
           <div className="header w-4/5 h-16 mx-auto px-5 flex items-center justify-between bg-white rounded-xl shadow-sm hover:shadow-md">
             <Link href="/">葱苓小筑</Link>
+            <Button className="" type="text" href="/login">登录/注册</Button>
           </div>
 
           <div className="blog-container w-full mt-10 mb-5 mx-auto flex ">
