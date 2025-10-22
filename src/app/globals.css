@@ -1,26 +1,76 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*! */
+/* :root {} */
+
+/* @theme inline {} */
+
+/*! */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/*! */
+.recent-posts>.recent-posts-item:not(:first-child),
+aside>.aside-item:not(:first-child) {
+  margin-top: 12px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/*! */
+.blog-container {
+  max-width: 1200px;
+}
+
+/* .recent-posts {} */
+
+.recent-posts>.recent-posts-item {
+  height: 14.8em;
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+aside {
+  height: auto;
+}
+
+aside>.aside-item {
+  width: 100%;
+  padding: 4px 6px;
+  border-radius: 12px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+/*! */
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #f4f4f4;
+  }
+
+  aside>.aside-item {
+    background-color: #fff;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #0a0a0a;
+  }
+}
+
+/*! */
+@media screen and (max-width: 768px) {
+  .blog-container {
+    width: 96%;
+    margin: 0 auto;
+    flex-direction: column;
+  }
+
+  .blog-container>.content,
+  .blog-container>aside {
+    width: 75%;
+    margin: 0 auto;
+  }
 }
