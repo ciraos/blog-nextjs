@@ -3,16 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --webpack",
+    "dev": "next dev --webpack -p 3126",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "copy": "cp -r public .next/standalone/ && cp -r .next/static .next/standalone/.next/",
+    "deploy": "pnpm i && pnpm build && pnpm copy && export PORT=3126 && node .next/standalone/server.js"
   },
   "dependencies": {
     "@ant-design/icons": "~5.6.1",
     "@ant-design/nextjs-registry": "^1.1.0",
     "@ant-design/v5-patch-for-react-19": "^1.0.3",
     "antd": "^5.27.6",
+    "js-cookie": "^3.0.5",
     "next": "16.0.0",
     "react": "19.2.0",
     "react-dom": "19.2.0"

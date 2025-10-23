@@ -5,9 +5,16 @@ export function DELETE() {
         {
             success: true,
             msg: "登出成功"
-        }
+        },
+        { status: 200 }
     );
 
-    res.cookies.set("token", "", { maxAge: 0 });
+    res.cookies.set("token", "", {
+        maxAge: 0,
+        path: "/",
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "strict"
+    });
     return res;
 }

@@ -22,14 +22,29 @@ export default function LoginPage() {
     const router = useRouter();
 
     const onFinish: FormProps<FieldType>['onFinish'] = async (values) => {
-        const aa = await fetch('/api/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(values)
-        })
-        await aa.json();
-        router.push('/dashboard');
-        // console.log('Success:', values);
+        try {
+            const res = await fetch('/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(values)
+            });
+
+            if (!res.ok) {
+                throw new Error(`HTTP error! Status: ${res.status}`);
+            }
+
+            const data = await res.json();
+
+            // 可根据实际接口返回字段进一步细化判断条件
+            if (data.success) {
+                router.push('/dashboard');
+            } else {
+                alert("登录失败，请检查用户名或密码");
+            }
+        } catch (error) {
+            console.error("Login request failed:", error);
+            alert("网络异常，请稍后再试");
+        }
     };
 
     const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = (errorInfo) => {
@@ -45,7 +60,6 @@ export default function LoginPage() {
                     name="basic"
                     labelCol={{ span: 8 }}
                     wrapperCol={{ span: 16 }}
-                    style={{}}
                     initialValues={{ remember: false }}
                     onFinish={onFinish}
                     onFinishFailed={onFinishFailed}
@@ -66,10 +80,6 @@ export default function LoginPage() {
                     >
                         <Input.Password />
                     </Form.Item>
-
-                    {/* <Form.Item<FieldType> name="remember" valuePropName="checked" label={null}>
-                        <Checkbox>Remember me</Checkbox>
-                    </Form.Item> */}
 
                     <Form.Item label={null}>
                         <Button type="primary" htmlType="submit">提交</Button>

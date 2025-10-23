@@ -13,9 +13,10 @@ import type {
     MenuProps
 } from 'antd';
 import {
-    AppstoreOutlined,
+    // AppstoreOutlined,
+    BookOutlined,
     HomeOutlined,
-    MailOutlined,
+    // MailOutlined,
     SettingOutlined
 } from '@ant-design/icons';
 import "@ant-design/v5-patch-for-react-19";
@@ -37,6 +38,11 @@ const items: MenuItem[] = [
         key: '2',
         icon: <SettingOutlined />,
         label: (<Link href="/settings">设&nbsp;&nbsp;&nbsp;置</Link>)
+    },
+    {
+        key: '99',
+        icon: <BookOutlined />,
+        label: (<Link href="/">博客首页</Link>)
     }
 ];
 

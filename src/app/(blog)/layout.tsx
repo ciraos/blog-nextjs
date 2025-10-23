@@ -1,14 +1,42 @@
+import { cookies } from "next/headers";
 import Link from "next/link";
 import "../globals.css";
 
 import {
-  Button
+  Avatar,
+  Button,
+  Dropdown
 } from "antd";
+import type {
+  MenuProps
+} from "antd";
+import {
+  HomeOutlined,
+  LogoutOutlined
+} from "@ant-design/icons";
 import "@ant-design/v5-patch-for-react-19";
 
+import LogoutButton from "@/components/buttons/logout";
 import Aside from "@/components/(blog)/aside";
 
-export default function BlogLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
+const items: MenuProps['items'] = [
+  {
+    key: '1',
+    label: (<Link href="/dashboard">仪表盘</Link>),
+    icon: (<HomeOutlined />)
+  },
+  {
+    key: '2',
+    label: (<LogoutButton />),
+    icon: (<LogoutOutlined />)
+  }
+];
+
+export default async function BlogLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
+  const cookieStore = await cookies();
+  const token = cookieStore.get("token")?.value;
+  const isLogin = !!token;
+
   return (
     <html lang="zh-CN">
       <body>
@@ -16,7 +44,15 @@ export default function BlogLayout({ children }: Readonly<{ children: React.Reac
 
           <div className="header w-4/5 h-16 mx-auto px-5 flex items-center justify-between bg-white rounded-xl shadow-sm hover:shadow-md">
             <Link href="/">葱苓小筑</Link>
-            <Button className="" type="text" href="/login">登录/注册</Button>
+            {isLogin ?
+              <Dropdown menu={{ items }}>
+                <Avatar
+                  className="hover:cursor-pointer"
+                >User</Avatar>
+              </Dropdown>
+              :
+              <Button className="" type="primary" href="/login">登录/注册</Button>
+            }
           </div>
 
           <div className="blog-container w-full mt-10 mb-5 mx-auto flex ">
