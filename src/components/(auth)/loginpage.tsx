@@ -60,7 +60,7 @@ export default function LoginPage() {
                     name="basic"
                     labelCol={{ span: 8 }}
                     wrapperCol={{ span: 16 }}
-                    initialValues={{ remember: false }}
+                    initialValues={{ remember: true }}
                     onFinish={onFinish}
                     onFinishFailed={onFinishFailed}
                     autoComplete="off"
@@ -85,9 +85,12 @@ export default function LoginPage() {
                         <Button type="primary" htmlType="submit">提交</Button>
                     </Form.Item>
 
-                    <p>
-                        忘记密码了？去<Link href="/forgotpassword">恢复</Link>
-                    </p>
+                    <div className='flex items-center justify-between'>
+                        <p>
+                            忘记密码了？去<Link href="/forgotpassword">恢复</Link>
+                        </p>
+                        <Button type='link' href="/">返回首页</Button>
+                    </div>
                 </Form>
             </div>
         </>

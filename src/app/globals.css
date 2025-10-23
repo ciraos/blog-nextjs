@@ -62,15 +62,29 @@ aside>.aside-item {
 
 /*! */
 @media screen and (max-width: 768px) {
+  /* .header {} */
+
   .blog-container {
-    width: 96%;
-    margin: 0 auto;
+    width: 100%;
+    /* margin: 40px auto 0; */
     flex-direction: column;
   }
 
   .blog-container>.content,
   .blog-container>aside {
-    width: 75%;
+    width: 96%;
     margin: 0 auto;
+  }
+
+  /* aside {} */
+
+  .info {
+    display: none;
+  }
+}
+
+@media screen and (max-width:1024px) and (min-width: 769px) {
+  .blog-container {
+    padding: 0 20px;
   }
 }

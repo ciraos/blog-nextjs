@@ -1,16 +1,17 @@
 import {
     Image
 } from "antd";
+import "@ant-design/v5-patch-for-react-19";
 
 export default function Aside() {
     return (
         <>
             <aside
-                className="w-[24%] h-auto pl-4"
+                className="aside w-[24%] h-auto pl-4"
             >
 
                 <div
-                    className="aside-item h-66 flex items-center justify-center"
+                    className="aside-item info h-66 flex items-center justify-center"
                 >
                     <Image
                         width={110}
