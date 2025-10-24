@@ -15,6 +15,7 @@ import {
   LogoutOutlined
 } from "@ant-design/icons";
 import "@ant-design/v5-patch-for-react-19";
+import { Icon } from "@iconify/react";
 
 import LogoutButton from "@/components/buttons/logout";
 import Aside from "@/components/(blog)/aside";
@@ -43,16 +44,21 @@ export default async function BlogLayout({ children }: Readonly<{ children: Reac
         <div id="CIRAOS">
 
           <div className="header w-full h-16 mx-0 px-5 flex items-center justify-between bg-white rounded-none shadow-sm hover:shadow-md">
-            <Link href="/">葱苓小筑</Link>
-            {isLogin ?
-              <Dropdown menu={{ items }}>
-                <Avatar
-                  className="hover:cursor-pointer"
-                >User</Avatar>
-              </Dropdown>
-              :
-              <Button className="" type="primary" href="/login">登录/注册</Button>
-            }
+            <Link className="text-md text-shadow-cyan-300" href="/">葱苓小筑</Link>
+            <div className="flex items-center justify-center">
+              {isLogin ?
+                <Dropdown menu={{ items }}>
+                  <Avatar
+                    className="hover:cursor-pointer"
+                  >User</Avatar>
+                </Dropdown>
+                :
+                <Button type="primary" href="/login">登录/注册</Button>
+              }
+              <div className="menu-btn">
+                <Icon icon="mdi:menu" width="30" height="30" />
+              </div>
+            </div>
           </div>
 
           <div className="blog-container w-full my-10 mx-auto flex ">

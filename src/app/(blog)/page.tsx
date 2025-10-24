@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <div className="recent-posts">
-        <div className="recent-posts-item"></div>
+        <div className="recent-posts-item">1</div>
       </div>
     </>
   );
