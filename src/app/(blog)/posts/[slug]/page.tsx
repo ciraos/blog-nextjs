@@ -1,12 +1,17 @@
+import { Metadata } from "next";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getPostBySlug, getAllPosts } from "@/utils/posts";
 
-type Props = {
-    params: { slug: string };
-    searchParams: { [key: string]: string | string[] | undefined };
+export const metadata: Metadata = {
+    title: "不知道怎么动态取名的小笨蛋",
 };
 
-async function getPost(params: Props["params"]) {
+type Props = {
+    params: Promise<{ slug: string }>;
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
+
+async function getPost(params: { slug: string }) {
     const post = getPostBySlug(params.slug);
     return { post };
 }
@@ -18,7 +23,8 @@ export async function generateStaticParams() {
     return posts.map((post) => ({ slug: post.slug }));
 }
 
-export default async function Post({ params }: Props) {
+export default async function Post(props: Props) {
+    const params = await props.params;
     const { post } = await getPost(params);
 
     return (

@@ -22,19 +22,19 @@ export async function POST(req: NextRequest) {
             );
         }
 
-        const response = await fetch(`${baseUrl}/auth/login`, {
+        const a = await fetch(`${baseUrl}/auth/login`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email, password }),
         });
 
-        const data = await response.json();
+        const data = await a.json();
 
         // API调用失败处理
-        if (!response.ok) {
+        if (!a.ok) {
             return NextResponse.json(
                 { success: false, message: data.message || "登录失败" },
-                { status: response.status }
+                { status: a.status }
             );
         }
 

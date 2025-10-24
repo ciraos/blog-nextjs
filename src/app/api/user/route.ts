@@ -13,7 +13,7 @@ export async function GET(req: NextRequest) {
             );
         }
 
-        const response = await fetch(`${baseUrl}/user/info`, {
+        const b = await fetch(`${baseUrl}/user/info`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -21,14 +21,14 @@ export async function GET(req: NextRequest) {
             }
         });
 
-        if (!response.ok) {
+        if (!b.ok) {
             return NextResponse.json(
                 { success: false, message: "获取用户信息失败" },
-                { status: response.status }
+                { status: b.status }
             );
         }
 
-        const data = await response.json();
+        const data = await b.json();
         // console.log(data);
 
         return NextResponse.json({ success: true, data });

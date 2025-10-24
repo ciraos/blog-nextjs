@@ -1,14 +1,32 @@
 import { Metadata } from "next";
 
+import {
+  Image
+} from "antd";
+import "@ant-design/v5-patch-for-react-19";
+import { getAllPosts } from "@/utils/posts";
+
 export const metadata: Metadata = {
   title: "葱苓小筑 | 首页",
 };
 
-export default function Home() {
+export default async function Home() {
+  const posts = await getAllPosts();
+
   return (
     <>
       <div className="recent-posts">
-        <div className="recent-posts-item">1</div>
+        {
+          posts.map((item, index) => (
+            <div className="recent-posts-item" key={index}>
+              <Image
+                preview={false}
+                src="error"
+              />
+              <div></div>
+            </div>
+          ))
+        }
       </div>
     </>
   );

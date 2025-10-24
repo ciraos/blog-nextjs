@@ -1,4 +1,3 @@
-import Link from "next/link";
 
 import { getAllPosts } from "@/utils/posts";
 
@@ -7,19 +6,13 @@ export default async function Posts() {
 
     return (
         <div className="recent-posts">
-            {posts?.map((post: any) => (
-                <Link
-                    href={`/posts/${post.slug}`}
+            {posts.map((item, index) => (
+                <div
+                    key={index}
                     className="recent-posts-item"
-                    key={post.slug}
                 >
-                    <div className="">
-                        {post.meta?.title}
-                    </div>
-                    <time className="">
-                        {post.meta?.created?.toString()}
-                    </time>
-                </Link>
+                    {item.meta?.title}
+                </div>
             ))}
         </div>
     );

@@ -6,7 +6,7 @@ import type {
 } from 'antd';
 import {
     Button,
-    Checkbox,
+    // Checkbox,
     Form,
     Input
 } from 'antd';
@@ -23,17 +23,17 @@ export default function LoginPage() {
 
     const onFinish: FormProps<FieldType>['onFinish'] = async (values) => {
         try {
-            const res = await fetch('/api/login', {
+            const aa = await fetch('/api/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(values)
             });
 
-            if (!res.ok) {
-                throw new Error(`HTTP error! Status: ${res.status}`);
+            if (!aa.ok) {
+                throw new Error(`HTTP error! Status: ${aa.status}`);
             }
 
-            const data = await res.json();
+            const data = await aa.json();
 
             // 可根据实际接口返回字段进一步细化判断条件
             if (data.success) {

@@ -4,14 +4,31 @@ import matter from "gray-matter";
 
 const postsDir = join(process.cwd(), "posts");
 
-type MetaData = {
-    title: string;
+interface PostMeta {
+    id: string;
     created: Date;
     updated?: Date;
-    categories: string[];
-    tags?: string[];
-    descr?: string;
-    draft?: boolean;
+    title: string;
+    cover_url?: string;
+    // status: 'DRAFT' | 'PUBLISHED';
+    // view_count?: number;
+    // word_count?: number;
+    reading_time?: number;
+    ip_location?: string;
+    // primary_color?: string;
+    // is_primary_color_manual?: boolean;
+    post_tags?: string[];
+    post_categories?: string[];
+    home_sort?: number;
+    pin_sort?: number;
+    top_img_url?: string;
+    summaries: string,
+    abbrlink: string;
+    copyright: boolean;
+    copyright_author: string;
+    copyright_author_href: string;
+    copyright_url: string;
+    keywords: string;
 };
 
 export function getPostBySlug(slug: string) {
@@ -19,11 +36,11 @@ export function getPostBySlug(slug: string) {
     const fullPath = join(postsDir, `${realSlug}.mdx`);
     const fileContents = fs.readFileSync(fullPath, "utf8");
     const { data, content, excerpt } = matter(fileContents, { excerpt: true, });
-    const meta = { ...data } as MetaData;
+    const meta = { ...data } as PostMeta;
 
-    console.log('----------');
-    console.log('This is realSlug: ' + realSlug);
-    console.log('This is realSlug: ' + fullPath);
+    // console.log('----------');
+    // console.log('This is realSlug: ' + realSlug);
+    // console.log('This is realSlug: ' + fullPath);
 
     return { slug: realSlug, meta, content, excerpt };
 }
