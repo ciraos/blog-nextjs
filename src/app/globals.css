@@ -19,6 +19,10 @@ aside>.aside-item:not(:first-child) {
   margin-top: 12px;
 }
 
+.recent-posts>.recent-posts-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
 /*! */
 .menu-btn {
   display: none;
@@ -38,6 +42,8 @@ aside>.aside-item:not(:first-child) {
   height: 14.8em;
   border-radius: 12px;
   background-color: #fff;
+  display: flex;
+  overflow: hidden;
 }
 
 aside {

@@ -14,7 +14,7 @@ export default function Aside() {
             >
 
                 <div
-                    className="aside-item info h-76"
+                    className="aside-item info h-82"
                 >
                     <div className="w-4/5 h-8 mx-auto bg-slate-100 rounded-xl text-sm text-center font-semibold font-mono content-center shadow-xs text-slate-600">Don't worry, be happy.</div>
                     <div className="w-full h-[calc(100%-32px-32px)] flex items-center justify-center">

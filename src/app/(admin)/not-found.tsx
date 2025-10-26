@@ -11,7 +11,7 @@ export default function NotFound() {
                 status="404"
                 title="404"
                 subTitle="对不起，您访问的页面不存在！"
-                extra={<Button type="primary" href="/">Back Home</Button>}
+                extra={<Button type="primary" href="/dasboard">返回仪表盘</Button>}
             />
         </>
     );
