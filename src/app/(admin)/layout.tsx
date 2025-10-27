@@ -90,10 +90,10 @@ export default function AdminLayout({ children }: Readonly<{ children: React.Rea
     };
 
     const handlerLogout = async () => {
-        const bb = await fetch("/api/logout", {
-            method: "DELETE",
+        const b = await fetch("/api/logout", {
+            "method": "DELETE",
         });
-        const data = await bb.json();
+        const data = await b.json();
         if (data.success) {
             router.push("/login");
         }

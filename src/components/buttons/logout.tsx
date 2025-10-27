@@ -5,10 +5,10 @@ export default function LogoutButton() {
     const router = useRouter();
 
     const handlerLogout = async () => {
-        const e = await fetch("/api/logout", {
-            method: "DELETE"
+        const c = await fetch("/api/logout", {
+            "method": "DELETE"
         });
-        const data = await e.json();
+        const data = await c.json();
         if (data.success) {
             router.refresh();
         }

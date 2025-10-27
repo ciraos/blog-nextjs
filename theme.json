@@ -1,0 +1,34 @@
+{
+    "name": "theme-ciraos-blog",
+    "displayName": "葱苓博客主题",
+    "version": "0.0.1",
+    "description": "这是一个示例博客主题，展示了主题开发的基本结构和功能。",
+    "author": {
+        "name": "葱苓",
+        "email": "ciraos@yeah.net",
+        "url": "https://blog.ciraos.top"
+    },
+    "license": "MIT",
+    "homepage": "https://github.com/ciraos/theme-ciraos-blog",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ciraos/theme-ciraos-blog.git"
+    },
+    "keywords": [
+        "博客",
+        "响应式",
+        "现代化",
+        "简洁"
+    ],
+    "category": "blog",
+    "screenshots": "https://upload-bbs.miyoushe.com/upload/2025/09/18/125766904/359dbf5b0ce07e56a960b31063c44280_4491727436207297404.png",
+    "engines": {
+        "anheyu": ">=1.0.0"
+    },
+    "features": [
+        "responsive-design",
+        "dark-mode",
+        "seo-friendly",
+        "customizable-colors"
+    ]
+}

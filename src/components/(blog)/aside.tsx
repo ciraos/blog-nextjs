@@ -5,8 +5,12 @@ import {
 } from "antd";
 import "@ant-design/v5-patch-for-react-19";
 import { Icon } from "@iconify/react";
+import moment from "moment";
+import { getAllPosts } from "@/utils/posts";
 
-export default function Aside() {
+export default async function Aside() {
+    const posts = await getAllPosts();
+
     return (
         <>
             <aside
@@ -16,9 +20,10 @@ export default function Aside() {
                 <div
                     className="aside-item info h-82"
                 >
-                    <div className="w-4/5 h-8 mx-auto bg-slate-100 rounded-xl text-sm text-center font-semibold font-mono content-center shadow-xs text-slate-600">Don't worry, be happy.</div>
+                    <div className="w-4/5 h-8 mx-auto bg-slate-100 rounded-xl text-sm text-center font-semibold font-mono content-center shadow-xs text-slate-600">Don&apost&nbsp;worry, be happy.</div>
                     <div className="w-full h-[calc(100%-32px-32px)] flex items-center justify-center">
                         <Image
+                            alt="avatar"
                             style={{ width: 120, height: "calc(100%-32px-32px)" }}
                             className="rounded-full border-2 border-slate-200"
                             preview={false}
@@ -42,7 +47,17 @@ export default function Aside() {
 
                 <div className="aside-item">
                     <div className="aside-item-title"><Icon icon="grommet-icons:article" width="20px" height="20px" /><span className="pl-1">最新文章</span></div>
-                    <p>b</p>
+                    <div className="flex flex-col gap-1">
+                        {posts.map((item, index) => (
+                            <div
+                                className="w-full text-sm flex justify-between items-center"
+                                key={index}
+                            >
+                                <Link href={`/posts/${item.slug}`}>{item.meta?.title}</Link>
+                                <span>{moment(item.meta?.created).format('YYYY-MM-DD')}</span>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
             </aside>

@@ -15,6 +15,7 @@ export default async function Posts() {
                     <div key={index} className="recent-posts-item shadow-sm">
                         <Link href={`/posts/${item.slug}`}>
                             <Image
+                                alt="article-cover"
                                 style={{ width: 272, height: 236.8 }}
                                 preview={false}
                                 src={item.meta?.top_img_url}

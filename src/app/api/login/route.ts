@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 export async function POST(req: NextRequest) {
     try {
@@ -15,17 +15,17 @@ export async function POST(req: NextRequest) {
         }
 
         // 环境变量检查
-        if (!baseUrl) {
+        if (!API_BASE_URL) {
             return NextResponse.json(
                 { success: false, message: "服务器配置错误" },
                 { status: 500 }
             );
         }
 
-        const a = await fetch(`${baseUrl}/auth/login`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email, password }),
+        const a = await fetch(`${API_BASE_URL}/api/auth/login`, {
+            "method": "POST",
+            'headers': { "Content-Type": "application/json" },
+            "body": JSON.stringify({ email, password }),
         });
 
         const data = await a.json();
@@ -58,9 +58,10 @@ export async function POST(req: NextRequest) {
             sameSite: "strict"
         });
 
+        console.log(API_BASE_URL + '/api/auth/login');
         return res;
     } catch (error) {
-        // 统一错误处理
+        console.error(error);
         return NextResponse.json(
             { success: false, message: "服务器内部错误" },
             { status: 500 }

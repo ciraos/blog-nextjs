@@ -24,7 +24,7 @@ export default function LoginPage() {
     const onFinish: FormProps<FieldType>['onFinish'] = async (values) => {
         try {
             const aa = await fetch('/api/login', {
-                method: 'POST',
+                "method": 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(values)
             });

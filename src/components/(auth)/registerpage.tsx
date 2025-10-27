@@ -1,64 +1,68 @@
 "use client";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import type { CascaderProps, FormItemProps, FormProps } from 'antd';
+import type {
+    // CascaderProps, 
+    FormItemProps,
+    FormProps
+} from 'antd';
 import {
     AutoComplete,
     Button,
-    Cascader,
+    // Cascader,
     Checkbox,
-    Col,
+    // Col,
     Form,
     Input,
-    InputNumber,
-    Row,
-    Select,
+    // InputNumber,
+    // Row,
+    // Select,
 } from 'antd';
 import type { DefaultOptionType } from 'antd/es/select';
 import "@ant-design/v5-patch-for-react-19";
 
-interface FormCascaderOption {
-    value: string;
-    label: string;
-    children?: FormCascaderOption[];
+// interface FormCascaderOption {
+//     value: string;
+//     label: string;
+//     children?: FormCascaderOption[];
+// }
 
-}
-const { Option } = Select;
+// const { Option } = Select;
 
-const residences: CascaderProps<FormCascaderOption>['options'] = [
-    {
-        value: 'zhejiang',
-        label: 'Zhejiang',
-        children: [
-            {
-                value: 'hangzhou',
-                label: 'Hangzhou',
-                children: [
-                    {
-                        value: 'xihu',
-                        label: 'West Lake',
-                    },
-                ],
-            },
-        ],
-    },
-    {
-        value: 'jiangsu',
-        label: 'Jiangsu',
-        children: [
-            {
-                value: 'nanjing',
-                label: 'Nanjing',
-                children: [
-                    {
-                        value: 'zhonghuamen',
-                        label: 'Zhong Hua Men',
-                    },
-                ],
-            },
-        ],
-    },
-];
+// const residences: CascaderProps<FormCascaderOption>['options'] = [
+//     {
+//         value: 'zhejiang',
+//         label: 'Zhejiang',
+//         children: [
+//             {
+//                 value: 'hangzhou',
+//                 label: 'Hangzhou',
+//                 children: [
+//                     {
+//                         value: 'xihu',
+//                         label: 'West Lake',
+//                     },
+//                 ],
+//             },
+//         ],
+//     },
+//     {
+//         value: 'jiangsu',
+//         label: 'Jiangsu',
+//         children: [
+//             {
+//                 value: 'nanjing',
+//                 label: 'Nanjing',
+//                 children: [
+//                     {
+//                         value: 'zhonghuamen',
+//                         label: 'Zhong Hua Men',
+//                     },
+//                 ],
+//             },
+//         ],
+//     },
+// ];
 
 const formItemLayout: FormProps = {
     labelCol: {
@@ -88,28 +92,28 @@ export default function RegisterPage() {
     const [form] = Form.useForm();
     const router = useRouter();
 
-    const onFinish = async (values: any) => {
+    const onFinish = async (values: string) => {
         router.push('/login');
         console.log('Received values of form: ', values);
     };
 
-    const prefixSelector = (
-        <Form.Item name="prefix" noStyle>
-            <Select style={{ width: 70 }}>
-                <Option value="86">+86</Option>
-                <Option value="87">+87</Option>
-            </Select>
-        </Form.Item>
-    );
+    // const prefixSelector = (
+    //     <Form.Item name="prefix" noStyle>
+    //         <Select style={{ width: 70 }}>
+    //             <Option value="86">+86</Option>
+    //             <Option value="87">+87</Option>
+    //         </Select>
+    //     </Form.Item>
+    // );
 
-    const suffixSelector = (
-        <Form.Item name="suffix" noStyle>
-            <Select style={{ width: 70 }}>
-                <Option value="USD">$</Option>
-                <Option value="CNY">¥</Option>
-            </Select>
-        </Form.Item>
-    );
+    // const suffixSelector = (
+    //     <Form.Item name="suffix" noStyle>
+    //         <Select style={{ width: 70 }}>
+    //             <Option value="USD">$</Option>
+    //             <Option value="CNY">¥</Option>
+    //         </Select>
+    //     </Form.Item>
+    // );
 
     const [autoCompleteResult, setAutoCompleteResult] = useState<string[]>([]);
 
