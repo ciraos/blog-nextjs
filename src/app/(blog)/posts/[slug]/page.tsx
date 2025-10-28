@@ -13,7 +13,7 @@ type Props = {
     searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-const { Link, Paragraph, Text, Title } = Typography;
+// const { Link, Paragraph, Text, Title } = Typography;
 export const dynamicParams = false;
 
 async function getPost(params: { slug: string }) {
