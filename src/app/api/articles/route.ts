@@ -24,8 +24,8 @@ export async function GET() {
         });
 
         const data = await response.json();
-        console.log(data);
-        console.log(API_BASE_URL + '/api/public/articles?page=1&pageSize=10');
+        // console.log(data);
+        // console.log(API_BASE_URL + '/api/public/articles?page=1&pageSize=10');
         return NextResponse.json(data);
     } catch (error) {
         console.error("请求失败:", error);

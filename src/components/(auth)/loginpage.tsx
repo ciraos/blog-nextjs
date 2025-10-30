@@ -6,7 +6,7 @@ import type {
 } from 'antd';
 import {
     Button,
-    // Checkbox,
+    Checkbox,
     Form,
     Input
 } from 'antd';
@@ -15,7 +15,7 @@ import "@ant-design/v5-patch-for-react-19";
 type FieldType = {
     email?: string;
     password?: string;
-    remember?: string;
+    remember?: boolean;
 };
 
 export default function LoginPage() {
@@ -81,15 +81,21 @@ export default function LoginPage() {
                         <Input.Password />
                     </Form.Item>
 
+                    <Form.Item<FieldType>
+                        label={null}
+                        name="remember"
+                        valuePropName="checked"
+                    >
+                        <Checkbox>记住我</Checkbox>
+                    </Form.Item>
+
                     <Form.Item label={null}>
                         <Button type="primary" htmlType="submit">提交</Button>
                     </Form.Item>
 
                     <div className='flex items-center justify-between'>
-                        <p>
-                            忘记密码了？去<Link href="/forgotpassword">恢复</Link>
-                        </p>
-                        <Button type='link' href="/">返回首页</Button>
+                        <p>忘记密码了？去<Link href="/forgotpassword">恢复</Link></p>
+                        <p>新来的？去<Link href="/register">注册</Link></p>
                     </div>
                 </Form>
             </div>
