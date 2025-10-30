@@ -9,7 +9,7 @@ export async function GET() {
     }
 
     try {
-        const response = await fetch(`${API_BASE_URL}/api/public/articles?page=1&pageSize=10`, {
+        const response = await fetch(`${API_BASE_URL}/public/articles?page=1&pageSize=10`, {
             "method": "GET",
             "headers": {
                 "accept": "application/json, text/plain, */*",
