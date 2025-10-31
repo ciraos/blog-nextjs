@@ -15,7 +15,7 @@ body {
 
 /*! */
 .recent-posts>.recent-posts-item:not(:first-child),
-aside>.aside-item:not(:first-child) {
+.aside>.aside-item:not(:first-child) {
   margin-top: 12px;
 }
 
@@ -39,7 +39,7 @@ aside>.aside-item:not(:first-child) {
 /* .recent-posts {} */
 
 .recent-posts>.recent-posts-item {
-  height: 14.8em;
+  height: 13.8em;
   border-radius: 12px;
   background-color: #fff;
   display: flex;

@@ -1,4 +1,3 @@
-
 export interface PostListResponse {
     code: number;
     message: string;

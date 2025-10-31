@@ -2,14 +2,15 @@ import { Metadata } from "next";
 import Link from "next/link";
 import {
   Divider,
-  Image
+  Image,
+  Pagination
 } from "antd";
 import "@ant-design/v5-patch-for-react-19";
 import { Icon } from "@iconify/react";
 import moment from "moment";
 
 import { fetchPostList } from "@/utils/articles";
-import { PostListResponse } from "@/types/article";
+import { PostListResponse } from "@/types/articles";
 
 export const metadata: Metadata = {
   title: "葱苓小筑 | 首页",
@@ -29,13 +30,13 @@ export default async function Home() {
 
       <div className="recent-posts">
         {postList.map((post: any) => (
-          <div key={post.id} style={{ margin: '20px 0' }} className="recent-posts-item shadow-sm">
+          <div key={post.id} style={{}} className="recent-posts-item shadow-sm">
 
-            <Link href={`/posts/${post.abbrlink}`}>
+            <Link href={`/posts/${post.id}`}>
               <Image
                 alt="fl-avatar"
                 width={344}
-                height={236.8}
+                height={220.8}
                 preview={false}
                 src={post.cover_url}
                 fallback="https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/404_1.avif"
@@ -43,7 +44,7 @@ export default async function Home() {
             </Link>
 
             <div className="w-[calc(100%-344px)] py-2 px-5 flex flex-col justify-center">
-              <Link href={`/posts/${post.abbrlink}`} className="text-2xl">{post.title ?? "无题"}</Link>
+              <Link href={`/posts/${post.id}`} className="text-2xl">{post.title ?? "无题"}</Link>
               <div className="flex items-center text-sm mt-2">
                 <span className="flex">
                   <Icon icon="icon-park-outline:time" width={18} height={18} className="mr-1" />
@@ -84,7 +85,18 @@ export default async function Home() {
             </div>
           </div>
         ))}
-
+        <Pagination
+          style={{ marginTop: '10px' }}
+          align="center"
+          // current={page}
+          defaultCurrent={1}
+          defaultPageSize={pageSize}
+          responsive
+          showQuickJumper
+          showTitle
+          // showTotal={ }
+          total={total}
+        />
       </div>
     </>
   );

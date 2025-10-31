@@ -4,7 +4,6 @@ const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 export async function POST(req: NextRequest) {
     try {
-        // 输入验证
         const { email, password } = await req.json();
 
         if (!email || !password) {
@@ -13,8 +12,6 @@ export async function POST(req: NextRequest) {
                 { status: 400 }
             );
         }
-
-        // 环境变量检查
         if (!API_BASE_URL) {
             return NextResponse.json(
                 { success: false, message: "服务器配置错误" },
@@ -29,8 +26,8 @@ export async function POST(req: NextRequest) {
         });
 
         const data = await a.json();
+        console.log(data);
 
-        // API调用失败处理
         if (!a.ok) {
             return NextResponse.json(
                 { success: false, message: data.message || "登录失败" },
@@ -38,7 +35,6 @@ export async function POST(req: NextRequest) {
             );
         }
 
-        // 验证返回数据结构
         if (!data.data || !data.data.accessToken) {
             return NextResponse.json(
                 { success: false, message: "登录响应格式错误" },
@@ -50,13 +46,8 @@ export async function POST(req: NextRequest) {
             { success: true }
         );
 
-        res.cookies.set("token", data.data.accessToken, {
-            path: "/",
-            maxAge: 86400,
-            httpOnly: true,
-            secure: process.env.NODE_ENV === "production",
-            sameSite: "strict"
-        });
+        res.cookies.set("token", data.data.accessToken, { path: "/", maxAge: 86400, httpOnly: true, sameSite: "strict" });
+        res.cookies.set("refresh_toekn", data.data.refreshToken, { path: "/", maxAge: 86400, httpOnly: true, sameSite: "strict" })
 
         console.log(API_BASE_URL + '/api/auth/login');
         return res;
