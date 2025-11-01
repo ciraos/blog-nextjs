@@ -13,7 +13,7 @@ import { Icon } from "@iconify/react";
 import ArticlePage from "@/components/(blog)/articlepage";
 
 type Props = {
-    params: Promise<{ id: string, title: string, description: string, creaated_at: string, updated_at: string }>;
+    params: Promise<{ id: string, title: string, description: string }>;
     searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 

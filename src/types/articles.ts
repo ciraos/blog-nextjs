@@ -1,17 +1,6 @@
 
-//!
-export interface PostListResponse {
-    code: number;
-    message: string;
-    data: {
-        list: Post[];
-        total: number;
-        page: number;
-        pageSize: number;
-    };
-}
-
-export interface Post {
+//! 文章列表
+export interface PostList {
     id: string;
     created_at: string;
     updated_at: string;
@@ -38,6 +27,17 @@ export interface Post {
     keywords: string;
 }
 
+export interface PostListResponse {
+    code: number;
+    message: string;
+    data: {
+        list: PostList[];
+        total: number;
+        page: number;
+        pageSize: number;
+    };
+}
+
 export interface PostTags {
     id: string;
     created_at: string;
@@ -56,7 +56,7 @@ export interface PostCategories {
     is_series: boolean;
 }
 
-//!
+//! 具体文章
 export interface ArticleContentResponse {
     code: number;
     message: string;
