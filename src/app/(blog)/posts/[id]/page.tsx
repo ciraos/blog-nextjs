@@ -1,14 +1,39 @@
+import type {
+    Metadata,
+    // ResolvingMetadata
+} from 'next';
 import {
     Divider,
-    Typography
+    // Typography
 } from "antd";
 import "@ant-design/v5-patch-for-react-19";
 import { Icon } from "@iconify/react";
-import moment from "moment";
+// import moment from "moment";
 
 import ArticlePage from "@/components/(blog)/articlepage";
 
-export default function Post({ params }: { params: { id: string } }) {
+type Props = {
+    params: Promise<{ id: string, title: string, description: string, creaated_at: string, updated_at: string }>;
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { id } = await params;
+    const res = await fetch(`https://blog.ciraos.top/api/public/articles/${id}`).then((res) => res.json());
+    // console.log(res);
+
+    const title = res.data.title;
+    const description = res.data.description || "OOPS! 描述为空喵~";
+    // console.log(title + ' - ' + description);
+
+    return {
+        title: `葱苓小筑 | ${title} - ${description}`,
+    }
+};
+
+export default async function Post(props: { params: Promise<{ id: string }> }) {
+    const { id } = await props.params;
+
     return (
         <>
             <div className="post-container">
@@ -30,11 +55,7 @@ export default function Post({ params }: { params: { id: string } }) {
                     <div>descriptions</div>
                 </div>
 
-                <Typography
-                    className="post-content my-5 bg-none"
-                >
-                    <ArticlePage params={{ id: `${params.id}` }} />
-                </Typography>
+                <ArticlePage params={{ id }} />
 
                 <div className="post-footer py-3 px-7 rounded-xl bg-slate-100 shadow-sm hover:shadow-md"></div>
 

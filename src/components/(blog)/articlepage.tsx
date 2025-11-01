@@ -1,9 +1,12 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { MDXRemote } from "next-mdx-remote/rsc";
+import ReactMarkdown from 'react-markdown';
+
+import remarkGfm from 'remark-gfm';
 import { ArticleContentResponse } from '@/types/articles';
 
-export default function ArticlePage({ params }: { params: { id: string } }) {
+export default function ArticlePage(
+    { params }: { params: { id: string } }) {
     const [article, setArticle] = useState<ArticleContentResponse | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -21,7 +24,7 @@ export default function ArticlePage({ params }: { params: { id: string } }) {
                 }
 
                 const data: ArticleContentResponse = await response.json();
-                console.log(data);
+                // console.log(data);
 
                 // 2. 验证API返回状态，提取content_md
                 if (data.code === 200 && data.data.content_md) {
@@ -47,7 +50,12 @@ export default function ArticlePage({ params }: { params: { id: string } }) {
     // 4. 渲染文章（content_md通过ReactMarkdown转为HTML）
     return (
         <>
-            <MDXRemote source={article.data.content_md} components={{}} options={{}} />
+            {/* <MDXRemote source={article.data.content_md} components={{}} options={{}} /> */}
+            <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+            >
+                {article.data.content_md}
+            </ReactMarkdown>
         </>
     );
 }

@@ -1,12 +1,12 @@
 import Link from "next/link";
 
 import {
-    Divider,
+    // Divider,
     Image
 } from "antd";
 import "@ant-design/v5-patch-for-react-19";
 import { Icon } from "@iconify/react";
-import moment from "moment";
+// import moment from "moment";a
 
 import { fetchPostList } from "@/utils/articles";
 import { PostListResponse } from "@/types/articles";
@@ -14,7 +14,12 @@ import { PostListResponse } from "@/types/articles";
 export default async function Aside() {
     const postData: PostListResponse = await fetchPostList();
     const { code, message, data } = postData;
-    const { list: postList, total, page, pageSize } = data;
+    const { list:
+        postList,
+        // total,
+        // page,
+        // pageSize
+    } = data;
 
     if (code !== 200) {
         return <div>获取失败：{message}</div>;
@@ -57,8 +62,8 @@ export default async function Aside() {
                 <div className="aside-item">
                     <div className="aside-item-title"><Icon icon="grommet-icons:article" width="20px" height="20px" /><span className="pl-1">最新文章</span></div>
                     <div className="pr-1 flex flex-col gap-1">
-                        {postList.map((post: any) => (
-                            <Link href={`/posts/${post.id}`} key={post.id} className="h-6 overflow-hidden">
+                        {postList.map((post, index) => (
+                            <Link href={`/posts/${post.id}`} key={index} className="h-6 overflow-hidden">
                                 <span className="text-sm">{post.title}</span>
                                 {/* <span className="w-1/4 pl-1 text-xs">{moment(post.created_at).format('YYYY-MM-DD')}</span> */}
                                 {/* <Divider type="vertical" variant="solid" /> */}

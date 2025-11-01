@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   Divider,
@@ -19,7 +19,13 @@ export const metadata: Metadata = {
 export default async function Home() {
   const postData: PostListResponse = await fetchPostList();
   const { code, message, data } = postData;
-  const { list: postList, total, page, pageSize } = data;
+  const {
+    list:
+    postList,
+    total,
+    // page,
+    pageSize
+  } = data;
 
   if (code !== 200) {
     return <div>获取失败：{message}</div>;
@@ -29,8 +35,8 @@ export default async function Home() {
     <>
 
       <div className="recent-posts">
-        {postList.map((post: any) => (
-          <div key={post.id} style={{}} className="recent-posts-item shadow-sm">
+        {postList.map((post, index) => (
+          <div key={index} style={{}} className="recent-posts-item shadow-sm">
 
             <Link href={`/posts/${post.id}`} className="w-[42%] h-full">
               <Image
@@ -59,13 +65,13 @@ export default async function Home() {
                   {post.updated_at ? moment(post.updated_at).format('YYYY-MM-DD, h:mm:ss') : '未知'}
                 </span>
               </div>
-              <div className="text-sm m-0">{post.description ?? "描述为空捏！"}</div>
+              <div className="text-sm m-0">{post.summaries ?? "描述为空捏！"}</div>
               <div className="tags flex items-center">
                 {post.post_tags.length > 0 && (
                   <div className="tags-item flex">
                     {/* <Icon icon="famicons:pricetags-sharp" width="15px" height="15px" /> */}
-                    {post.post_tags.map((tag: any) => (
-                      <span key={tag.id} style={{ marginRight: '8px' }}>
+                    {post.post_tags.map((tag, index) => (
+                      <span key={index} style={{ marginRight: '8px' }}>
                         #{tag.name}
                       </span>
                     ))}
