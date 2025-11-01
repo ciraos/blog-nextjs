@@ -32,18 +32,19 @@ export default async function Home() {
         {postList.map((post: any) => (
           <div key={post.id} style={{}} className="recent-posts-item shadow-sm">
 
-            <Link href={`/posts/${post.id}`}>
+            <Link href={`/posts/${post.id}`} className="w-[42%] h-full">
               <Image
                 alt="fl-avatar"
-                width={344}
-                height={220.8}
+                fallback="https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/404_1.avif"
+                // width={344}
+                // height={220.8}
                 preview={false}
                 src={post.cover_url}
-                fallback="https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/404_1.avif"
+                style={{}}
               />
             </Link>
 
-            <div className="w-[calc(100%-344px)] py-2 px-5 flex flex-col justify-center">
+            <div className="w-[58%] py-2 px-5 flex flex-col justify-center">
               <Link href={`/posts/${post.id}`} className="text-2xl">{post.title ?? "无题"}</Link>
               <div className="flex items-center text-sm mt-2">
                 <span className="flex">

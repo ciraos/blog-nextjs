@@ -146,6 +146,14 @@ aside>.aside-item {
   .blog-container {
     padding: 0 20px;
   }
+
+  .recent-posts-item {
+    flex-direction: column;
+  }
+
+  .recent-posts>.recent-posts-item:nth-child(even) {
+    flex-direction: column;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -162,6 +170,14 @@ aside>.aside-item {
     margin: 0 auto;
   }
 
+  .recent-posts-item {
+    flex-direction: column;
+  }
+
+  .recent-posts>.recent-posts-item:nth-child(even) {
+    flex-direction: column;
+  }
+
   .aside {
     padding-left: 0;
   }
@@ -176,5 +192,9 @@ aside>.aside-item {
 @media screen and (max-width: 425px) {
   .menu-btn {
     display: block;
+  }
+
+  .recent-posts>.recent-posts-item:nth-child(even) {
+    flex-direction: column;
   }
 }

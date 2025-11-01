@@ -1,4 +1,3 @@
-import { MDXRemote } from "next-mdx-remote/rsc";
 import {
     Divider,
     Typography
@@ -7,7 +6,9 @@ import "@ant-design/v5-patch-for-react-19";
 import { Icon } from "@iconify/react";
 import moment from "moment";
 
-export default async function Post() {
+import ArticlePage from "@/components/(blog)/articlepage";
+
+export default function Post({ params }: { params: { id: string } }) {
     return (
         <>
             <div className="post-container">
@@ -32,7 +33,7 @@ export default async function Post() {
                 <Typography
                     className="post-content my-5 bg-none"
                 >
-                    {/* <MDXRemote source={post.content} components={{}} options={{}} /> */}
+                    <ArticlePage params={{ id: `${params.id}` }} />
                 </Typography>
 
                 <div className="post-footer py-3 px-7 rounded-xl bg-slate-100 shadow-sm hover:shadow-md"></div>
