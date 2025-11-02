@@ -1,61 +1,94 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import ReactMarkdown from 'react-markdown';
-
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import {
+    oneDark
+} from "react-syntax-highlighter/dist/esm/styles/prism";
+import rehypeRaw from 'rehype-raw';
+import rehypeKatex from 'rehype-katex';
 import remarkGfm from 'remark-gfm';
+import "katex/dist/katex.min.css"
 import { ArticleContentResponse } from '@/types/articles';
 
-export default function ArticlePage(
-    { params }: { params: { id: string } }) {
+export default function ArticlePage({ params }: { params: { id: string } }) {
     const [article, setArticle] = useState<ArticleContentResponse | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    // 1. 页面加载时请求API
-    useEffect(() => {
-        const fetchArticle = async () => {
-            try {
-                setLoading(true);
-                // 拼接API地址，使用路由参数中的id
-                const response = await fetch(`https://blog.ciraos.top/api/public/articles/${params.id}`);
+    const fetchArticle = useCallback(async () => {
+        try {
+            setLoading(true);
+            const response = await fetch(`https://blog.ciraos.top/api/public/articles/${params.id}`);
 
-                if (!response.ok) {
-                    throw new Error(`请求失败：${response.status}`);
-                }
+            if (!response.ok) {
+                throw new Error(`请求失败`);
+            }
 
-                const data: ArticleContentResponse = await response.json();
-                // console.log(data);
+            const data: ArticleContentResponse = await response.json();
 
-                // 2. 验证API返回状态，提取content_md
+            if (
+                typeof data === 'object' &&
+                data !== null &&
+                'code' in data &&
+                'data' in data &&
+                typeof data.data === 'object' &&
+                data.data !== null &&
+                'content_md' in data.data
+            ) {
                 if (data.code === 200 && data.data.content_md) {
                     setArticle(data);
                 } else {
-                    throw new Error(`API错误：${data.message}`);
+                    throw new Error(data.message || '文章内容为空');
                 }
-            } catch (err) {
-                setError(err instanceof Error ? err.message : '未知错误');
-            } finally {
-                setLoading(false);
+            } else {
+                throw new Error('接口返回数据格式异常');
             }
-        };
+        } catch (err) {
+            const message = err instanceof Error ? err.message : '未知错误';
+            setError(message.includes('请求失败') ? '无法加载文章，请稍后再试' : message);
+        } finally {
+            setLoading(false);
+        }
+    }, [params.id]);
 
+    useEffect(() => {
+        if (!params.id) return;
         fetchArticle();
-    }, [params.id]); // 依赖路由id，id变化时重新请求
+    }, [fetchArticle, params.id]);
 
-    // 3. 处理加载、错误、成功三种状态
     if (loading) return <div>加载中...</div>;
     if (error) return <div>出错了：{error}</div>;
     if (!article) return <div>文章不存在</div>;
 
-    // 4. 渲染文章（content_md通过ReactMarkdown转为HTML）
+    const markdown = article.data.content_md;
+
     return (
         <>
-            {/* <MDXRemote source={article.data.content_md} components={{}} options={{}} /> */}
             <ReactMarkdown
-                remarkPlugins={[remarkGfm]}
-            >
-                {article.data.content_md}
-            </ReactMarkdown>
+                children={markdown}
+                rehypePlugins={[rehypeRaw, rehypeKatex]}
+                remarkPlugins={[[remarkGfm, { singleTilde: false }]]}
+                components={{
+                    code(props) {
+                        const { children, className, node, ...rest } = props
+                        const match = /language-(\w+)/.exec(className || '')
+                        return match ? (
+                            <SyntaxHighlighter
+                                {...rest}
+                                children={String(children).replace(/\n$/, '')}
+                                language={match[1] || "PlainText"}
+                                PreTag="div"
+                                style={oneDark}
+                            />
+                        ) : (
+                            <code {...rest} className={className}>
+                                {children}
+                            </code>
+                        )
+                    }
+                }}
+            />
         </>
     );
 }
