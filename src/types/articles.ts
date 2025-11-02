@@ -1,6 +1,17 @@
 
 //! 文章列表
-export interface PostList {
+export interface PostListResponse {
+    code: number;
+    message: string;
+    data: {
+        list: PostList[];
+        total: number;
+        page: number;
+        pageSize: number;
+    };
+}
+
+interface PostList {
     id: string;
     created_at: string;
     updated_at: string;
@@ -27,18 +38,7 @@ export interface PostList {
     keywords: string;
 }
 
-export interface PostListResponse {
-    code: number;
-    message: string;
-    data: {
-        list: PostList[];
-        total: number;
-        page: number;
-        pageSize: number;
-    };
-}
-
-export interface PostTags {
+interface PostTags {
     id: string;
     created_at: string;
     updated_at: string;
@@ -46,7 +46,7 @@ export interface PostTags {
     count: number;
 }
 
-export interface PostCategories {
+interface PostCategories {
     id: string;
     created_at: string;
     updated_at: string;
@@ -93,7 +93,7 @@ export interface ArticleContentResponse {
     };
 }
 
-export interface ArtcileTags {
+interface ArtcileTags {
     id: string;
     created_at: string;
     updated_at: string;
@@ -101,7 +101,7 @@ export interface ArtcileTags {
     count: number;
 }
 
-export interface ArtcileCategories {
+interface ArtcileCategories {
     id: string;
     created_at: string;
     updated_at: string;
@@ -110,7 +110,7 @@ export interface ArtcileCategories {
     count: number;
     is_series: boolean;
 }
-export interface NextArticle {
+interface NextArticle {
     id: string;
     title: string;
     cover_url: string;
@@ -118,7 +118,7 @@ export interface NextArticle {
     created_at: string;
 }
 
-export interface RelatedArticles {
+interface RelatedArticles {
     id: string;
     title: string;
     cover_url: string;

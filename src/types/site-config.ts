@@ -1,6 +1,6 @@
 
 //! site-config.ts
-interface SiteConfigResponse {
+export interface SiteConfigResponse {
     code: number;
     message: string;
     data: {

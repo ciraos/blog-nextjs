@@ -66,28 +66,8 @@ export default function ArticlePage({ params }: { params: { id: string } }) {
     return (
         <>
             <ReactMarkdown
-                children={markdown}
                 rehypePlugins={[rehypeRaw, rehypeKatex]}
                 remarkPlugins={[[remarkGfm, { singleTilde: false }]]}
-                components={{
-                    code(props) {
-                        const { children, className, node, ...rest } = props
-                        const match = /language-(\w+)/.exec(className || '')
-                        return match ? (
-                            <SyntaxHighlighter
-                                {...rest}
-                                children={String(children).replace(/\n$/, '')}
-                                language={match[1] || "PlainText"}
-                                PreTag="div"
-                                style={oneDark}
-                            />
-                        ) : (
-                            <code {...rest} className={className}>
-                                {children}
-                            </code>
-                        )
-                    }
-                }}
             />
         </>
     );
