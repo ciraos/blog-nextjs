@@ -8,7 +8,6 @@ import {
 import "@ant-design/v5-patch-for-react-19";
 import { Icon } from "@iconify/react";
 import moment from "moment";
-
 import { fetchPostList } from "@/utils/articles";
 import { PostListResponse } from "@/types/articles";
 
@@ -46,7 +45,7 @@ export default async function Home() {
                 // height={220.8}
                 preview={false}
                 src={post.cover_url}
-                style={{}}
+                style={{ height: 221 }}
               />
             </Link>
 
@@ -92,6 +91,7 @@ export default async function Home() {
             </div>
           </div>
         ))}
+
         <Pagination
           style={{ marginTop: '10px' }}
           align="center"
@@ -104,6 +104,7 @@ export default async function Home() {
           // showTotal={ }
           total={total}
         />
+
       </div>
     </>
   );

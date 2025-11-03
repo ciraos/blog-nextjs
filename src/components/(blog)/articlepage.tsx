@@ -1,5 +1,13 @@
 'use client';
 import { useState, useEffect, useCallback } from 'react';
+
+import {
+    Alert,
+    Spin
+} from "antd";
+import { CloseSquareOutlined } from '@ant-design/icons';
+import "@ant-design/v5-patch-for-react-19";
+
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import {
@@ -57,8 +65,8 @@ export default function ArticlePage({ params }: { params: { id: string } }) {
         fetchArticle();
     }, [fetchArticle, params.id]);
 
-    if (loading) return <div>加载中...</div>;
-    if (error) return <div>出错了：{error}</div>;
+    if (loading) return (<Spin size='large' />);
+    if (error) return (<Alert message="哦不！文章加载出错啦！请查看控制台！！！" type='warning' closable />);
     if (!article) return <div>文章不存在</div>;
 
     const markdown = article.data.content_md;
@@ -66,6 +74,7 @@ export default function ArticlePage({ params }: { params: { id: string } }) {
     return (
         <>
             <ReactMarkdown
+                children={markdown}
                 rehypePlugins={[rehypeRaw, rehypeKatex]}
                 remarkPlugins={[[remarkGfm, { singleTilde: false }]]}
             />

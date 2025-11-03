@@ -47,7 +47,7 @@ export async function POST(req: NextRequest) {
         );
 
         res.cookies.set("token", data.data.accessToken, { path: "/", maxAge: 86400, httpOnly: true, sameSite: "strict" });
-        res.cookies.set("refresh_toekn", data.data.refreshToken, { path: "/", maxAge: 86400, httpOnly: true, sameSite: "strict" })
+        res.cookies.set("refresh_token", data.data.refreshToken, { path: "/", maxAge: 86400, httpOnly: true, sameSite: "strict" })
 
         console.log(API_BASE_URL + '/api/auth/login');
         return res;

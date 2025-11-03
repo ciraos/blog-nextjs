@@ -56,7 +56,7 @@ interface PostCategories {
     is_series: boolean;
 }
 
-//! 具体文章
+//! 单个文章
 export interface ArticleContentResponse {
     code: number;
     message: string;
@@ -87,8 +87,20 @@ export interface ArticleContentResponse {
         copyright_author_href: string;
         copyright_url: string;
         keywords: string;
-        prev_article: string
-        next_article: NextArticle[];
+        prev_article: {
+            id: string;
+            title: string;
+            cover_url: string;
+            abbrlink: string;
+            created_at: string;
+        };
+        next_article: {
+            id: string;
+            title: string;
+            cover_url: string;
+            abbrlink: string;
+            created_at: string;
+        };
         realated_articles: RelatedArticles[];
     };
 }
@@ -109,13 +121,6 @@ interface ArtcileCategories {
     description: string;
     count: number;
     is_series: boolean;
-}
-interface NextArticle {
-    id: string;
-    title: string;
-    cover_url: string;
-    abbrlink: string;
-    created_at: string;
 }
 
 interface RelatedArticles {

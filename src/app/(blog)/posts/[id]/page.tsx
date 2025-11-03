@@ -51,8 +51,27 @@ export default async function Post(props: { params: Promise<{ id: string }> }) {
                             {/* {moment(post.meta?.updated).format('YYYY-MM-DD, h:mm:ss')} */}
                         </span>
                     </div>
-                    <div>tags · categories</div>
-                    <div>descriptions</div>
+                    {/* <div className="tags flex items-center">
+                        {res.data.post_tags.length > 0 && (
+                            <div className="tags-item flex">
+                                {res.post_tags.map((tag: any, index: any) => (
+                                    <span key={index} style={{ marginRight: '8px' }}>
+                                        #{tag.name}
+                                    </span>
+                                ))}
+                            </div>
+                        )}
+                        <Divider type="vertical" variant="solid" />
+                        {res.data.post_categories.length > 0 && (
+                            <div className="flex">
+                                {res.data.post_categories.map((category: any) => (
+                                    <span key={category.id} style={{ marginRight: '8px' }}>
+                                        {category.name}
+                                    </span>
+                                ))}
+                            </div>
+                        )}
+                    </div> */}
                 </div>
 
                 <ArticlePage params={{ id }} />
