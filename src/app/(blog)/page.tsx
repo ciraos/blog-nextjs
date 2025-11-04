@@ -40,11 +40,11 @@ export default async function Home() {
             <Link href={`/posts/${post.id}`} className="w-[42%] h-full">
               <Image
                 alt="fl-avatar"
-                fallback="https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/404_1.avif"
+                // fallback="https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/404_1.avif"
                 // width={344}
                 // height={220.8}
                 preview={false}
-                src={post.cover_url}
+                src={post.cover_url || "https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/default_cover.avif"}
                 style={{ height: 221 }}
               />
             </Link>

@@ -1,3 +1,9 @@
+/*
+ * @description: 侧边栏
+ * @author: ciraos
+ * Server Component
+ */
+import { headers } from "next/headers";
 import Link from "next/link";
 
 import {
@@ -6,12 +12,15 @@ import {
 } from "antd";
 import "@ant-design/v5-patch-for-react-19";
 import { Icon } from "@iconify/react";
-// import moment from "moment";a
+// import moment from "moment";
 
 import { fetchPostList } from "@/utils/articles";
 import { PostListResponse } from "@/types/articles";
 
 export default async function Aside() {
+    const headerStore = await headers();
+    const pathname = headerStore.get("x-nextjs-path") || "";
+
     const postData: PostListResponse = await fetchPostList();
     const { code, message, data } = postData;
     const { list:
@@ -20,6 +29,10 @@ export default async function Aside() {
         // page,
         // pageSize
     } = data;
+
+    const hideAside = ['/posts'].includes(pathname);
+
+    if (hideAside) return null;
 
     if (code !== 200) {
         return <div>获取失败：{message}</div>;

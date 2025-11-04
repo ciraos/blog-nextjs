@@ -8,7 +8,7 @@ export async function GET() {
     })
 
     const data = await g.json();
-    console.log(data);
+    // console.log(data);
 
     const res = NextResponse.json(data);
     return res;

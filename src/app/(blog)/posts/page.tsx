@@ -34,7 +34,7 @@ export default async function Posts() {
         <>
             <div className="recent-posts">
                 {postList.map((post, index) => (
-                    <div key={index} style={{ margin: '20px 0' }} className="recent-posts-item shadow-sm">
+                    <div key={index} style={{}} className="recent-posts-item shadow-sm">
 
                         <Link href={`/posts/${post.id}`}>
                             <Image
@@ -42,8 +42,8 @@ export default async function Posts() {
                                 width={344}
                                 height={236.8}
                                 preview={false}
-                                src={post.cover_url}
-                                fallback="https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/404_1.avif"
+                                src={post.cover_url || "https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/default_cover.avif"}
+                            // fallback="https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/404_1.avif"
                             />
                         </Link>
 

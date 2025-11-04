@@ -192,10 +192,6 @@ aside>.aside-item {
 }
 
 @media screen and (max-width: 425px) {
-  .menu-btn {
-    display: block;
-  }
-
   .recent-posts>.recent-posts-item:nth-child(even) {
     flex-direction: column;
   }
