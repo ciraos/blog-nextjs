@@ -47,12 +47,15 @@ export default function Banner({ isLogin }: BannerProps) {
     const [open, setOpen] = useState(false);
     const [currentInnerWidth, setCurrentInnerWidth] = useState(0);
 
-    const isMobile = currentInnerWidth <= 768;
     const pathname = usePathname();
+    const isMobile = currentInnerWidth <= 768;
+
     const isHomePage = pathname === "/";
+    // const isPage = pathname.startsWith("/todos");
     const isPostPage = pathname.startsWith("/posts");
-    const bannerHeight = isHomePage ? "100vh" : isPostPage ? "30rem" : "30rem";
-    const backgdimg = isHomePage ? "url('https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/erciyuan/ganyu5.avif')" : isPostPage ? "url('https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/default_cover.avif')" : "none";
+
+    const bannerHeight = isHomePage ? "100vh" : "30rem";
+    const backgdimg = isHomePage ? "url('https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/erciyuan/ganyu5.avif')" : isPostPage ? "url('https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/default_cover.avif')" : "url('https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/erciyuan/miku3.avif')";
 
     const handlerScroll = () => {
         if (typeof window != 'undefined') {
