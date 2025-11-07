@@ -1,0 +1,47 @@
+/*
+ *Post Content Css
+*/
+
+.post-content h1 {
+    font-size: 1.5rem
+}
+
+.post-content h2 {
+    font-size: 1.5rem
+}
+
+.post-content h3 {
+    font-size: 1.25rem
+}
+
+.post-content h4 {
+    font-size: 1.125rem
+}
+
+.post-content h5 {
+    font-size: 1rem
+}
+
+.post-content h6 {
+    font-size: 1rem
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+    font-weight: 400
+}
+
+.post-content a:not([href]) {
+    cursor: default
+}
+
+.post-content pre {
+    tab-size: 4;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    -webkit-tab-size: 4
+}

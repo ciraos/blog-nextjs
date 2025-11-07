@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type {
     Metadata,
     // ResolvingMetadata
@@ -76,7 +77,30 @@ export default async function Post(props: { params: Promise<{ id: string }> }) {
 
                 <ArticlePage params={{ id }} />
 
-                <div className="post-footer py-3 px-7 rounded-xl bg-slate-100 shadow-sm hover:shadow-md"></div>
+                <div className="post-footer py-3 px-7 border-l-4 border-pink-400 rounded-r-xl bg-slate-50 shadow-sm hover:shadow-md">
+                    <div className="post-footer-article-info">
+                        <div className="flex items-center-safe">
+                            <span className="text-[#39c5bb] font-semibold">文章作者：</span>
+                            <span className="text-sm">葱苓sama</span>
+                        </div>
+                        <div className="flex items-center-safe">
+                            <span className="text-[#39c5bb] font-semibold">文章标题：</span>
+                            <span className="text-sm">{res.data.title}</span>
+                        </div>
+                        <div className="flex items-center-safe">
+                            <span className="text-[#39c5bb] font-semibold">文章链接：</span>
+                            <span className="text-sm border-b-2">{`https://blog.ciraos.top/posts/${id}`}</span>
+                        </div>
+                        <div className="flex items-center-safe">
+                            <span className="text-[#39c5bb] font-semibold">发布时间：</span>
+                            <span className="text-sm">{moment(res.data.created_at).format('YYYY-MM-DD')}</span>
+                        </div>
+                        <div className="flex items-center-safe">
+                            <span className="text-[#39c5bb] font-semibold">版权声明：</span>
+                            <span className="text-sm">除特别声明外，本博客所有文章均采用<Link className="border-b-2" target="_blank" rel="noopener external nofollow noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">&nbsp;CC&nbsp;BY-NC-SA&nbsp;4.0&nbsp;</Link>授权协议。转载请注明出处：<Link className="border-b-2" href="https://blog.ciraos.top">&nbsp;葱苓小筑&nbsp;</Link>。</span>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </>

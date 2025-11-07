@@ -17,6 +17,7 @@ import rehypeRaw from 'rehype-raw';
 import rehypeKatex from 'rehype-katex';
 import remarkGfm from 'remark-gfm';
 import "katex/dist/katex.min.css"
+
 import { ArticleContentResponse } from '@/types/articles';
 
 export default function ArticlePage({ params }: { params: { id: string } }) {
@@ -73,11 +74,13 @@ export default function ArticlePage({ params }: { params: { id: string } }) {
 
     return (
         <>
-            <ReactMarkdown
-                children={markdown}
-                rehypePlugins={[rehypeRaw, rehypeKatex]}
-                remarkPlugins={[[remarkGfm, { singleTilde: false }]]}
-            />
+            <div className="post-content my-5 mx-0 py-0 px-5">
+                <ReactMarkdown
+                    children={markdown}
+                    rehypePlugins={[rehypeRaw, rehypeKatex]}
+                    remarkPlugins={[[remarkGfm, { singleTilde: false }]]}
+                />
+            </div>
         </>
     );
 }

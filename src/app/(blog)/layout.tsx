@@ -5,6 +5,7 @@
 import { cookies } from "next/headers";
 import Link from "next/link";
 import "../globals.css";
+import "../post-content.css";
 import "@ant-design/v5-patch-for-react-19";
 import Banner from "@/components/banner";
 import Aside from "@/components/(blog)/aside";
