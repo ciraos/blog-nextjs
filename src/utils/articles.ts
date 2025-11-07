@@ -1,5 +1,5 @@
 
-const baseUrl = process.env.REACT_APP_API_BASE_URL;
+const baseUrl = process.env.apiKey;
 
 export async function fetchPostList() {
     const res = await fetch(`${baseUrl}/public/articles?page=1&pageSize=10`, {});

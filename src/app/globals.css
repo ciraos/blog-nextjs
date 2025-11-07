@@ -126,6 +126,9 @@ aside>.aside-item {
   color: #d8dee9ff;
 }
 
+/*! Admin Panel */
+/* .admin-panel {} */
+
 /*! dark-mode */
 @media (prefers-color-scheme: light) {
   body {
@@ -194,5 +197,14 @@ aside>.aside-item {
 @media screen and (max-width: 425px) {
   .recent-posts>.recent-posts-item:nth-child(even) {
     flex-direction: column;
+  }
+
+  /*! Admin Panel */
+  .sider {
+    display: none;
+  }
+
+  .admin-main {
+    width: 100%;
   }
 }

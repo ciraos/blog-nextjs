@@ -2,6 +2,7 @@
  * @Author: Ciraos
  * Client Component file.
 */
+
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -83,6 +84,7 @@ export default function Banner({ isLogin }: BannerProps) {
         };
     }, []);
 
+
     return (
         <>
             <div className="banner flex flex-col justify-between"
@@ -123,7 +125,7 @@ export default function Banner({ isLogin }: BannerProps) {
                 {isHomePage ? (
                     <>
                         <div className="site-title w-full h-max text-center text-white">
-                            <p className="text-6xl font-">葱苓小筑</p>
+                            <p className="text-6xl font-mono">葱苓小筑</p>
                             <p className="mt-1 text-md font-light">宝剑锋从磨砺出，梅花香自苦寒来。</p>
                         </div>
                         <div onClick={handlerScroll} id="scrill-down" className="pb-2 text-white text-3xl text-center animate-bounce hover:cursor-pointer"><DownOutlined /></div>

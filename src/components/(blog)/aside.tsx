@@ -1,26 +1,19 @@
 /*
  * @description: 侧边栏
  * @author: ciraos
- * Server Component
- */
-import { headers } from "next/headers";
-import Link from "next/link";
+ * Server Component - Must be this beacause of async functions.
+*/
 
+import Link from "next/link";
 import {
-    // Divider,
     Image
 } from "antd";
 import "@ant-design/v5-patch-for-react-19";
 import { Icon } from "@iconify/react";
-// import moment from "moment";
-
 import { fetchPostList } from "@/utils/articles";
 import { PostListResponse } from "@/types/articles";
 
 export default async function Aside() {
-    const headerStore = await headers();
-    const pathname = headerStore.get("x-nextjs-path") || "";
-
     const postData: PostListResponse = await fetchPostList();
     const { code, message, data } = postData;
     const { list:
@@ -29,10 +22,6 @@ export default async function Aside() {
         // page,
         // pageSize
     } = data;
-
-    const hideAside = ['/posts'].includes(pathname);
-
-    if (hideAside) return null;
 
     if (code !== 200) {
         return <div>获取失败：{message}</div>;
@@ -78,8 +67,6 @@ export default async function Aside() {
                         {postList.map((post, index) => (
                             <Link href={`/posts/${post.id}`} key={index} className="h-6 overflow-hidden">
                                 <span className="text-sm">{post.title}</span>
-                                {/* <span className="w-1/4 pl-1 text-xs">{moment(post.created_at).format('YYYY-MM-DD')}</span> */}
-                                {/* <Divider type="vertical" variant="solid" /> */}
                             </Link>
                         ))}
                     </div>

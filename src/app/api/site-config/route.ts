@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const baseUrl = process.env.REACT_APP_API_BASE_URL;
+const baseUrl = process.env.apiKey;
 
 export async function GET() {
     const g = await fetch(`${baseUrl}/public/site-config`, {
