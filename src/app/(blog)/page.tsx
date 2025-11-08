@@ -53,7 +53,7 @@ export default async function Home() {
               <Link href={`/posts/${post.id}`} className="text-2xl break-all">{post.title}</Link>
 
               <div className="text-sm mt-2">
-                <span className="flex items-center-safe">
+                <span className="flex items-center">
                   <Icon icon="icon-park-outline:time" width={18} height={18} className="mr-0.5" />
                   <span className="m-0">创建于{post.created_at ? moment(post.created_at).format('YYYY-MM-DD, h:mm:ss') : '未知'}</span>
                 </span>

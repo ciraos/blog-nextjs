@@ -26,14 +26,6 @@ body {
 /*! */
 /* .banner {} */
 
-.menu-btn {
-  display: none;
-}
-
-.menu-btn:hover {
-  cursor: pointer;
-}
-
 .blog-container {
   max-width: 1200px;
 }

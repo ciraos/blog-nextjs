@@ -141,7 +141,7 @@ export default function AdminLayout({ children }: Readonly<{ children: React.Rea
 
                             <Layout>
                                 <Header
-                                    className="flex items-center justify-end-safe"
+                                    className="flex items-center justify-end"
                                     style={{ padding: '0 10px', background: colorBgContainer }}
                                 >
                                     <Button type="primary" onClick={handlerLogout}>登出</Button>

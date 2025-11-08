@@ -4,7 +4,10 @@
 */
 
 "use client";
-import { useEffect, useState } from "react";
+import {
+    useEffect,
+    useState
+} from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -25,6 +28,7 @@ import {
 import "@ant-design/v5-patch-for-react-19";
 // import { Icon } from "@iconify/react";
 // import moment from "moment";
+
 import LogoutButton from "./buttons/logout";
 
 interface BannerProps {
@@ -47,43 +51,17 @@ const items: MenuProps['items'] = [
 export default function Banner({ isLogin }: BannerProps) {
     const [open, setOpen] = useState(false);
     const [currentInnerWidth, setCurrentInnerWidth] = useState(0);
-
     const pathname = usePathname();
     const isMobile = currentInnerWidth <= 768;
-
     const isHomePage = pathname === "/";
     // const isPage = pathname.startsWith("/todos");
     const isPostPage = pathname.startsWith("/posts");
-
     const bannerHeight = isHomePage ? "100vh" : "30rem";
     const backgdimg = isHomePage ? "url('https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/erciyuan/ganyu5.avif')" : isPostPage ? "url('https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/default_cover.avif')" : "url('https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/erciyuan/miku3.avif')";
-
-    const handlerScroll = () => {
-        if (typeof window != 'undefined') {
-            window.scrollTo({
-                top: window.scrollY + window.innerHeight,
-                behavior: "smooth"
-            });
-        }
-    };
 
     const showDrawer = () => { setOpen(true) };
 
     const onDrawerClose = () => { setOpen(false) };
-
-    useEffect(() => {
-        setCurrentInnerWidth(window.innerWidth);
-
-        const handleResize = () => {
-            setCurrentInnerWidth(window.innerWidth);
-        };
-        window.addEventListener("resize", handleResize);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
-
 
     return (
         <>
@@ -128,7 +106,9 @@ export default function Banner({ isLogin }: BannerProps) {
                             <p className="text-6xl font-mono">葱苓小筑</p>
                             <p className="mt-1 text-md font-light">宝剑锋从磨砺出，梅花香自苦寒来。</p>
                         </div>
-                        <div onClick={handlerScroll} id="scrill-down" className="pb-2 text-white text-3xl text-center animate-bounce hover:cursor-pointer"><DownOutlined /></div>
+                        <div
+                            // onClick={ }
+                            id="scrill-down" className="pb-2 text-white text-3xl text-center animate-bounce hover:cursor-pointer"><DownOutlined /></div>
                     </>
                 ) : (
                     <></>
