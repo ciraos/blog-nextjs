@@ -5,19 +5,12 @@ import {
     Alert,
     Spin
 } from "antd";
-import {
-    CloseSquareOutlined
-} from '@ant-design/icons';
+// import { CloseSquareOutlined } from '@ant-design/icons';
 import "@ant-design/v5-patch-for-react-19";
 
 import ReactMarkdown from 'react-markdown';
-import {
-    Prism as SyntaxHighlighter
-} from "react-syntax-highlighter";
-import {
-    atomDark,
-    oneDark
-} from "react-syntax-highlighter/dist/esm/styles/prism";
+// import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+// import { atomDark, oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import rehypeSanitize from 'rehype-sanitize';
 import rehypeKatex from 'rehype-katex';
 import remarkGfm from 'remark-gfm';
@@ -25,7 +18,7 @@ import "katex/dist/katex.min.css"
 
 import { ArticleContentResponse } from '@/types/articles';
 
-const baseUrl = process.env.apiKey;
+// const baseUrl = process.env.apiKey;
 
 export default function ArticlePage({ params }: { params: { id: string } }) {
     const [article, setArticle] = useState<ArticleContentResponse | null>(null);
@@ -82,32 +75,9 @@ export default function ArticlePage({ params }: { params: { id: string } }) {
 
     return (
         <>
-            <div className="post-content my-5 mx-0 py-0 px-5">
+            <div className="my-5 px-5">
                 <ReactMarkdown
-                    components={{
-                        h2: ({ node, ...props }) => <h2 {...props} />,
-                        a: ({ node, ...props }) => <a href={props.href} {...props} />,
-
-                        code(props) {
-                            const { children, className, node, ...rest } = props
-                            const match = /language-(\w+)/.exec(className || '')
-                            return match ? (
-                                <SyntaxHighlighter
-                                    {...rest}
-                                    children={String(children).replace(/\n$/, '')}
-                                    language={match[1]}
-                                    PreTag="div"
-                                    showInlineLineNumbers
-                                    showLineNumbers
-                                    style={oneDark}
-                                />
-                            ) : (
-                                <code {...rest} className={className}>
-                                    {children}
-                                </code>
-                            )
-                        }
-                    }}
+                    components={{}}
                     rehypePlugins={[rehypeKatex, rehypeSanitize]}
                     remarkPlugins={[[remarkGfm, { singleTilde: false }]]}
                 >

@@ -7,54 +7,54 @@
     src: url('https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/font/MapleMono-NF-CN-Regular.ttf');
 }
 
-.post-content h1,
-.post-content h2,
-.post-content h3,
-.post-content h4,
-.post-content h5,
-.post-content h6 {
+.blog-container-content h1,
+.blog-container-content h2,
+.blog-container-content h3,
+.blog-container-content h4,
+.blog-container-content h5,
+.blog-container-content h6 {
     font-weight: bold;
 }
 
-.post-content h1 {
+.blog-container-content h1 {
     font-size: 1.5rem;
 }
 
-.post-content h2 {
+.blog-container-content h2 {
     font-size: 1.5rem;
     border-bottom: 1px solid rgba(68, 68, 68, 0.1);
     padding-bottom: .2rem;
     margin-bottom: 1rem;
 }
 
-.post-content h3 {
+.blog-container-content h3 {
     font-size: 1.25rem;
 }
 
-.post-content h4 {
+.blog-container-content h4 {
     font-size: 1.125rem;
 }
 
-.post-content h5 {
+.blog-container-content h5 {
     font-size: 1rem;
 }
 
-.post-content h6 {
+.blog-container-content h6 {
     font-size: 1rem;
 }
 
-.post-content a:not([href]) {
+.blog-container-content a:not([href]) {
     cursor: default;
 }
 
-.post-content pre {
+.blog-container-content pre {
     tab-size: 4;
     -moz-tab-size: 4;
     -o-tab-size: 4;
     -webkit-tab-size: 4;
 }
 
-.post-content blockquote {
+.blog-container-content blockquote {
     margin: 20px;
     padding: 10px;
     border-left: 5px solid #007bff;
@@ -63,7 +63,7 @@
     font-size: 1.2em;
 }
 
-.post-content cite {
+.blog-container-content cite {
     display: block;
     margin-top: 10px;
     font-style: normal;
@@ -71,45 +71,46 @@
     font-size: 0.9em;
 }
 
-.post-content ul {
+.blog-container-content ul {
     list-style-type: square;
 }
 
-.post-content ul.inside {
+.blog-container-content ul.inside {
     list-style-position: inside;
 }
 
-.post-content ol {
+
+.blog-container-content ol {
     list-style-type: lower-alpha;
 }
 
-.post-content ol.inside {
+.blog-container-content ol.inside {
     list-style-position: outside;
 }
 
-.post-content p {
+.blog-container-content p {
     margin: 1em 0;
 }
 
-.post-content a {
+.blog-container-content a {
     color: oklch(62.3% 0.214 259.815);
 }
 
-.post-content pre code {
+.blog-container-content pre code {
     font-family: MapleMono, Arial, monospace, sans-serif;
     font-size: 14px;
 }
 
 /*! media */
 @media screen and (max-width: 600px) {
-    blockquote {
+    .blog-container-content blockquote {
         margin: 10px;
         padding: 5px;
         border-left: 3px solid #007bff;
         background-color: rgba(0, 123, 255, 0.1);
     }
 
-    cite {
+    .blog-container-content cite {
         margin-top: 5px;
         font-size: 0.8em;
     }

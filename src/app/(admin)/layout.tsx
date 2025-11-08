@@ -4,7 +4,7 @@
 */
 
 "use client";
-import { useState } from "react";
+// import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import "../globals.css";
@@ -12,7 +12,7 @@ import "../globals.css";
 import {
     Button,
     ConfigProvider,
-    Image,
+    // Image,
     Layout,
     Menu,
     theme
@@ -26,15 +26,10 @@ import {
     HomeOutlined,
     // MailOutlined,
     SettingOutlined,
-    UploadOutlined,
-    UserOutlined
+    // UploadOutlined,
+    // UserOutlined
 } from '@ant-design/icons';
 import "@ant-design/v5-patch-for-react-19";
-
-interface LevelKeysProps {
-    key?: string;
-    children?: LevelKeysProps[];
-}
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -58,51 +53,11 @@ const items: MenuItem[] = [
     }
 ];
 
-const getLevelKeys = (items1: LevelKeysProps[]) => {
-    const key: Record<string, number> = {};
-    const func = (items2: LevelKeysProps[], level = 1) => {
-        items2.forEach((item) => {
-            if (item.key) {
-                key[item.key] = level;
-            }
-            if (item.children) {
-                func(item.children, level + 1);
-            }
-        });
-    };
-    func(items1);
-    return key;
-};
-
-const levelKeys = getLevelKeys(items as LevelKeysProps[]);
-
 export default function AdminLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
     const router = useRouter();
-    const [stateOpenKeys, setStateOpenKeys] = useState(['2', '23']);
     const {
         token: { colorBgContainer, borderRadiusLG }
     } = theme.useToken();
-
-    const onOpenChange: MenuProps['onOpenChange'] = (openKeys) => {
-        const currentOpenKey = openKeys.find((key) => !stateOpenKeys.includes(key));
-        // open
-        if (currentOpenKey !== undefined) {
-            const repeatIndex = openKeys
-                .filter((key) => key !== currentOpenKey)
-                .findIndex((key) => levelKeys[key] === levelKeys[currentOpenKey]);
-
-            setStateOpenKeys(
-                openKeys
-                    // remove repeat key
-                    .filter((_, index) => index !== repeatIndex)
-                    // remove current level all child
-                    .filter((key) => levelKeys[key] <= levelKeys[currentOpenKey]),
-            );
-        } else {
-            // close
-            setStateOpenKeys(openKeys);
-        }
-    };
 
     const handlerLogout = async () => {
         const b = await fetch("/api/logout", {

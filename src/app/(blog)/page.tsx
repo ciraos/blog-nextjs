@@ -45,7 +45,7 @@ export default async function Home() {
                 // height={220.8}
                 preview={false}
                 src={post.cover_url}
-                style={{ height: 221 }}
+                style={{ height: 220 }}
               />
             </Link>
 
