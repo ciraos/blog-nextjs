@@ -17,7 +17,6 @@ import {
     Dropdown
 } from "antd";
 import type {
-    DrawerProps,
     MenuProps
 } from "antd";
 import {
@@ -52,8 +51,7 @@ const items: MenuProps['items'] = [
 
 export default function Banner({ isLogin }: BannerProps) {
     const [open, setOpen] = useState(false);
-    const [currentInnerWidth, setCurrentInnerWidth] = useState<number | undefined>(undefined); // 初始设为 undefined 更安全
-    const [size, setSize] = useState<DrawerProps['size']>();
+    const [currentInnerWidth, setCurrentInnerWidth] = useState<number | undefined>(undefined);
     const pathname = usePathname();
     const isMobile = currentInnerWidth !== undefined && currentInnerWidth <= 768;
     const isHomePage = pathname === "/";
@@ -71,10 +69,7 @@ export default function Banner({ isLogin }: BannerProps) {
         backgdimg = DEFAULT_BG_URL;
     }
 
-    const showDrawer = () => {
-        setSize('default');
-        setOpen(true);
-    };
+    const showDrawer = () => { setOpen(true); };
 
     const onDrawerClose = () => { setOpen(false); };
 
@@ -90,7 +85,7 @@ export default function Banner({ isLogin }: BannerProps) {
     useEffect(() => {
 
         const updateWidth = () => setCurrentInnerWidth(window.innerWidth);
-        updateWidth(); // 立即设置一次宽度
+        updateWidth();
 
         const handleResize = () => {
             updateWidth();
