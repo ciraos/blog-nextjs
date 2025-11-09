@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const title = res.data.title;
     const description = res.data.description || "OOPS! 描述为空喵~";
     return {
-        title: `葱苓小筑 | ${title} - ${description}`,
+        title: `${title} - ${description}`,
     }
 };
 

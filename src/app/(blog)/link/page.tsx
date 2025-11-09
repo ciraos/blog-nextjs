@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "葱苓小筑 | 友人帐",
+    title: "友人帐",
 };
 
 export default async function Link() {

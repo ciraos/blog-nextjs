@@ -12,7 +12,7 @@ import { fetchPostList } from "@/utils/articles";
 import { PostListResponse } from "@/types/articles";
 
 export const metadata: Metadata = {
-    title: "葱苓小筑 | 所有文章",
+    title: "所有文章",
 };
 
 export default async function Posts() {

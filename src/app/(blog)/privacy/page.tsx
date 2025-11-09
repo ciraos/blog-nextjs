@@ -2,7 +2,7 @@ import ReactMarkdown from "react-markdown";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "葱苓小筑 | 隐私政策"
+    title: "隐私政策"
 };
 
 const markdownContent = `
