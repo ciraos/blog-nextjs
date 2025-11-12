@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const baseUrl = process.env.apiKey;
+const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export async function GET(req: NextRequest) {
     const token = req.cookies.get("token")?.value;

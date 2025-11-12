@@ -1,5 +1,5 @@
 
-const baseUrl = process.env.apiKey;
+const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export async function fetchPostList() {
     const res = await fetch(`${baseUrl}/public/articles?page=1&pageSize=10`, {});
