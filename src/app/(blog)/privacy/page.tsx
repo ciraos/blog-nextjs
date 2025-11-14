@@ -1,4 +1,4 @@
-import ReactMarkdown from "react-markdown";
+import Markdown from "react-markdown";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -29,7 +29,7 @@ const markdownContent = `
 export default function Privacy() {
     return (
         <>
-            <ReactMarkdown>{markdownContent}</ReactMarkdown>
+            <Markdown>{markdownContent}</Markdown>
         </>
     )
 }

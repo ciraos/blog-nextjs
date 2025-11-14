@@ -69,7 +69,7 @@ export default function ArticlePage({ params }: { params: { id: string } }) {
 
     return (
         <>
-            <div className="my-5 px-5">
+            <div className="post-content my-5 px-2">
                 <ReactMarkdown
                     components={{}}
                     rehypePlugins={[rehypeKatex, rehypeSanitize]}

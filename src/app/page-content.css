@@ -59,7 +59,7 @@
     padding: 10px;
     border-left: 5px solid #007bff;
     background-color: rgba(0, 123, 255, 0.1);
-    font-style: italic;
+    /* font-style: ; */
     font-size: 1.2em;
 }
 
@@ -72,21 +72,19 @@
 }
 
 .blog-container-content ul {
+    margin: 8px 0;
     list-style-type: square;
 }
 
-.blog-container-content ul.inside {
-    list-style-position: inside;
-}
+/* .blog-container-content ul.inside {} */
 
 
 .blog-container-content ol {
+    margin: 8px 0;
     list-style-type: lower-alpha;
 }
 
-.blog-container-content ol.inside {
-    list-style-position: outside;
-}
+/* .blog-container-content ol.inside {} */
 
 .blog-container-content p {
     margin: 1em 0;
@@ -97,7 +95,7 @@
 }
 
 .blog-container-content pre code {
-    font-family: MapleMono, Arial, monospace, sans-serif;
+    /* font-family: ; */
     font-size: 14px;
 }
 

@@ -1,15 +1,21 @@
 "use client";
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+
 import type {
     FormProps
 } from 'antd';
 import {
     Button,
     Checkbox,
+    Flex,
     Form,
     Input
 } from 'antd';
+import {
+    LockOutlined,
+    UserOutlined
+} from "@ant-design/icons";
 import "@ant-design/v5-patch-for-react-19";
 
 type FieldType = {
@@ -25,8 +31,8 @@ export default function LoginPage() {
         try {
             const aa = await fetch('/api/login', {
                 "method": 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(values)
+                "headers": { 'Content-Type': 'application/json' },
+                "body": JSON.stringify(values)
             });
 
             if (!aa.ok) {
@@ -54,12 +60,10 @@ export default function LoginPage() {
     return (
         <>
             <div
-                className='login-box pt-12 pb-2 px-6 mx-auto rounded-xl bg-white shadow-md hover:shadow-lg'
+                className='login-box pt-6 px-6 mx-auto rounded-xl bg-white shadow-md hover:shadow-lg dark:bg-slate-600'
             >
                 <Form
-                    name="basic"
-                    labelCol={{ span: 8 }}
-                    wrapperCol={{ span: 16 }}
+                    name="login"
                     initialValues={{ remember: true }}
                     onFinish={onFinish}
                     onFinishFailed={onFinishFailed}
@@ -70,7 +74,7 @@ export default function LoginPage() {
                         name="email"
                         rules={[{ required: true, message: '请输入您的邮箱！' }]}
                     >
-                        <Input />
+                        <Input prefix={<UserOutlined />} placeholder='邮箱' />
                     </Form.Item>
 
                     <Form.Item<FieldType>
@@ -78,25 +82,22 @@ export default function LoginPage() {
                         name="password"
                         rules={[{ required: true, message: '请输入您的密码！' }]}
                     >
-                        <Input.Password />
+                        <Input prefix={<LockOutlined />} type='password' placeholder='密码' />
                     </Form.Item>
 
-                    <Form.Item<FieldType>
-                        label={null}
-                        name="remember"
-                        valuePropName="checked"
-                    >
-                        <Checkbox>记住我</Checkbox>
+                    <Form.Item>
+                        <Flex justify="space-between" align="center">
+                            <Form.Item name="remember" valuePropName="checked" noStyle>
+                                <Checkbox>记住我</Checkbox>
+                            </Form.Item>
+                            <Link href="/forgotpassword">忘记密码</Link>
+                        </Flex>
                     </Form.Item>
 
-                    <Form.Item label={null}>
-                        <Button type="primary" htmlType="submit">提交</Button>
+                    <Form.Item>
+                        <Button block type="primary" htmlType="submit">登录</Button>
+                        or <Link href="/register">现在注册！</Link>
                     </Form.Item>
-
-                    <div className='flex items-center justify-between'>
-                        <p>忘记密码了？去<Link href="/forgotpassword">恢复</Link></p>
-                        <p>新来的？去<Link href="/register">注册</Link></p>
-                    </div>
                 </Form>
             </div>
         </>

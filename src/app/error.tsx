@@ -1,6 +1,5 @@
-'use client' // Error boundaries must be Client Components
+'use client';
 import { useEffect } from 'react'
-
 import {
     Button
 } from "antd";
@@ -11,7 +10,6 @@ export default function Error({ error, reset, }: {
     reset: () => void
 }) {
     useEffect(() => {
-        // Log the error to an error reporting service
         console.error(error)
     }, [error])
 
@@ -19,10 +17,7 @@ export default function Error({ error, reset, }: {
         <div>
             <h2>Something went wrong!</h2>
             <Button
-                onClick={
-                    // Attempt to recover by trying to re-render the segment
-                    () => reset()
-                }
+                onClick={() => reset()}
                 type='primary'
             >
                 再试一次

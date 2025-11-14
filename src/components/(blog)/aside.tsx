@@ -5,10 +5,16 @@
 */
 
 import Link from "next/link";
+
 import {
-    Image
+    Image,
+    theme
+} from "antd";
+import type {
+    CalendarProps
 } from "antd";
 import "@ant-design/v5-patch-for-react-19";
+
 import { Icon } from "@iconify/react";
 import { fetchPostList } from "@/utils/articles";
 import { PostListResponse } from "@/types/articles";
@@ -29,9 +35,7 @@ export default async function Aside() {
 
     return (
         <>
-            <aside
-                className="aside w-[24%] h-auto pl-4"
-            >
+            <aside className="aside w-[24%] h-auto pl-4">
 
                 <div
                     className="aside-item info h-82"
@@ -71,6 +75,8 @@ export default async function Aside() {
                         ))}
                     </div>
                 </div>
+
+                <div className="aside-item"></div>
 
             </aside>
         </>

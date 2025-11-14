@@ -8,7 +8,6 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import "../globals.css";
-
 import {
     Button,
     ConfigProvider,
@@ -85,7 +84,7 @@ export default function AdminLayout({ children }: Readonly<{ children: React.Rea
                             // onBreakpoint={(broken) => { console.log(broken); }}
                             // onCollapse={(collapsed, type) => { console.log(collapsed, type); }}
                             >
-                                <div className="demo-logo-vertical hidden" />
+                                <div className="demo-logo-vertical" />
                                 <Menu
                                     defaultSelectedKeys={['1']}
                                     items={items}

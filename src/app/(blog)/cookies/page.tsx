@@ -1,4 +1,4 @@
-import ReactMarkdown from "react-markdown";
+import Markdown from "react-markdown";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ Cookie是存储在您设备上的小型文本文件，用于记住您的偏好�
 export default function Cookies() {
     return (
         <>
-            <ReactMarkdown>{markdownContent}</ReactMarkdown>
+            <Markdown>{markdownContent}</Markdown>
         </>
     )
 }
