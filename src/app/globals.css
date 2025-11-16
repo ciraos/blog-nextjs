@@ -85,6 +85,16 @@ aside {
   margin-top: 12px;
 }
 
+.textarea-wrapper {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.textarea-wrapper:hover,
+.textarea-wrapper:focus,
+.textarea-wrapper:active {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
 /*! Toc */
 #toc {
   display: none;

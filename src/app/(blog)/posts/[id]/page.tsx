@@ -10,7 +10,9 @@ import {
 import "@ant-design/v5-patch-for-react-19";
 import { Icon } from "@iconify/react";
 import moment from "moment";
+
 import ArticlePage from "@/components/(blog)/articlepage";
+import Comment from "@/components/(blog)/comment";
 
 type Props = {
     params: Promise<{ id: string, title: string, description: string }>;
@@ -35,24 +37,24 @@ export default async function Post(props: { params: Promise<{ id: string }> }) {
 
     return (
         <>
-            <div className="post-container">
+            {/* <div> */}
 
-                <div className="post-header h-45 py-3 px-7 rounded-xl bg-white shadow-xl hover:shadow-md">
-                    <div className="text-2xl">{res.data.title}</div>
-                    <div className="mt-3 flex items-center text-sm">
-                        <span className="flex"><Icon icon="icon-park-outline:time" width={18} height={18} className="mr-1" />
-                            <span className="mr-1">创建于</span>
-                            {created_at}
-                            {/* {moment(post.meta?.created).format('YYYY-MM-DD, h:mm:ss')} */}
-                        </span>
-                        <Divider type="vertical" variant="solid" />
-                        <span className="flex"><Icon icon="icon-park-outline:time" width={18} height={18} className="mr-1" />
-                            <span className="mr-1">更新于</span>
-                            {updated_at}
-                            {/* {moment(post.meta?.updated).format('YYYY-MM-DD, h:mm:ss')} */}
-                        </span>
-                    </div>
-                    {/* <div className="tags flex items-center">
+            <div className="post-header h-45 py-3 px-7 rounded-xl bg-white shadow-xl hover:shadow-md">
+                <div className="text-2xl">{res.data.title}</div>
+                <div className="mt-3 flex items-center text-sm">
+                    <span className="flex"><Icon icon="icon-park-outline:time" width={18} height={18} className="mr-1" />
+                        <span className="mr-1">创建于</span>
+                        {created_at}
+                        {/* {moment(post.meta?.created).format('YYYY-MM-DD, h:mm:ss')} */}
+                    </span>
+                    <Divider type="vertical" variant="solid" />
+                    <span className="flex"><Icon icon="icon-park-outline:time" width={18} height={18} className="mr-1" />
+                        <span className="mr-1">更新于</span>
+                        {updated_at}
+                        {/* {moment(post.meta?.updated).format('YYYY-MM-DD, h:mm:ss')} */}
+                    </span>
+                </div>
+                {/* <div className="tags flex items-center">
                         {res.data.post_tags.length > 0 && (
                             <div className="tags-item flex">
                                 {res.post_tags.map((tag: any, index: any) => (
@@ -73,36 +75,38 @@ export default async function Post(props: { params: Promise<{ id: string }> }) {
                             </div>
                         )}
                     </div> */}
-                </div>
+            </div>
 
-                <ArticlePage params={{ id }} />
+            <ArticlePage params={{ id }} />
 
-                <div className="post-footer py-3 px-7 border-l-4 border-pink-400 rounded-r-xl bg-slate-50 shadow-sm hover:shadow-md">
-                    <div className="post-footer-article-info">
-                        <div className="flex items-center">
-                            <span className="w-20 text-[#39c5bb] font-semibold">文章作者:&nbsp;</span>
-                            <span className="text-sm">葱苓sama</span>
-                        </div>
-                        <div className="flex items-center">
-                            <span className="w-20 text-[#39c5bb] font-semibold">文章标题:&nbsp;</span>
-                            <span className="text-sm">{res.data.title}</span>
-                        </div>
-                        <div className="flex items-center">
-                            <span className="w-20 text-[#39c5bb] font-semibold">文章链接:&nbsp;</span>
-                            <Link className="text-sm border-b-2 hover:bg-blue-400" href={`https://blog.ciraos.top/posts/${id}`}>{`https://blog.ciraos.top/posts/${id}`}</Link>
-                        </div>
-                        <div className="flex items-center">
-                            <span className="w-20 text-[#39c5bb] font-semibold">发布时间:&nbsp;</span>
-                            <span className="text-sm">{moment(res.data.created_at).format('YYYY-MM-DD')}</span>
-                        </div>
-                        <div>
-                            <span className="w-20 text-[#39c5bb] font-semibold">版权声明:&nbsp;</span>
-                            <span className="text-sm break-all">除特别声明外，本博客所有文章均采用<Link className="border-b-2 hover:bg-blue-400" target="_blank" rel="noopener external nofollow noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">&nbsp;CC&nbsp;BY-NC-SA&nbsp;4.0&nbsp;</Link>授权协议。转载请注明出处：<Link className="border-b-2 hover:bg-blue-400" href="https://blog.ciraos.top">&nbsp;葱苓小筑&nbsp;</Link>。</span>
-                        </div>
+            <div className="post-footer py-3 px-7 border-l-4 border-pink-400 rounded-r-xl bg-slate-50 shadow-sm hover:shadow-md">
+                <div className="post-footer-article-info">
+                    <div className="flex items-center">
+                        <span className="w-20 text-[#39c5bb] font-semibold">文章作者:&nbsp;</span>
+                        <span className="text-sm">葱苓sama</span>
+                    </div>
+                    <div className="flex items-center">
+                        <span className="w-20 text-[#39c5bb] font-semibold">文章标题:&nbsp;</span>
+                        <span className="text-sm">{res.data.title}</span>
+                    </div>
+                    <div className="flex items-center">
+                        <span className="w-20 text-[#39c5bb] font-semibold">文章链接:&nbsp;</span>
+                        <Link className="text-sm border-b-2 hover:bg-blue-400" href={`https://blog.ciraos.top/posts/${id}`}>{`https://blog.ciraos.top/posts/${id}`}</Link>
+                    </div>
+                    <div className="flex items-center">
+                        <span className="w-20 text-[#39c5bb] font-semibold">发布时间:&nbsp;</span>
+                        <span className="text-sm">{moment(res.data.created_at).format('YYYY-MM-DD')}</span>
+                    </div>
+                    <div>
+                        <span className="w-20 text-[#39c5bb] font-semibold">版权声明:&nbsp;</span>
+                        <span className="text-sm break-all">除特别声明外，本博客所有文章均采用<Link className="border-b-2 hover:bg-blue-400" target="_blank" rel="noopener external nofollow noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">&nbsp;CC&nbsp;BY-NC-SA&nbsp;4.0&nbsp;</Link>授权协议。转载请注明出处：<Link className="border-b-2 hover:bg-blue-400" href="https://blog.ciraos.top">&nbsp;葱苓小筑&nbsp;</Link>。</span>
                     </div>
                 </div>
-
             </div>
+
+            <Comment />
+
+            {/* </div> */}
         </>
     );
 }

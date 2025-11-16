@@ -1,4 +1,6 @@
-interface UserResponse {
+
+//!
+export interface UserResponse {
     code: number;
     data: {
         avatar: string;
