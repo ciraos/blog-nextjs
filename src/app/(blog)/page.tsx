@@ -64,7 +64,7 @@ export default async function Home() {
                 </span> */}
               </div>
 
-              <div className="text-sm m-0">{post.summaries ?? "描述为空捏！"}</div>
+              <div className="text-sm m-0">{post.summaries}</div>
 
               <div className="tags flex items-center">
                 {post.post_tags.length > 0 && (

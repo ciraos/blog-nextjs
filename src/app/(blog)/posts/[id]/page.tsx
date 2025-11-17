@@ -98,7 +98,7 @@ export default async function Post(props: { params: Promise<{ id: string }> }) {
                         <span className="text-sm">{moment(res.data.created_at).format('YYYY-MM-DD')}</span>
                     </div>
                     <div>
-                        <span className="w-20 text-[#39c5bb] font-semibold">版权声明:&nbsp;</span>
+                        <span className="w-20 text-[#39c5bb] font-semibold">版权声明:&nbsp;&nbsp;&nbsp;</span>
                         <span className="text-sm break-all">除特别声明外，本博客所有文章均采用<Link className="border-b-2 hover:bg-blue-400" target="_blank" rel="noopener external nofollow noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">&nbsp;CC&nbsp;BY-NC-SA&nbsp;4.0&nbsp;</Link>授权协议。转载请注明出处：<Link className="border-b-2 hover:bg-blue-400" href="https://blog.ciraos.top">&nbsp;葱苓小筑&nbsp;</Link>。</span>
                     </div>
                 </div>

@@ -20,7 +20,7 @@ export default async function BlogLayout({ children }: Readonly<{ children: Reac
   const isLogin = !!token;
 
   return (
-    <html lang="zh-CN">
+    <html lang="zh-CN" suppressHydrationWarning>
       <body>
         <ConfigProvider
           theme={{

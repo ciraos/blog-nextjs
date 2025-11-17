@@ -5,6 +5,7 @@ import {
     Button,
     ConfigProvider,
     Input,
+    Space,
     Tooltip
 } from "antd";
 import "@ant-design/v5-patch-for-react-19";
@@ -55,9 +56,13 @@ export default function Comment() {
 
                     <div className="w-full mt-3.5 flex gap-4">
                         <div className="w-[calc(100%-112px)] flex gap-1.5">
-                            <Input addonBefore="昵称" placeholder="必填" />
-                            <Input addonBefore="邮箱" placeholder="必填" />
-                            <Input addonBefore="网址" placeholder="选填" />
+                            <Tooltip arrow title="输入QQ号会自动获取昵称和头像">
+                                <Input prefix="昵称" placeholder="必填" />
+                            </Tooltip>
+                            <Tooltip arrow title="收到回复会自动发送到你的邮箱">
+                                <Input prefix="邮箱" placeholder="必填" />
+                            </Tooltip>
+                            <Input prefix="网址" placeholder="选填" />
                         </div>
                         <Button className="w-28" type="primary">发送</Button>
                     </div>

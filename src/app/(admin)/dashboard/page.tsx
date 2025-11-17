@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next";
 import {
     Statistic
@@ -49,10 +48,9 @@ export default async function Dashboard() {
 
             <div className="font-semibold text-2xl">欢迎回来，ciraos@yeah.net！👋</div>
 
-            <div className="statistic my-2 flex items-center justify-around">
+            <div className="statistic my-4 flex items-center justify-around">
                 <Statistic title="今日访客" value={stats.today_visitors} />
-                <Statistic title="今日浏览" value={stats.today_views} />
-
+                <Statistic title="今日浏览量" value={stats.today_views} />
                 <Statistic
                     precision={2}
                     prefix={stats.today_views / stats.yesterday_visitors > 1 ? (<ArrowUpOutlined />) : (<ArrowDownOutlined />)}
@@ -61,8 +59,9 @@ export default async function Dashboard() {
                     value={stats.today_views / stats.yesterday_visitors}
                     valueStyle={stats.today_views / stats.yesterday_visitors > 1 ? { color: "#3f8600" } : { color: "#cf1322" }}
                 />
-
+                <Statistic title="本月总浏览量" value={stats.month_views} />
                 <Statistic title="年度总访问量" value={stats.year_views} />
+
 
             </div>
         </>

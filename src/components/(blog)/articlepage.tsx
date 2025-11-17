@@ -1,18 +1,51 @@
 'use client';
-import { useState, useEffect, useCallback } from 'react';
+import {
+    useCallback,
+    useEffect,
+    useState,
+} from 'react';
+
 import {
     Alert,
     Spin
 } from "antd";
 import "@ant-design/v5-patch-for-react-19";
-import ReactMarkdown from 'react-markdown';
+
+import Markdown from 'react-markdown';
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import rehypeSanitize from 'rehype-sanitize';
 import rehypeKatex from 'rehype-katex';
 import remarkGfm from 'remark-gfm';
 import "katex/dist/katex.min.css"
+
 import { ArticleContentResponse } from '@/types/articles';
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+if (!baseUrl) {
+    throw new Error("环境变量 NEXT_PUBLIC_API_URL 未配置");
+}
+
+const CodeBlock = ({ node, className, children, ...props }: any) => {
+    const match = /language-(\w+)/.exec(className || '');
+    return match ? (
+        <SyntaxHighlighter
+            {...props}
+            children={String(children).replace(/\n$/, '')}
+            language={match[1]}
+            PreTag="div"
+            showInlineLineNumbers
+            showLineNumbers
+            style={oneDark}
+            wrapLines={false}
+            wrapLongLines={false}
+        />
+    ) : (
+        <code {...props} className={className}>
+            {children}
+        </code>
+    );
+};
 
 export default function ArticlePage({ params }: { params: { id: string } }) {
     const [article, setArticle] = useState<ArticleContentResponse | null>(null);
@@ -20,7 +53,7 @@ export default function ArticlePage({ params }: { params: { id: string } }) {
     const [error, setError] = useState<string | null>(null);
 
     const fetchArticle = useCallback(async (signal: AbortSignal) => {
-        if (!params.id) {
+        if (!params.id || !/^[a-zA-Z0-9\-_]+$/.test(params.id)) {
             setError('文章 ID 无效');
             setLoading(false);
             return;
@@ -28,12 +61,11 @@ export default function ArticlePage({ params }: { params: { id: string } }) {
 
         try {
             setLoading(true);
-
-            // const response = await fetch(`${baseUrl}/public/articles/${params.id}`, { signal });
             const response = await fetch(`${baseUrl}/public/articles/${params.id}`, { signal });
-            // const response = await fetch(`https://blog.ciraos.top/api/public/articles/${params.id}`, { signal });
 
-            if (!response.ok) { throw new Error(`请求失败`); }
+            if (!response.ok) {
+                throw new Error(`请求失败`);
+            }
 
             const data: ArticleContentResponse = await response.json();
 
@@ -47,7 +79,7 @@ export default function ArticlePage({ params }: { params: { id: string } }) {
                 throw new Error('接口返回数据格式异常');
             }
         } catch (err) {
-            if (signal.aborted) return; // 忽略取消的请求
+            if (signal.aborted) return;
             const message = err instanceof Error ? err.message : '未知错误';
             setError(message.includes('请求失败') ? '无法加载文章，请稍后再试' : message);
         } finally {
@@ -60,23 +92,27 @@ export default function ArticlePage({ params }: { params: { id: string } }) {
     useEffect(() => {
         const controller = new AbortController();
         fetchArticle(controller.signal);
-        return () => { controller.abort(); };
-    }, [fetchArticle]);
+        return () => {
+            controller.abort();
+        };
+    }, [fetchArticle]); // 明确依赖项
 
-    if (loading) return (<Spin size='large' />);
-    if (error) return (<Alert style={{ margin: '20px 0' }} message="文章加载失败，请稍后再试" type='warning' closable />);
+    if (loading) return <Spin size='large' />;
+    if (error) return <Alert style={{ margin: '20px 0' }} message="文章加载失败，请稍后再试" type='warning' closable />;
     if (!article) return <div>文章不存在</div>;
 
     return (
         <>
             <div className="post-content my-5 px-2">
-                <ReactMarkdown
-                    components={{}}
+                <Markdown
+                    components={{
+                        code: CodeBlock
+                    }}
                     rehypePlugins={[rehypeKatex, rehypeSanitize]}
-                    remarkPlugins={[[remarkGfm, { singleTilde: false }]]}
+                    remarkPlugins={[[remarkGfm, { singleTilde: true }]]}
                 >
                     {article.data.content_md}
-                </ReactMarkdown>
+                </Markdown>
             </div>
         </>
     );

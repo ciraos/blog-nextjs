@@ -9,6 +9,7 @@ import {
     useState
 } from "react";
 import Link from "next/link";
+
 import {
     Avatar,
     Button,
@@ -24,6 +25,7 @@ import {
     UserOutlined
 } from "@ant-design/icons";
 import "@ant-design/v5-patch-for-react-19";
+
 import LogoutButton from "./buttons/logout";
 
 interface HeaderProps {
