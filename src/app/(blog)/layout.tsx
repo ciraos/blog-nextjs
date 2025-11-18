@@ -4,6 +4,7 @@
 */
 import { cookies } from "next/headers";
 import Link from "next/link";
+import NextTopLoader from "nextjs-toploader";
 import "../globals.css";
 import "../page-content.css";
 import {
@@ -32,6 +33,12 @@ export default async function BlogLayout({ children }: Readonly<{ children: Reac
           }}
         >
           <div id="CIRAOS">
+
+            <NextTopLoader
+              easing="ease"
+              shadow="box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;"
+              showSpinner={false}
+            />
 
             {/* banner */}
             <Header isLogin={isLogin} />

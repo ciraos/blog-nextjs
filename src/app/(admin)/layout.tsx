@@ -7,6 +7,7 @@
 // import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import NextTopLoader from "nextjs-toploader";
 import "../globals.css";
 import {
     Button,
@@ -87,6 +88,13 @@ export default function AdminLayout({ children }: Readonly<{ children: React.Rea
                     }}
                     >
                         <div id="CIRAOS">
+
+                            <NextTopLoader
+                                easing="ease"
+                                shadow="box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;"
+                                showSpinner={false}
+                            />
+
                             <Layout
                                 hasSider
                                 style={{ width: "100%", height: "100vh" }}

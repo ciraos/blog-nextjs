@@ -21,6 +21,7 @@
     "highlight.js": "^11.11.1",
     "moment": "^2.30.1",
     "next": "16.0.0",
+    "nextjs-toploader": "^3.9.17",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "react-markdown": "^10.1.0",
