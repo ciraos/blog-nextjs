@@ -1,3 +1,4 @@
+import React from "react";
 import type { Metadata } from "next";
 import {
     Statistic
@@ -45,10 +46,9 @@ export default async function Dashboard() {
 
     return (
         <>
-
             <div className="font-semibold text-2xl">欢迎回来，ciraos@yeah.net！👋</div>
 
-            <div className="statistic my-4 flex items-center justify-around">
+            <div className="statistic my-4 flex flex-wrap items-center justify-between">
                 <Statistic title="今日访客" value={stats.today_visitors} />
                 <Statistic title="今日浏览量" value={stats.today_views} />
                 <Statistic
@@ -61,8 +61,6 @@ export default async function Dashboard() {
                 />
                 <Statistic title="本月总浏览量" value={stats.month_views} />
                 <Statistic title="年度总访问量" value={stats.year_views} />
-
-
             </div>
         </>
     );
