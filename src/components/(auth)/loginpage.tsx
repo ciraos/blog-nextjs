@@ -63,18 +63,21 @@ export default function LoginPage() {
                 className='login-box pt-6 px-6 mx-auto rounded-xl bg-white shadow-md hover:shadow-lg dark:bg-slate-600'
             >
                 <Form
-                    name="login"
+                    autoComplete='off'
+                    // colon={false}
                     initialValues={{ remember: true }}
+                    // labelAlign
+                    name="login"
                     onFinish={onFinish}
                     onFinishFailed={onFinishFailed}
-                    autoComplete="off"
+                    scrollToFirstError
                 >
                     <Form.Item<FieldType>
                         label="邮箱"
                         name="email"
                         rules={[{ required: true, message: '请输入您的邮箱！' }]}
                     >
-                        <Input prefix={<UserOutlined />} placeholder='邮箱' />
+                        <Input placeholder='邮箱' />
                     </Form.Item>
 
                     <Form.Item<FieldType>
@@ -82,7 +85,7 @@ export default function LoginPage() {
                         name="password"
                         rules={[{ required: true, message: '请输入您的密码！' }]}
                     >
-                        <Input prefix={<LockOutlined />} type='password' placeholder='密码' />
+                        <Input.Password placeholder='密码' visibilityToggle />
                     </Form.Item>
 
                     <Form.Item>

@@ -20,13 +20,13 @@ export default async function BlogLayout({ children }: Readonly<{ children: Reac
   const isLogin = !!token;
 
   return (
-    <html lang="zh-CN" suppressHydrationWarning>
+    <html lang="zh-CN">
       <body>
         <ConfigProvider
           theme={{
             token: {
               colorPrimary: '#39c5bb',
-              borderRadius: 12,
+              // borderRadius: 12,
               colorBgContainer: '#fff'
             }
           }}

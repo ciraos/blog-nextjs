@@ -49,7 +49,7 @@ export default async function Home() {
               />
             </Link>
 
-            <div className="post-meta w-[58%] py-2 px-5 flex flex-col justify-center">
+            <div className="post-meta w-[58%] py-7 px-4 flex flex-col justify-center">
               <Link href={`/posts/${post.id}`} className="text-2xl break-all">{post.title}</Link>
 
               <div className="text-sm mt-2">
@@ -64,7 +64,7 @@ export default async function Home() {
                 </span> */}
               </div>
 
-              <div className="text-sm m-0">{post.summaries}</div>
+              <div className="h-max text-sm overflow-x-clip overflow-y-hidden">{post.summaries}</div>
 
               <div className="tags flex items-center">
                 {post.post_tags.length > 0 && (
