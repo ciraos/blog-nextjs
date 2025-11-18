@@ -12,10 +12,10 @@ import {
     Form,
     Input
 } from 'antd';
-import {
-    LockOutlined,
-    UserOutlined
-} from "@ant-design/icons";
+// import {
+//     LockOutlined,
+//     UserOutlined
+// } from "@ant-design/icons";
 import "@ant-design/v5-patch-for-react-19";
 
 type FieldType = {

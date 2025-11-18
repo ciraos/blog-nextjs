@@ -6,13 +6,11 @@
 
 import Link from "next/link";
 
+//! Antd
 import {
     Image,
-    theme
 } from "antd";
-import type {
-    CalendarProps
-} from "antd";
+// import type { } from "antd";
 import "@ant-design/v5-patch-for-react-19";
 
 import { Icon } from "@iconify/react";

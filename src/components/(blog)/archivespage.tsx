@@ -5,9 +5,9 @@
 */
 
 import Link from "next/link";
-import {
-    Timeline
-} from "antd";
+// import {
+//     Timeline
+// } from "antd";
 import "@ant-design/v5-patch-for-react-19";
 import { fetchPostList } from "@/utils/articles";
 import { PostListResponse } from "@/types/articles";
@@ -18,9 +18,9 @@ export default async function ArchivespPage() {
     const {
         list:
         postList,
-        total,
+        // total,
         // page,
-        pageSize
+        // pageSize
     } = data;
 
     if (code !== 200) {

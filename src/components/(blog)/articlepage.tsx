@@ -5,15 +5,17 @@ import {
     useState,
 } from 'react';
 
+//! Antd
 import {
     Alert,
     Spin
 } from "antd";
 import "@ant-design/v5-patch-for-react-19";
 
+//! Markdown
 import Markdown from 'react-markdown';
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+// import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+// import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import rehypeSanitize from 'rehype-sanitize';
 import rehypeKatex from 'rehype-katex';
 import remarkGfm from 'remark-gfm';
@@ -25,27 +27,6 @@ const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 if (!baseUrl) {
     throw new Error("环境变量 NEXT_PUBLIC_API_URL 未配置");
 }
-
-const CodeBlock = ({ node, className, children, ...props }: any) => {
-    const match = /language-(\w+)/.exec(className || '');
-    return match ? (
-        <SyntaxHighlighter
-            {...props}
-            children={String(children).replace(/\n$/, '')}
-            language={match[1]}
-            PreTag="div"
-            showInlineLineNumbers
-            showLineNumbers
-            style={oneDark}
-            wrapLines={false}
-            wrapLongLines={false}
-        />
-    ) : (
-        <code {...props} className={className}>
-            {children}
-        </code>
-    );
-};
 
 export default function ArticlePage({ params }: { params: { id: string } }) {
     const [article, setArticle] = useState<ArticleContentResponse | null>(null);
@@ -95,7 +76,7 @@ export default function ArticlePage({ params }: { params: { id: string } }) {
         return () => {
             controller.abort();
         };
-    }, [fetchArticle]); // 明确依赖项
+    }, [fetchArticle]);
 
     if (loading) return <Spin size='large' />;
     if (error) return <Alert style={{ margin: '20px 0' }} message="文章加载失败，请稍后再试" type='warning' closable />;
@@ -105,9 +86,7 @@ export default function ArticlePage({ params }: { params: { id: string } }) {
         <>
             <div className="post-content my-5 px-2">
                 <Markdown
-                    components={{
-                        code: CodeBlock
-                    }}
+                    components={{}}
                     rehypePlugins={[rehypeKatex, rehypeSanitize]}
                     remarkPlugins={[[remarkGfm, { singleTilde: true }]]}
                 >
