@@ -1,4 +1,5 @@
-import React from "react";
+
+// import React from "react";
 import type { Metadata } from "next";
 import {
     Statistic
@@ -11,7 +12,7 @@ import "@ant-design/v5-patch-for-react-19";
 import type { statisticsBasic } from "@/types/statistics/basic";
 
 export const metadata: Metadata = {
-    title: "葱苓小筑 | 仪表盘",
+    title: "仪表盘",
 };
 
 type StatisticsData = statisticsBasic['data'];
@@ -48,7 +49,7 @@ export default async function Dashboard() {
         <>
             <div className="font-semibold text-2xl">欢迎回来，ciraos@yeah.net！👋</div>
 
-            <div className="statistic my-4 flex flex-wrap items-center justify-between">
+            <div className="statistic my-4 flex flex-wrap items-center justify-around">
                 <Statistic title="今日访客" value={stats.today_visitors} />
                 <Statistic title="今日浏览量" value={stats.today_views} />
                 <Statistic

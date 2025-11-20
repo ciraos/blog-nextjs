@@ -12,7 +12,7 @@ import { fetchPostList } from "@/utils/articles";
 import { PostListResponse } from "@/types/articles";
 
 export const metadata: Metadata = {
-  title: "葱苓小筑 | 首页",
+  title: "首页",
 };
 
 export default async function Home() {
@@ -41,16 +41,14 @@ export default async function Home() {
               <Image
                 alt="fl-avatar"
                 fallback="https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/default_cover.avif"
-                // width={344}
-                // height={220.8}
                 preview={false}
                 src={post.cover_url}
-                style={{ height: 220 }}
+                style={{ height: 220.8 }}
               />
             </Link>
 
             <div className="post-meta w-[58%] py-7 px-4 flex flex-col justify-center">
-              <Link href={`/posts/${post.id}`} className="text-2xl break-all">{post.title}</Link>
+              <Link href={`/posts/${post.id}`} className="text-2xl">{post.title}</Link>
 
               <div className="text-sm mt-2">
                 <span className="flex items-center">
@@ -58,17 +56,17 @@ export default async function Home() {
                   <span className="m-0">创建于{post.created_at ? moment(post.created_at).format('YYYY-MM-DD, h:mm:ss') : '未知'}</span>
                 </span>
                 {/* <Divider type="vertical" variant="solid" /> */}
-                {/* <span className="flex">
+                {/* <span className="flex items-center">
                   <Icon icon="icon-park-outline:time" width={18} height={18} className="m-0" />
                   <span className="m-0">&nbsp;更新于{post.updated_at ? moment(post.updated_at).format('YYYY-MM-DD, h:mm:ss') : '未知'}</span>
                 </span> */}
               </div>
 
-              <div className="h-max text-sm overflow-x-clip overflow-y-hidden">{post.summaries}</div>
+              <div className="text-sm">{post.summaries}</div>
 
               <div className="tags flex items-center">
                 {post.post_tags.length > 0 && (
-                  <div className="tags-item flex font-mono">
+                  <div className="tags-item flex">
                     {/* <Icon icon="famicons:pricetags-sharp" width="15px" height="15px" /> */}
                     {post.post_tags.map((tag, index) => (
                       <span key={index} style={{ marginRight: '8px' }}>
@@ -78,17 +76,17 @@ export default async function Home() {
                   </div>
                 )}
 
-                <Divider type="vertical" variant="solid" />
+                {/* <Divider type="vertical" variant="solid" /> */}
 
-                {/* {post.post_categories.length > 0 && (
+                {post.post_categories.length > 0 && (
                   <div className="flex">
-                    {post.post_categories.map((category: any) => (
-                      <span key={category.id} style={{ marginRight: '8px' }}>
+                    {post.post_categories.map((category) => (
+                      <span key={category.id} style={{}}>
                         {category.name}
                       </span>
                     ))}
                   </div>
-                )} */}
+                )}
               </div>
 
               <div className="text-sm">阅读量：{post.view_count} | 阅读时间：{post.reading_time}分钟</div>
