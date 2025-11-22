@@ -24,6 +24,7 @@ interface PostList {
     ip_location: string;
     primary_color: string;
     is_primary_color_manual: boolean;
+    show_on_home: boolean;
     post_tags: PostTags[];
     post_categories: PostCategories[];
     home_sort: number;
@@ -36,6 +37,7 @@ interface PostList {
     copyright_author_href: string;
     copyright_url: string;
     keywords: string;
+    comment_count: number;
 }
 
 interface PostTags {

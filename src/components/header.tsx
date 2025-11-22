@@ -63,7 +63,6 @@ export default function Header({ isLogin }: HeaderProps) {
             updateWidth();
         };
         window.addEventListener("resize", handleResize);
-
         return () => {
             window.removeEventListener("resize", handleResize);
         };

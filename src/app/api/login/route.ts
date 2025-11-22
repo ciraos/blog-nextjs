@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export async function POST(req: NextRequest) {
     try {
@@ -12,14 +12,14 @@ export async function POST(req: NextRequest) {
                 { status: 400 }
             );
         }
-        if (!API_BASE_URL) {
+        if (!baseUrl) {
             return NextResponse.json(
                 { success: false, message: "服务器配置错误" },
                 { status: 500 }
             );
         }
 
-        const a = await fetch(`${API_BASE_URL}/auth/login`, {
+        const a = await fetch(`${baseUrl}/auth/login`, {
             "method": "POST",
             'headers': { "Content-Type": "application/json" },
             "body": JSON.stringify({ email, password }),

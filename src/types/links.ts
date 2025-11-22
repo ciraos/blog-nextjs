@@ -1,3 +1,5 @@
+
+//!
 export interface LinkCategoriesResponse {
     code: number;
     message: string;

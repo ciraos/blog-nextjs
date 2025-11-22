@@ -1,13 +1,19 @@
+/*
+ * server page 
+*/
+
 import type { Metadata } from "next";
 import Link from "next/link";
+
 import {
-  Divider,
+  // Divider,
   Image,
   Pagination
 } from "antd";
 import "@ant-design/v5-patch-for-react-19";
 import { Icon } from "@iconify/react";
 import moment from "moment";
+
 import { fetchPostList } from "@/utils/articles";
 import { PostListResponse } from "@/types/articles";
 
