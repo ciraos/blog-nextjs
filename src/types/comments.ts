@@ -14,11 +14,12 @@ interface CommentListData {
     pageSize: number;
 }
 
-interface CommentItem {
+export interface CommentItem {
     id: string;
     created_at: string;
     nickname: string;
     email_md5: string;
+    avatar_url: string; // 补充字段以匹配 children 结构
     content_html: string;
     is_admin_comment: boolean;
     is_anonymous: boolean;
@@ -31,12 +32,12 @@ interface CommentItem {
     children: CommentChildren[];
 }
 
-interface CommentChildren {
+export interface CommentChildren {
     id: string;
     created_at: string;
     nickname: string;
     email_md5: string;
-    avatar_url: string;
+    avatar_url: string; // 补充字段以匹配 children 结构
     content_html: string;
     is_admin_comment: boolean;
     is_anonymous: boolean;
@@ -44,9 +45,6 @@ interface CommentChildren {
     user_agent: string;
     target_path: string;
     target_title: string;
-    parent_id: string;
-    reply_to_id: string;
-    reply_to_nick: string;
     like_count: number;
     total_children: number;
 }

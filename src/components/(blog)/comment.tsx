@@ -1,28 +1,50 @@
-"use client";
-// import { useState } from "react";
 import {
+    Avatar,
+    Badge,
     Button,
     Input,
     Tooltip
 } from "antd";
 import "@ant-design/v5-patch-for-react-19";
 import { Icon } from "@iconify/react";
+import CommentInputArea from "./commentinputarea";
+import { CommentResponse, CommentItem } from "@/types/comments";
 
 interface CommentProps {
     id: string;
 }
 
-const { TextArea } = Input;
+const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
-export default function Comment({ id }: CommentProps) {
-    // const [value, setValue] = useState("");
+export default async function Comment({ id }: CommentProps) {
+    let commentCount = 0;
+    let commentList: CommentItem[] = [];
+    try {
+        const res: CommentResponse = await fetch(`${baseUrl}/public/comments?target_path=/posts/${id}`).then((res) => res.json());
+        commentCount = res.data?.total_with_children ?? 0;
+        commentList = res.data?.list ?? [];
+    } catch (error) {
+        console.error("加载评论失败", error);
+    }
+    const commentContent = commentList.map((item: CommentItem) => (
+        <div key={item.id}>{item.content_html}</div>
+    ));
 
     return (
         <>
             <div className="comment-sys h-auto my-5">
 
                 <div className="comment-header flex items-center justify-between">
-                    <div className="flex items-center"><Icon icon="iconamoon:comment-fill" width="24" height="24" /><span className="text-[24px] font-extrabold ml-1">评论</span></div>
+                    <div className="flex items-center">
+                        <Icon icon="iconamoon:comment-fill" width="24" height="24" />
+                        <Badge
+                            color="orange"
+                            count={commentCount}
+                            offset={[4, 0]}
+                        >
+                            <span className="text-[24px] font-extrabold ml-1">评论</span>
+                        </Badge>
+                    </div>
                     <div>
                         <Tooltip arrow color="cyan" title="点击开启匿名评论模式">
                             <Button type="text">匿名评论</Button>
@@ -34,24 +56,7 @@ export default function Comment({ id }: CommentProps) {
                 </div>
 
                 <div className="textarea-wrapper py-3 px-6 bg-[#F1F3F8] rounded-xl">
-                    <TextArea
-                        allowClear
-                        autoSize={{ minRows: 6 }}
-                        maxLength={10000}
-                        // onChange={(e) => setValue(e.target.value)}
-                        placeholder="欢迎留下宝贵的建议啦~"
-                        // showCount
-                        // size="large"
-                        // value={value}
-                        variant="borderless"
-                    />
-                    <div className="flex items-center justify-between">
-                        <div className="flex gap-2">
-                            <Icon icon="ri:emotion-line" width="20" height="20" />
-                            <Icon icon="fa-regular:image" width="20" height="20" />
-                        </div>
-                        {/* <div className="text-slate-500 text-sm">{value.length}/10000</div> */}
-                    </div>
+                    <CommentInputArea />
                 </div>
 
                 <div className="w-full mt-3.5 flex gap-4">
@@ -65,6 +70,10 @@ export default function Comment({ id }: CommentProps) {
                         <Input prefix="网址" placeholder="选填" />
                     </div>
                     <Button className="w-28" type="primary">发送</Button>
+                </div>
+
+                <div>
+                    {commentContent}
                 </div>
 
             </div>
