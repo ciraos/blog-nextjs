@@ -76,6 +76,15 @@ export default async function Aside() {
 
                 <div className="aside-item"></div>
 
+                <div className="aside-item">
+                    <div className="aside-item-title"><Icon icon="bi:clipboard-data-fill" width="14px" height="14px" style={{ color: '#48b0db' }} /><span className="pl-1">统计</span></div>
+                    <div>
+                        <div className="text-sm m-0 flex items-center justify-between">文章总数:<span>0篇</span></div>
+                        <div className="text-sm mt-1 flex items-center justify-between">建站天数:<span>0天</span></div>
+                        <div className="text-sm mt-1 flex items-center justify-between">全站字数:<span>0字</span></div>
+                    </div>
+                </div>
+
             </aside>
         </>
     );

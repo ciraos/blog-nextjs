@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import {
-  // Divider,
+  Divider,
   Image,
   Pagination
 } from "antd";
@@ -38,7 +38,6 @@ export default async function Home() {
 
   return (
     <>
-
       <div className="recent-posts">
         {postList.map((post, index) => (
           <div key={index} style={{}} className="recent-posts-item shadow-sm">
@@ -46,34 +45,33 @@ export default async function Home() {
             <Link href={`/posts/${post.id}`} className="post-cover w-[42%] h-full">
               <Image
                 alt="fl-avatar"
-                fallback="https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/default_cover.avif"
+                fallback="https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/404_1.avif"
                 preview={false}
                 src={post.cover_url}
                 style={{ height: 220.8 }}
               />
             </Link>
 
-            <div className="post-meta w-[58%] py-7 px-4 flex flex-col justify-center">
-              <Link href={`/posts/${post.id}`} className="text-2xl">{post.title}</Link>
+            <div className="post-meta w-[calc(100%-344px)] py-2 px-5 flex flex-col justify-center">
+              <Link href={`/posts/${post.id}`} className="post-meta-title text-2xl">{post.title}</Link>
 
               <div className="text-sm mt-2">
                 <span className="flex items-center">
-                  <Icon icon="icon-park-outline:time" width={18} height={18} className="mr-0.5" />
-                  <span className="m-0">创建于{post.created_at ? moment(post.created_at).format('YYYY-MM-DD, h:mm:ss') : '未知'}</span>
+                  <Icon icon="icon-park-outline:time" width={18} height={18} className="mr-1" />
+                  <span className="mr-1">创建于{post.created_at ? moment(post.created_at).format('YYYY-MM-DD') : '未知'}</span>
                 </span>
                 {/* <Divider type="vertical" variant="solid" /> */}
-                {/* <span className="flex items-center">
-                  <Icon icon="icon-park-outline:time" width={18} height={18} className="m-0" />
-                  <span className="m-0">&nbsp;更新于{post.updated_at ? moment(post.updated_at).format('YYYY-MM-DD, h:mm:ss') : '未知'}</span>
-                </span> */}
+                {/* <span className="flex items-center break-all">
+                                    <Icon icon="icon-park-outline:time" width={18} height={18} className="mr-1" />
+                                    <span className="mr-1">更新于{post.updated_at ? moment(post.updated_at).format('YYYY-MM-DD') : '未知'}</span>
+                                </span> */}
               </div>
 
-              <div className="text-sm">{post.summaries}</div>
+              <div className="text-sm m-0">{post.summaries}</div>
 
-              <div className="tags flex items-center">
+              <div className="flex items-center">
                 {post.post_tags.length > 0 && (
-                  <div className="tags-item flex">
-                    {/* <Icon icon="famicons:pricetags-sharp" width="15px" height="15px" /> */}
+                  <div className="flex">
                     {post.post_tags.map((tag, index) => (
                       <span key={index} style={{ marginRight: '8px' }}>
                         #{tag.name}
@@ -82,12 +80,13 @@ export default async function Home() {
                   </div>
                 )}
 
-                {/* <Divider type="vertical" variant="solid" /> */}
+                <Divider type="vertical" variant="solid" />
 
                 {post.post_categories.length > 0 && (
-                  <div className="flex">
-                    {post.post_categories.map((category) => (
-                      <span key={category.id} style={{}}>
+                  <div className="flex items-center">
+                    <Icon icon="mdi:category" width="16px" height="16px" />
+                    {post.post_categories.map((category: any) => (
+                      <span key={category.id} style={{ marginRight: '8px' }}>
                         {category.name}
                       </span>
                     ))}

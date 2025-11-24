@@ -79,7 +79,7 @@
     transition: all 0.3s ease;
 }
 
-.blog-container-content a:hover {
+.blog-container-content a:hover:not(a.post-meta-title) {
     border-bottom: 1px solid #0366d6;
 }
 
@@ -209,7 +209,7 @@ input[type="checkbox"] {
 }
 
 /*! 图片样式 */
-.blog-container-content img {
+.blog-container-content img:not(.recent-posts-item img) {
     max-width: 100%;
     height: auto;
     display: block;
@@ -218,7 +218,7 @@ input[type="checkbox"] {
     /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
 }
 
-.blog-container-content img+em {
+.blog-container-content img+em:not(.recent-posts-item img) {
     display: block;
     text-align: center;
     font-size: 0.9em;

@@ -1,3 +1,6 @@
+/*
+ * server component
+*/
 import {
     Avatar,
     Badge,
