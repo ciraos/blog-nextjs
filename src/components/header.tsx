@@ -22,6 +22,7 @@ import type {
 import {
     HomeOutlined,
     LogoutOutlined,
+    MenuOutlined,
     UserOutlined
 } from "@ant-design/icons";
 import "@ant-design/v5-patch-for-react-19";
@@ -70,46 +71,44 @@ export default function Header({ isLogin }: HeaderProps) {
 
     return (
         <>
-            <div className="header w-full h-16 mx-0 px-5 bg-white flex items-center justify-between shadow-sm hover:shadow-md">
-                <Link className="text-md text-black" href="/">葱苓小筑</Link>
+            <div className="header w-full h-16 bg-white shadow-sm hover:shadow-md">
+                <div className="header-wrapper h-full w-4/5 mx-auto flex items-center justify-between">
+                    <Link className="text-md text-black" href="/">葱苓小筑</Link>
 
-                {!isLogin ? (
-                    <Button className="w-24" type="primary" href="/login">登录/注册</Button>
-                ) : isMobile ? (
-                    <Avatar
-                        className="hover:cursor-pointer"
-                        icon={<UserOutlined />}
-                        onClick={showDrawer}
-                        size='large'
-                    >
-                        user
-                    </Avatar>
-                ) : (
-                    <Dropdown arrow menu={{ items }}>
-                        <Avatar
-                            className="hover:cursor-pointer"
-                            icon={<UserOutlined />}
+                    <div className="w-max px-1 flex items-center">
+                        {isLogin ? (
+                            <Dropdown arrow menu={{ items }}>
+                                <Avatar
+                                    className="hover:cursor-pointer"
+                                    icon={<UserOutlined />}
+                                    // onClick={showDrawer}
+                                    size='small'
+                                >
+                                    user
+                                </Avatar>
+                            </Dropdown>
+                        ) : (
+                            <Button className="w-24" type="primary" href="/login">登录/注册</Button>
+                        )}
+
+                        <MenuOutlined
                             onClick={showDrawer}
-                            size='large'
-                        >
-                            user
-                        </Avatar>
-                    </Dropdown>
-                )}
-
-                <Drawer
-                    closable
-                    destroyOnHidden
-                    keyboard
-                    mask
-                    maskClosable
-                    onClose={onDrawerClose}
-                    open={open}
-                    title="这是一个可爱的菜单呢喵！"
-                >
-                </Drawer>
-
+                            style={{ marginLeft: '5px' }}
+                        />
+                    </div>
+                </div>
             </div>
+            <Drawer
+                closable
+                destroyOnHidden
+                keyboard
+                mask
+                maskClosable
+                onClose={onDrawerClose}
+                open={open}
+                title="这是一个可爱的菜单呢喵！"
+            >
+            </Drawer>
         </>
     );
 }

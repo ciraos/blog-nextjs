@@ -16,9 +16,21 @@ import moment from "moment";
 
 import { fetchPostList } from "@/utils/articles";
 import { PostListResponse } from "@/types/articles";
+import { SiteConfigResponse } from "@/types/site-config";
+
+const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+
+async function getSiteConfig() {
+  const k = await fetch(`${baseUrl}/public/site-config`);
+  const res = await k.json() as SiteConfigResponse;
+  return res.data;
+}
+
+const a = await getSiteConfig();
 
 export const metadata: Metadata = {
-  title: "首页",
+  title: `${a.APP_NAME} | 首页`,
+  icons: `${a.ICON_URL}`
 };
 
 export default async function Home() {

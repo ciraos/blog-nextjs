@@ -2,9 +2,11 @@
  * @Author: ciraos
  * Server Component file.
 */
+
 import { cookies } from "next/headers";
 import Link from "next/link";
 import NextTopLoader from "nextjs-toploader";
+
 import "../globals.css";
 import "../page-content.css";
 import {
@@ -14,11 +16,21 @@ import "@ant-design/v5-patch-for-react-19";
 import JiKe from "@/components/(blog)/jike";
 import Header from "@/components/header";
 import Aside from "@/components/(blog)/aside";
+import { SiteConfigResponse } from "@/types/site-config";
+
+const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+
+async function getSiteConfig() {
+  const k = await fetch(`${baseUrl}/public/site-config`);
+  const res = await k.json() as SiteConfigResponse;
+  return res.data;
+}
 
 export default async function BlogLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
   const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value;
   const isLogin = !!token;
+  const config = await getSiteConfig();
 
   return (
     <html lang="zh-CN">
@@ -62,7 +74,7 @@ export default async function BlogLayout({ children }: Readonly<{ children: Reac
                 <span className="animate-pulse text-red-500">❤</span>.
               </div>
               {/* <div>created by <Link className="pt-1 px-2 border-b-2 hover:bg-blue-400" href="https://github.com/ciraos" target="_blank">葱苓sama</Link> with <span className="animate-pulse">❤</span> at {new Date().getFullYear()}</div> */}
-              <Link className="pt-1 px-2 border-b-2 hover:bg-blue-400" href="https://beian.miit.gov.cn" target="_blank">皖ICP备2023018992号-1</Link>
+              <Link className="pt-1 px-2 border-b-2 hover:bg-blue-400" href="https://beian.miit.gov.cn" target="_blank">{config.ICP_NUMBER}</Link>
             </div>
 
           </div>

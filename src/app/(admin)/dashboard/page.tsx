@@ -1,3 +1,4 @@
+
 // import React from "react";
 import type { Metadata } from "next";
 import {
@@ -9,6 +10,7 @@ import {
 } from '@ant-design/icons';
 import "@ant-design/v5-patch-for-react-19";
 import type { statisticsBasic } from "@/types/statistics/basic";
+import { SiteConfigResponse } from "@/types/site-config";
 
 export const metadata: Metadata = {
     title: "仪表盘",
@@ -17,6 +19,12 @@ export const metadata: Metadata = {
 type StatisticsData = statisticsBasic['data'];
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+
+async function getSiteConfig() {
+    const k = await fetch(`${baseUrl}/public/site-config`);
+    const res = await k.json() as SiteConfigResponse;
+    return res.data;
+}
 
 async function getStatisticsBasic(): Promise<StatisticsData> {
     try {
@@ -43,10 +51,11 @@ async function getStatisticsBasic(): Promise<StatisticsData> {
 
 export default async function Dashboard() {
     const stats = await getStatisticsBasic();
+    const config = await getSiteConfig();
 
     return (
         <>
-            <div className="font-semibold text-2xl">欢迎回来，ciraos@yeah.net！👋</div>
+            <div className="font-semibold text-2xl">欢迎回来，{config.frontDesk.siteOwner.name}！👋</div>
 
             <div className="statistic my-4 flex flex-wrap items-center justify-around">
                 <Statistic title="今日访客" value={stats.today_visitors} />

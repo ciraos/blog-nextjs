@@ -2,7 +2,7 @@
  * server component
 */
 import {
-    Avatar,
+    // Avatar,
     Badge,
     Button,
     Input,
@@ -58,7 +58,7 @@ export default async function Comment({ id }: CommentProps) {
                     </div>
                 </div>
 
-                <div className="textarea-wrapper py-3 px-6 bg-[#F1F3F8] rounded-xl">
+                <div className="textarea-wrapper mt-1 py-3 px-6 bg-[#F1F3F8] rounded-xl">
                     <CommentInputArea />
                 </div>
 
@@ -76,7 +76,7 @@ export default async function Comment({ id }: CommentProps) {
                 </div>
 
                 <div>
-                    {commentContent}
+                    {/* {commentContent} */}
                 </div>
 
             </div>
