@@ -9,10 +9,8 @@ export const metadata: Metadata = {
 export default function Archives() {
     return (
         <>
-            <div>
-                <h2>归档</h2>
-                <ArchivespPage />
-            </div>
+            <h2>归档</h2>
+            <ArchivespPage />
         </>
     );
 }

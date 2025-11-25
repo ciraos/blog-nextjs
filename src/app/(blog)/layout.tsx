@@ -2,11 +2,9 @@
  * @Author: ciraos
  * Server Component file.
 */
-
 import { cookies } from "next/headers";
 import Link from "next/link";
 import NextTopLoader from "nextjs-toploader";
-
 import "../globals.css";
 import "../page-content.css";
 import {
@@ -40,7 +38,7 @@ export default async function BlogLayout({ children }: Readonly<{ children: Reac
             token: {
               borderRadius: 12,
               colorBgContainer: '#fff',
-              colorPrimary: '#39c5bb',
+              colorPrimary: '#000',
             }
           }}
         >
@@ -52,9 +50,10 @@ export default async function BlogLayout({ children }: Readonly<{ children: Reac
               showSpinner={false}
             />
 
-            {/* banner */}
+            {/* header */}
             <Header isLogin={isLogin} />
 
+            {/* home-banner */}
             <div className="home-banner w-full h-max mt-10 mx-auto flex">
               <JiKe />
             </div>

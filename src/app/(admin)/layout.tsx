@@ -1,8 +1,7 @@
 /*
  * @author: 葱苓sama
- * Client Layout.tsx 
+ * Client Layout
 */
-
 "use client";
 import { useState } from "react";
 import Link from "next/link";
@@ -11,7 +10,7 @@ import NextTopLoader from "nextjs-toploader";
 import "../globals.css";
 
 import {
-    Avatar,
+    // Avatar,
     Button,
     ConfigProvider,
     Image,

@@ -23,7 +23,6 @@ const markdownContent = `
 
 ## 信息保护
 我们采取适当安全措施来保护您的个人信息。
-
 `;
 
 export default function Privacy() {
