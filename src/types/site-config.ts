@@ -406,7 +406,7 @@ export interface FrontDeskSiteOwner {
     name: string;
 }
 
-/** 头部导航配置 */
+//! 头部导航配置
 export interface HeaderConfig {
     menu: HeaderMenu[];
     nav: HeaderNav;
@@ -441,7 +441,7 @@ export interface HeaderNavMenuItem {
     name: string;
 }
 
-/** 朋友圈配置 */
+//! 朋友圈配置
 export interface MomentsConfig {
     button_link: string;
     button_text: string;

@@ -65,32 +65,44 @@ aside {
   align-items: center;
 }
 
-/*! Archives timeline */
-.timeline {
-  display: flex;
-  flex-direction: column;
+/*! 顶部导航栏 */
+/* .navlist {} */
+
+.navlist a {
+  display: block;
 }
 
-/* .timeline-item {} */
-
-.timeline-item::before {
-  content: "💗";
-  /* color: ; */
-  margin: 0 10px 0 0;
+.btli {
+  float: left;
+  width: 100px;
+  line-height: 40px;
+  text-align: center;
 }
 
-.timeline>.timeline-item:not(:first-child) {
-  margin-top: 12px;
+.droplist {
+  display: none;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid purple;
 }
 
-.textarea-wrapper {
-  border: 1px solid rgba(0, 0, 0, 0.1);
+/* .droplist li {} */
+
+.droplist li a {
+  width: 120px;
 }
 
-.textarea-wrapper:hover,
-.textarea-wrapper:focus,
-.textarea-wrapper:active {
-  border: 1px solid rgba(0, 0, 0, 0.5);
+.droplist li:not(:first-child) {
+  border-left: 1px solid #666;
+}
+
+.droplist li:hover {
+  background-color: aquamarine;
+}
+
+.btli:hover .droplist {
+  display: block;
 }
 
 /*! Toc */
