@@ -13,9 +13,9 @@ import "@ant-design/v5-patch-for-react-19";
 import { Icon } from "@iconify/react";
 
 import SearchButton from "./buttons/search";
-import DrawerButton from "./buttons/drawer";
+// import DrawerButton from "./buttons/drawer";
 import { SiteConfigResponse } from "@/types/site-config";
-
+0
 interface HeaderProps {
     isLogin: boolean;
 };
@@ -36,8 +36,8 @@ export default async function Header({ isLogin }: HeaderProps) {
     return (
         <>
             <div className="header w-full h-16 bg-white shadow-sm hover:shadow-md">
-                <div className="header-wrapper h-full w-4/5 mx-auto">
-                    <Link className="w-18 h-full px-1 text-md text-black" href="/">葱苓小筑</Link>
+                <div className="header-wrapper h-full w-4/5 mx-auto flex items-center justify-around">
+                    <Link className="w-18 h-full text-center content-center px-1 text-md text-black" href="/">葱苓小筑</Link>
 
                     {/* menu */}
                     <div className="menu w-[calc(100%-72px-136px)]">
@@ -60,12 +60,12 @@ export default async function Header({ isLogin }: HeaderProps) {
                     <div className="w-34 flex px-1 items-center gap-1.5">
                         <Tooltip title="随机前往一篇文章"><Icon icon="game-icons:card-random" width={25} height={25} className="hover:cursor-pointer" /></Tooltip>
                         <SearchButton />
-                        {isLogin ? (
+                        {/* {isLogin ? (
                             <Avatar size={25} className="hover:cursor-pointer">U</Avatar>
                         ) : (
                             <Tooltip title="登录/注册"><Button type="primary" href="/login" className="hover:cursor-pointer">登录/注册</Button></Tooltip>
                         )}
-                        <DrawerButton />
+                        <DrawerButton /> */}
                     </div>
                 </div>
             </div>

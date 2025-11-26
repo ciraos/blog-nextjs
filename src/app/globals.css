@@ -66,15 +66,22 @@ aside {
 }
 
 /*! 顶部导航栏 */
-/* .navlist {} */
+.menu {
+  display: flex;
+  justify-content: center;
+}
+
+.navlist {
+  width: max-content;
+}
 
 .navlist a {
   display: block;
 }
 
 .btli {
-  float: left;
-  width: 100px;
+  /* float: left; */
+  width: 120px;
   line-height: 40px;
   text-align: center;
 }
@@ -85,12 +92,15 @@ aside {
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid purple;
+  width: max-content;
+  margin: 2px 0 0 0;
+  transition: all .5s ease-in-out;
 }
 
 /* .droplist li {} */
 
 .droplist li a {
-  width: 120px;
+  width: 100px;
 }
 
 .droplist li:not(:first-child) {
@@ -102,7 +112,7 @@ aside {
 }
 
 .btli:hover .droplist {
-  display: block;
+  display: flex;
 }
 
 /*! Toc */
