@@ -292,7 +292,7 @@ export interface CommentConfig {
 /** 装备页配置 */
 export interface EquipmentConfig {
     banner: EquipmentBanner;
-    list: any[]; // 空数组，可根据实际数据扩展
+    list: string[]; // 空数组，可根据实际数据扩展
 }
 
 export interface EquipmentBanner {

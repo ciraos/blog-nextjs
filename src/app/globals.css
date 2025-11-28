@@ -115,6 +115,10 @@ aside {
   display: flex;
 }
 
+.menu-btn {
+  display: none;
+}
+
 /*! Toc */
 #toc {
   display: none;
@@ -197,6 +201,15 @@ aside {
   .header-wrapper {
     width: 100%;
     padding: 0 10px;
+    justify-content: space-between;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .menu-btn {
+    display: block;
   }
 
   .blog-container {

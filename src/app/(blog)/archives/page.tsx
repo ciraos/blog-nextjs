@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-
 import ArchivespPage from "@/components/(blog)/archivespage";
 
 export const metadata: Metadata = {

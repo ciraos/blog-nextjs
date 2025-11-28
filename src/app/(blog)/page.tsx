@@ -97,7 +97,7 @@ export default async function Home() {
                 {post.post_categories.length > 0 && (
                   <div className="flex items-center">
                     <Icon icon="mdi:category" width="16px" height="16px" />
-                    {post.post_categories.map((category: any) => (
+                    {post.post_categories.map((category) => (
                       <span key={category.id} style={{ marginRight: '8px' }}>
                         {category.name}
                       </span>

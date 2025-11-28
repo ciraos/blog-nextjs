@@ -8,7 +8,7 @@ import {
 } from "@/types/links";
 
 export const metadata: Metadata = {
-    title: "友人帐",
+    title: "友情链接",
 };
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -25,6 +25,8 @@ async function getLinkCategories() {
 
 export default async function Link() {
     return (
-        <></>
+        <>
+            <h2>友情链接</h2>
+        </>
     )
 }

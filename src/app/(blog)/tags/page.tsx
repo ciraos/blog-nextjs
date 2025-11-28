@@ -6,6 +6,8 @@ export const metadata: Metadata = {
 
 export default function Tags() {
     return (
-        <></>
+        <>
+            <h2>标签</h2>
+        </>
     );
 }

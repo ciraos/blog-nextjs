@@ -11,7 +11,7 @@ import {
   ConfigProvider,
 } from "antd";
 import "@ant-design/v5-patch-for-react-19";
-import JiKe from "@/components/(blog)/jike";
+// import JiKe from "@/components/(blog)/jike";
 import Header from "@/components/header";
 import Aside from "@/components/(blog)/aside";
 import { SiteConfigResponse } from "@/types/site-config";
@@ -54,9 +54,6 @@ export default async function BlogLayout({ children }: Readonly<{ children: Reac
             <Header isLogin={isLogin} />
 
             {/* home-banner */}
-            <div className="home-banner w-full h-max mt-10 mx-auto flex">
-              <JiKe />
-            </div>
 
             {/* content */}
             <div className="blog-container w-full my-10 mx-auto flex">

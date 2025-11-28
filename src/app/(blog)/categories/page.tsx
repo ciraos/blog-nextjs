@@ -6,6 +6,8 @@ export const metadata: Metadata = {
 
 export default function Categories() {
     return (
-        <></>
+        <>
+            <h2>文章分类</h2>
+        </>
     );
 }

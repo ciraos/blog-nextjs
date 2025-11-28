@@ -1,13 +1,13 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "朋友动态"
+    title: "关于本站"
 };
 
-export default function Fcircle() {
+export default function About() {
     return (
         <>
-            <h2>朋友动态</h2>
+            <h2>关于本站</h2>
         </>
     );
 }

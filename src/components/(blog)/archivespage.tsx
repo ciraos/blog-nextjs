@@ -29,7 +29,7 @@ export default async function ArchivespPage() {
 
     return (
         <>
-            <div className="timeline">
+            <div className="timeline flex flex-col">
                 {postList.map((post, index) => (
                     <Link key={index} href={`/posts/${post.id}`}
                         className="timeline-item"

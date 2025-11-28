@@ -26,6 +26,7 @@ export default function DrawerButton() {
                 title="菜单"
             >
                 <MenuOutlined
+                    className="menu-btn"
                     onClick={showDrawer}
                     style={{ fontSize: 21 }}
                 />
