@@ -1,3 +1,7 @@
+/*
+ * 文章详情页面
+ * Client Component
+*/
 'use client';
 import {
     useCallback,
@@ -14,19 +18,14 @@ import "@ant-design/v5-patch-for-react-19";
 
 //! Markdown
 import Markdown from 'react-markdown';
-// import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-// import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import rehypeSanitize from 'rehype-sanitize';
 import rehypeKatex from 'rehype-katex';
+import rehypeSanitize from 'rehype-sanitize';
 import remarkGfm from 'remark-gfm';
 import "katex/dist/katex.min.css"
 
 import { ArticleContentResponse } from '@/types/articles';
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
-if (!baseUrl) {
-    throw new Error("环境变量 NEXT_PUBLIC_API_URL 未配置");
-}
 
 export default function ArticlePage({ params }: { params: { id: string } }) {
     const [article, setArticle] = useState<ArticleContentResponse | null>(null);
@@ -43,6 +42,10 @@ export default function ArticlePage({ params }: { params: { id: string } }) {
         try {
             setLoading(true);
             const response = await fetch(`${baseUrl}/public/articles/${params.id}`, { signal });
+
+            if (!baseUrl) {
+                throw new Error("环境变量 NEXT_PUBLIC_API_URL 未配置");
+            }
 
             if (!response.ok) {
                 throw new Error(`请求失败`);

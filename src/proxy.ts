@@ -4,7 +4,7 @@ export default function proxy(req: NextRequest) {
     const token = req.cookies.get("token")?.value;
     const pathname = req.nextUrl.pathname;
 
-    const isDashboardPage = pathname === ('/dashboard');
+    const isDashboardPage = pathname === ('/dashboard') || pathname === ('/flink-management');
     const isLoginPage = pathname === '/login';
 
     //! 场景1: 无token
