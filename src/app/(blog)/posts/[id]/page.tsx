@@ -1,3 +1,6 @@
+/*
+ * @server Page
+*/
 import Link from "next/link";
 import type {
     Metadata,
