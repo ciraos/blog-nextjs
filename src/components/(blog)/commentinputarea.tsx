@@ -19,6 +19,7 @@ export default function CommentInputArea() {
                 maxLength={10000}
                 onChange={(e) => setValue(e.target.value)}
                 placeholder="欢迎留下宝贵的建议啦~"
+                style={{}}
                 value={value}
                 variant="borderless"
             />

@@ -58,7 +58,10 @@ export default async function Comment({ id }: CommentProps) {
                     </div>
                 </div>
 
-                <div className="textarea-wrapper mt-1 py-3 px-6 bg-[#F1F3F8] rounded-xl">
+                <div
+                    className="textarea-wrapper mt-1 py-3 px-6 bg-[#F1F3F8] rounded-xl shadow-xs hover:shadow-sm"
+                    style={{ border: "1px solid #E5E7EB" }}
+                >
                     <CommentInputArea />
                 </div>
 
