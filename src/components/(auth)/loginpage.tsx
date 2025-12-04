@@ -1,7 +1,6 @@
 "use client";
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-
 import type {
     FormProps
 } from 'antd';
@@ -12,11 +11,6 @@ import {
     Form,
     Input
 } from 'antd';
-// import {
-//     LockOutlined,
-//     UserOutlined
-// } from "@ant-design/icons";
-
 
 type FieldType = {
     email?: string;

@@ -73,6 +73,10 @@ aside {
   border-bottom: none !important;
 }
 
+.post-content {
+  padding: 10px 15px;
+}
+
 /*! 顶部导航栏 */
 .menu {
   display: flex;
