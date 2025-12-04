@@ -4,7 +4,7 @@
 
 @font-face {
     font-family: MapleMono;
-    src: url('https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/font/MapleMono-NF-CN-Regular.ttf');
+    src: url('https://cdn.staticaly.com/gh/ciraos/ciraos-static@main/font/MapleMono-NF-CN-Regular.ttf');
 }
 
 /*! 标题样式 */
@@ -92,6 +92,10 @@
     font-size: 0.8em;
     vertical-align: super;
     cursor: default;
+}
+
+a.post-cover:hover {
+    border-bottom: none !important;
 }
 
 /*! 代码样式 */

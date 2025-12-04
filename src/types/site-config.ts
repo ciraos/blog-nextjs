@@ -1,19 +1,20 @@
+// app/types/siteConfig.ts (建议单独抽离到类型文件)
 
-//!
+/** API返回的根类型 */
 export interface SiteConfigResponse {
     code: number;
     message: string;
-    data: SiteConfig;
+    data: SiteConfigData;
 }
 
-export interface SiteConfig {
+interface SiteConfigData {
     ABOUT_LINK: string;
     API_URL: string;
     APP_NAME: string;
     APP_VERSION: string;
     BUILTIN_DIRECT_SERVE_EXTS: string;
     BUILTIN_MAX_FILE_SIZE: number;
-    CREATIVITY: Creativity;
+    CREATIVITY: CreativityConfig;
     CUSTOM_CSS: string;
     CUSTOM_FOOTER_HTML: string;
     CUSTOM_HEADER_HTML: string;
@@ -23,7 +24,7 @@ export interface SiteConfig {
     CUSTOM_SIDEBAR: string;
     DEFAULT_BIG_PARAM: string;
     DEFAULT_GRAVATAR_TYPE: string;
-    DEFAULT_THEME_MODE: 'light' | 'dark' | string;
+    DEFAULT_THEME_MODE: string;
     DEFAULT_THUMB_PARAM: string;
     ENABLE_BUILTIN_GENERATOR: boolean;
     ENABLE_EXIF_EXTRACTOR: boolean;
@@ -50,7 +51,7 @@ export interface SiteConfig {
     FRIEND_LINK_PLACEHOLDER_SITESHOT: string;
     FRIEND_LINK_PLACEHOLDER_URL: string;
     GRAVATAR_URL: string;
-    HOME_TOP: HomeTop;
+    HOME_TOP: HomeTopConfig;
     ICON_URL: string;
     ICP_NUMBER: string;
     LIBRAW_MAX_FILE_SIZE: number;
@@ -81,6 +82,8 @@ export interface SiteConfig {
     equipment: EquipmentConfig;
     essay: EssayConfig;
     footer: FooterConfig;
+    runtime: RuntimeConfig;
+    socialBar: SocialBarConfig;
     frontDesk: FrontDeskConfig;
     header: HeaderConfig;
     moments: MomentsConfig;
@@ -92,21 +95,22 @@ export interface SiteConfig {
     sidebar: SidebarConfig;
 }
 
-/** 创造力（技能）配置 */
-export interface Creativity {
+/** 创造力配置 */
+interface CreativityConfig {
     creativity_list: CreativityItem[];
     subtitle: string;
     title: string;
 }
 
-export interface CreativityItem {
+/** 创造力/技能列表项 */
+interface CreativityItem {
     color: string;
     icon: string;
     name: string;
 }
 
 /** 首页顶部配置 */
-export interface HomeTop {
+interface HomeTopConfig {
     banner: HomeTopBanner;
     category: HomeTopCategory[];
     siteText: string;
@@ -114,7 +118,8 @@ export interface HomeTop {
     title: string;
 }
 
-export interface HomeTopBanner {
+/** 首页顶部 banner 配置 */
+interface HomeTopBanner {
     image: string;
     isExternal: boolean;
     link: string;
@@ -122,7 +127,8 @@ export interface HomeTopBanner {
     title: string;
 }
 
-export interface HomeTopCategory {
+/** 首页顶部分类项 */
+interface HomeTopCategory {
     background: string;
     icon: string;
     isExternal: boolean;
@@ -130,74 +136,117 @@ export interface HomeTopCategory {
     path: string;
 }
 
-/** 关于页配置 */
-export interface AboutConfig {
-    page: AboutPageConfig;
-    avatar_img: string;
-    avatar_skills_left: string[];
-    avatar_skills_right: string[];
-    buff: AboutBuff;
-    careers: AboutCareers;
-    comic: AboutComic;
-    custom_code: string;
-    custom_code_html: string;
-    description: string;
-    enable: AboutEnableConfig;
-    game: AboutGame;
-    like: AboutLike;
-    map: AboutMap;
-    maxim: AboutMaxim;
-    music: AboutMusic;
-    name: string;
-    personalities: AboutPersonality;
-    self_info: AboutSelfInfo;
-    skills_tips: AboutSkillsTips;
-    statistics_background: string;
-    subtitle: string;
-}
-
-export interface AboutPageConfig {
-    about_site_tips: AboutSiteTips;
-}
-
-export interface AboutSiteTips {
+/** 关于页 - 站点提示 */
+interface AboutSiteTips {
     tips: string;
     title1: string;
     title2: string;
     word: string[];
 }
 
-export interface AboutBuff {
-    bottom: string;
-    tips: string;
-    top: string;
+/** 关于页 - 生涯项 */
+interface AboutCareerItem {
+    color: string;
+    desc: string;
 }
 
-export interface AboutCareers {
+/** 关于页 - 生涯配置 */
+interface AboutCareers {
     img: string;
     list: AboutCareerItem[];
     tips: string;
     title: string;
 }
 
-export interface AboutCareerItem {
-    color: string;
-    desc: string;
-}
-
-export interface AboutComic {
-    list: AboutComicItem[];
-    tips: string;
-    title: string;
-}
-
-export interface AboutComicItem {
+/** 关于页 - 番剧项 */
+interface AboutComicItem {
     cover: string;
     href: string;
     name: string;
 }
 
-export interface AboutEnableConfig {
+/** 关于页 - 番剧配置 */
+interface AboutComic {
+    list: AboutComicItem[];
+    tips: string;
+    title: string;
+}
+
+/** 关于页 - BUFF配置 */
+interface AboutBuff {
+    bottom: string;
+    tips: string;
+    top: string;
+}
+
+/** 关于页 - 游戏配置 */
+interface AboutGame {
+    background: string;
+    tips: string;
+    title: string;
+    uid: string;
+}
+
+/** 关于页 - 关注偏好 */
+interface AboutLike {
+    background: string;
+    bottom: string;
+    tips: string;
+    title: string;
+}
+
+/** 关于页 - 地图配置 */
+interface AboutMap {
+    background: string;
+    backgroundDark: string;
+    strengthenTitle: string;
+    title: string;
+}
+
+/** 关于页 - 座右铭 */
+interface AboutMaxim {
+    bottom: string;
+    tips: string;
+    top: string;
+}
+
+/** 关于页 - 音乐偏好 */
+interface AboutMusic {
+    background: string;
+    link: string;
+    tips: string;
+    title: string;
+}
+
+/** 关于页 - 性格配置 */
+interface AboutPersonalities {
+    authorName: string;
+    nameUrl: string;
+    personalityImg: string;
+    personalityType: string;
+    personalityTypeColor: string;
+    photoUrl: string;
+    tips: string;
+}
+
+/** 关于页 - 个人信息 */
+interface AboutSelfInfo {
+    content2: string;
+    content3: string;
+    contentYear: string;
+    tips1: string;
+    tips2: string;
+    tips3: string;
+}
+
+/** 关于页 - 技能提示 */
+interface AboutSkillsTips {
+    tips: string;
+    title: string;
+}
+
+/** 关于页 - 启用配置 */
+interface AboutEnable {
     author_box: boolean;
     buff: boolean;
     careers: boolean;
@@ -215,66 +264,36 @@ export interface AboutEnableConfig {
     statistic: boolean;
 }
 
-export interface AboutGame {
-    background: string;
-    tips: string;
-    title: string;
-    uid: string;
-}
-
-export interface AboutLike {
-    background: string;
-    bottom: string;
-    tips: string;
-    title: string;
-}
-
-export interface AboutMap {
-    background: string;
-    backgroundDark: string;
-    strengthenTitle: string;
-    title: string;
-}
-
-export interface AboutMaxim {
-    bottom: string;
-    tips: string;
-    top: string;
-}
-
-export interface AboutMusic {
-    background: string;
-    link: string;
-    tips: string;
-    title: string;
-}
-
-export interface AboutPersonality {
-    authorName: string;
-    nameUrl: string;
-    personalityImg: string;
-    personalityType: string;
-    personalityTypeColor: string;
-    photoUrl: string;
-    tips: string;
-}
-
-export interface AboutSelfInfo {
-    content2: string;
-    content3: string;
-    contentYear: string;
-    tips1: string;
-    tips2: string;
-    tips3: string;
-}
-
-export interface AboutSkillsTips {
-    tips: string;
-    title: string;
+/** 关于页整体配置 */
+interface AboutConfig {
+    page: {
+        about_site_tips: AboutSiteTips;
+    };
+    avatar_img: string;
+    avatar_skills_left: string[];
+    avatar_skills_right: string[];
+    buff: AboutBuff;
+    careers: AboutCareers;
+    comic: AboutComic;
+    custom_code: string;
+    custom_code_html: string;
+    description: string;
+    enable: AboutEnable;
+    game: AboutGame;
+    like: AboutLike;
+    map: AboutMap;
+    maxim: AboutMaxim;
+    music: AboutMusic;
+    name: string;
+    personalities: AboutPersonalities;
+    self_info: AboutSelfInfo;
+    skills_tips: AboutSkillsTips;
+    statistics_background: string;
+    subtitle: string;
 }
 
 /** 评论配置 */
-export interface CommentConfig {
+interface CommentConfig {
     allow_image_upload: boolean;
     anonymous_email: string;
     blogger_email: string;
@@ -289,21 +308,22 @@ export interface CommentConfig {
     show_ua: boolean;
 }
 
-/** 装备页配置 */
-export interface EquipmentConfig {
-    banner: EquipmentBanner;
-    list: string[]; // 空数组，可根据实际数据扩展
-}
-
-export interface EquipmentBanner {
+/** 装备配置 */
+interface EquipmentBanner {
     background: string;
     description: string;
     tip: string;
     title: string;
 }
 
+/** 装备整体配置 */
+interface EquipmentConfig {
+    banner: EquipmentBanner;
+    list: never[]; // 空数组，用 never 表示无元素
+}
+
 /** 短文配置 */
-export interface EssayConfig {
+interface EssayConfig {
     button_link: string;
     button_text: string;
     home_enable: boolean;
@@ -314,68 +334,69 @@ export interface EssayConfig {
     top_background: string;
 }
 
-/** 页脚配置 */
-export interface FooterConfig {
-    badge: FooterBadge;
-    bar: FooterBar;
-    custom_text: string;
-    list: FooterList;
-    owner: FooterOwner;
-    project: FooterProject;
-    runtime: FooterRuntime;
-    socialBar: FooterSocialBar;
-}
-
-export interface FooterBadge {
-    enable: boolean;
-    list: FooterBadgeItem[];
-}
-
-export interface FooterBadgeItem {
+/** 页脚 - 徽章项 */
+interface FooterBadgeItem {
     link: string;
     message: string;
     shields: string;
 }
 
-export interface FooterBar {
-    authorLink: string;
-    cc: FooterCc;
-    linkList: FooterLinkItem[];
+/** 页脚 - 徽章配置 */
+interface FooterBadge {
+    enable: boolean;
+    list: FooterBadgeItem[];
 }
 
-export interface FooterCc {
-    link: string;
-}
-
-export interface FooterLinkItem {
+/** 页脚 - 导航栏链接项 */
+interface FooterBarLinkItem {
     link: string;
     text: string;
 }
 
-export interface FooterList {
-    randomFriends: number;
+/** 页脚 - 导航栏配置 */
+interface FooterBar {
+    authorLink: string;
+    cc: {
+        link: string;
+    };
+    linkList: FooterBarLinkItem[];
 }
 
-export interface FooterOwner {
-    name: string;
-    since: number;
-}
-
-export interface FooterProject {
-    list: FooterProjectItem[];
-}
-
-export interface FooterProjectItem {
-    links: FooterProjectLink[];
-    title: string;
-}
-
-export interface FooterProjectLink {
+/** 页脚 - 项目链接项 */
+interface FooterProjectLinkItem {
     link: string;
     title: string;
 }
 
-export interface FooterRuntime {
+/** 页脚 - 项目配置项 */
+interface FooterProjectItem {
+    links: FooterProjectLinkItem[];
+    title: string;
+}
+
+/** 页脚 - 列表配置 */
+interface FooterList {
+    randomFriends: number;
+}
+
+/** 页脚 - 站长信息 */
+interface FooterOwner {
+    name: string;
+    since: number;
+}
+
+/** 页脚整体配置 */
+interface FooterConfig {
+    badge: FooterBadge;
+    bar: FooterBar;
+    custom_text: string;
+    list: FooterList;
+    owner: FooterOwner;
+    project: FooterProjectItem[];
+}
+
+/** 运行时配置 */
+interface RuntimeConfig {
     enable: boolean;
     launch_time: string;
     offduty_description: string;
@@ -384,65 +405,73 @@ export interface FooterRuntime {
     work_img: string;
 }
 
-export interface FooterSocialBar {
-    centerImg: string;
-    left: FooterSocialItem[];
-    right: FooterSocialItem[];
-}
-
-export interface FooterSocialItem {
+/** 社交栏 - 链接项 */
+interface SocialBarLinkItem {
     icon: string;
     link: string;
     title: string;
 }
 
-/** 前台配置 */
-export interface FrontDeskConfig {
-    siteOwner: FrontDeskSiteOwner;
+/** 社交栏配置 */
+interface SocialBarConfig {
+    centerImg: string;
+    left: SocialBarLinkItem[];
+    right: SocialBarLinkItem[];
 }
 
-export interface FrontDeskSiteOwner {
+/** 前台 - 站点所有者 */
+interface FrontDeskSiteOwner {
     email: string;
     name: string;
 }
 
-//! 头部导航配置
-export interface HeaderConfig {
-    menu: HeaderMenu[];
-    nav: HeaderNav;
+/** 前台配置 */
+interface FrontDeskConfig {
+    siteOwner: FrontDeskSiteOwner;
 }
 
-export interface HeaderMenu {
-    items: HeaderMenuItem[];
-    title: string;
-}
-
-export interface HeaderMenuItem {
+/** 头部 - 菜单子项 */
+interface HeaderMenuItem {
     icon: string;
     isExternal: boolean;
     path: string;
     title: string;
 }
 
-export interface HeaderNav {
-    clock: boolean;
-    menu: HeaderNavMenu[];
-    travelling: boolean;
-}
-
-export interface HeaderNavMenu {
-    items: HeaderNavMenuItem[];
+/** 头部 - 菜单配置项 */
+interface HeaderMenu {
+    items: HeaderMenuItem[];
     title: string;
 }
 
-export interface HeaderNavMenuItem {
+/** 头部 - 导航子项 */
+interface HeaderNavItem {
     icon: string;
     link: string;
     name: string;
 }
 
-//! 朋友圈配置
-export interface MomentsConfig {
+/** 头部 - 导航配置项 */
+interface HeaderNavMenu {
+    items: HeaderNavItem[];
+    title: string;
+}
+
+/** 头部 - 导航整体配置 */
+interface HeaderNav {
+    clock: boolean;
+    menu: HeaderNavMenu[];
+    travelling: boolean;
+}
+
+/** 头部整体配置 */
+interface HeaderConfig {
+    menu: HeaderMenu[];
+    nav: HeaderNav;
+}
+
+/** 朋友圈配置 */
+interface MomentsConfig {
     button_link: string;
     button_text: string;
     display_limit: number;
@@ -453,24 +482,20 @@ export interface MomentsConfig {
     top_background: string;
 }
 
-/** 音乐配置 */
-export interface MusicConfig {
-    api: MusicApiConfig;
-    player: MusicPlayerConfig;
-    vinyl: MusicVinylConfig;
-}
-
-export interface MusicApiConfig {
+/** 音乐 - API配置 */
+interface MusicApiConfig {
     base_url: string;
 }
 
-export interface MusicPlayerConfig {
+/** 音乐 - 播放器配置 */
+interface MusicPlayerConfig {
     custom_playlist: string;
     enable: boolean;
     playlist_id: number;
 }
 
-export interface MusicVinylConfig {
+/** 音乐 - 黑胶唱片配置 */
+interface MusicVinylConfig {
     background: string;
     groove: string;
     inner: string;
@@ -478,21 +503,21 @@ export interface MusicVinylConfig {
     outer: string;
 }
 
-/** OAuth 配置 */
-export interface OAuthConfig {
-    logto: OAuthProviderConfig;
-    oidc: OAuthProviderConfig;
-    qq: OAuthProviderConfig;
-    rainbow: RainbowOAuthConfig;
-    wechat: OAuthProviderConfig;
+/** 音乐整体配置 */
+interface MusicConfig {
+    api: MusicApiConfig;
+    player: MusicPlayerConfig;
+    vinyl: MusicVinylConfig;
 }
 
-export interface OAuthProviderConfig {
-    display_name?: string;
+/** OAuth - 通用配置 */
+interface OAuthCommonConfig {
+    display_name: string;
     enable: boolean;
 }
 
-export interface RainbowOAuthConfig {
+/** OAuth - Rainbow配置 */
+interface OAuthRainbowConfig {
     api_url: string;
     app_id: string;
     callback_url: string;
@@ -500,27 +525,17 @@ export interface RainbowOAuthConfig {
     login_methods: string;
 }
 
-/** 页面配置 */
-export interface PageConfig {
-    one_image: PageOneImageConfig;
-    hitokoto_api: string;
-    typing_speed: number;
+/** OAuth整体配置 */
+interface OAuthConfig {
+    logto: OAuthCommonConfig;
+    oidc: OAuthCommonConfig;
+    qq: OAuthCommonConfig;
+    rainbow: OAuthRainbowConfig;
+    wechat: OAuthCommonConfig;
 }
 
-export interface PageOneImageConfig {
-    config: PageOneImageConfigDetail;
-    hitokoto_api: string;
-    typing_speed: number;
-}
-
-export interface PageOneImageConfigDetail {
-    archives: PageOneImagePageConfig;
-    categories: PageOneImagePageConfig;
-    home: PageOneImagePageConfig;
-    tags: PageOneImagePageConfig;
-}
-
-export interface PageOneImagePageConfig {
+/** 单页图片 - 页面配置 */
+interface PageOneImagePageConfig {
     background: string;
     enable: boolean;
     hitokoto: boolean;
@@ -529,66 +544,89 @@ export interface PageOneImagePageConfig {
     typingEffect: boolean;
 }
 
-/** 文章配置 */
-export interface PostConfig {
-    code_block: PostCodeBlockConfig;
-    default: PostDefaultConfig;
-    expiration_time: number;
-    page404: PostPage404Config;
-    reward: PostRewardConfig;
+/** 单页图片 - 整体配置 */
+interface PageOneImageConfig {
+    config: {
+        archives: PageOneImagePageConfig;
+        categories: PageOneImagePageConfig;
+        home: PageOneImagePageConfig;
+        tags: PageOneImagePageConfig;
+    };
+    hitokoto_api: string;
+    typing_speed: number;
 }
 
-export interface PostCodeBlockConfig {
+/** 页面整体配置 */
+interface PageConfig {
+    one_image: PageOneImageConfig;
+}
+
+/** 文章 - 代码块配置 */
+interface PostCodeBlockConfig {
     code_max_lines: number;
 }
 
-export interface PostDefaultConfig {
+/** 文章 - 复制配置 */
+interface PostCopyConfig {
+    copyright_enable: boolean;
+    copyright_original: string;
+    copyright_reprint: string;
+    enable: boolean;
+}
+
+/** 文章 - 默认配置 */
+interface PostDefaultConfig {
     cover: string;
     double_column: boolean;
     page_size: number;
 }
 
-export interface PostPage404Config {
-    default_image: string;
-}
-
-export interface PostRewardConfig {
+/** 文章 - 打赏配置 */
+interface PostRewardConfig {
     alipay_qr: string;
     enable: boolean;
     wechat_qr: string;
 }
 
-/** 最近评论配置 */
-export interface RecentCommentsConfig {
-    banner: RecentCommentsBanner;
-    description: string;
-    tip: string;
-    title: string;
+/** 文章整体配置 */
+interface PostConfig {
+    code_block: PostCodeBlockConfig;
+    copy: PostCopyConfig;
+    default: PostDefaultConfig;
+    expiration_time: number;
+    page404: {
+        default_image: string;
+    };
+    reward: PostRewardConfig;
 }
 
-export interface RecentCommentsBanner {
+/** 最近评论 - Banner配置 */
+interface RecentCommentsBanner {
     background: string;
     description: string;
     tip: string;
     title: string;
 }
 
-/** 侧边栏配置 */
-export interface SidebarConfig {
-    archive: SidebarArchiveConfig;
-    author: SidebarAuthorConfig;
-    custom: SidebarCustomConfig;
-    siteinfo: SidebarSiteInfoConfig;
-    tags: SidebarTagsConfig;
-    weather: SidebarWeatherConfig;
-    wechat: SidebarWechatConfig;
+/** 最近评论整体配置 */
+interface RecentCommentsConfig {
+    banner: RecentCommentsBanner;
 }
 
-export interface SidebarArchiveConfig {
-    displayMonths: number;
+/** 侧边栏 - 作者社交配置 */
+interface SidebarAuthorSocial {
+    BiliBili: {
+        icon: string;
+        link: string;
+    };
+    Github: {
+        icon: string;
+        link: string;
+    };
 }
 
-export interface SidebarAuthorConfig {
+/** 侧边栏 - 作者配置 */
+interface SidebarAuthorConfig {
     description: string;
     enable: boolean;
     skills: string[];
@@ -596,32 +634,31 @@ export interface SidebarAuthorConfig {
     statusImg: string;
 }
 
-export interface SidebarAuthorSocial {
-    BiliBili: SidebarSocialItem;
-    Github: SidebarSocialItem;
-}
-
-export interface SidebarSocialItem {
-    icon: string;
-    link: string;
-}
-
-export interface SidebarCustomConfig {
+/** 侧边栏 - 自定义配置 */
+interface SidebarCustomConfig {
     showInPost: boolean;
 }
 
-export interface SidebarSiteInfoConfig {
+/** 侧边栏 - 站点信息 */
+interface SidebarSiteInfoConfig {
     runtimeEnable: boolean;
     totalPostCount: number;
     totalWordCount: number;
 }
 
-export interface SidebarTagsConfig {
+/** 侧边栏 - 标签配置 */
+interface SidebarTagsConfig {
     enable: boolean;
-    highlight: string[];
+    highlight: never[];
 }
 
-export interface SidebarWeatherConfig {
+/** 侧边栏 - TOC配置 */
+interface SidebarTocConfig {
+    collapseMode: boolean;
+}
+
+/** 侧边栏 - 天气配置 */
+interface SidebarWeatherConfig {
     default_rectangle: boolean;
     enable: boolean;
     enable_page: string;
@@ -632,9 +669,24 @@ export interface SidebarWeatherConfig {
     rectangle: string;
 }
 
-export interface SidebarWechatConfig {
+/** 侧边栏 - 微信配置 */
+interface SidebarWechatConfig {
     backFace: string;
     blurBackground: string;
     enable: boolean;
     face: string;
+}
+
+/** 侧边栏整体配置 */
+interface SidebarConfig {
+    archive: {
+        displayMonths: number;
+    };
+    author: SidebarAuthorConfig;
+    custom: SidebarCustomConfig;
+    siteinfo: SidebarSiteInfoConfig;
+    tags: SidebarTagsConfig;
+    toc: SidebarTocConfig;
+    weather: SidebarWeatherConfig;
+    wechat: SidebarWechatConfig;
 }

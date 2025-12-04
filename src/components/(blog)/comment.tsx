@@ -1,14 +1,14 @@
 /*
- * server component
+ * @description: 评论系统
+ * @ server component
 */
 import {
-    // Avatar,
     Badge,
     Button,
     Input,
     Tooltip
 } from "antd";
-import "@ant-design/v5-patch-for-react-19";
+
 import { Icon } from "@iconify/react";
 import CommentInputArea from "./commentinputarea";
 import { CommentResponse, CommentItem } from "@/types/comments";

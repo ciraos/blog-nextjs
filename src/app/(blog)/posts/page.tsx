@@ -10,7 +10,7 @@ import {
     Image,
     Pagination
 } from "antd";
-import "@ant-design/v5-patch-for-react-19";
+
 import { Icon } from "@iconify/react";
 import moment from "moment";
 
@@ -45,7 +45,7 @@ export default async function Posts() {
                         <Link href={`/posts/${post.id}`} className="post-cover w-[42%] h-full">
                             <Image
                                 alt="fl-avatar"
-                                fallback="https://cdn.smartcis.cn/gh/ciraos/ciraos-static@main/img/404_1.avif"
+                                fallback="https://cdn.staticaly.com/gh/ciraos/ciraos-static@main/img/404_1.avif"
                                 preview={false}
                                 src={post.cover_url}
                                 style={{ height: 220.8 }}
@@ -80,7 +80,7 @@ export default async function Posts() {
                                     </div>
                                 )}
 
-                                <Divider type="vertical" variant="solid" />
+                                {/* <Divider type="vertical" variant="solid" /> */}
 
                                 {post.post_categories.length > 0 && (
                                     <div className="flex items-center">

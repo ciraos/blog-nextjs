@@ -7,7 +7,7 @@ import {
 import {
     MenuOutlined
 } from "@ant-design/icons";
-import "@ant-design/v5-patch-for-react-19";
+
 
 export default function DrawerButton() {
     const [open, setOpen] = useState(false);

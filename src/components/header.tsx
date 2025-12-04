@@ -9,9 +9,8 @@ import {
     Tooltip
 } from "antd";
 // import type { MenuProps } from "antd";
-import "@ant-design/v5-patch-for-react-19";
-import { Icon } from "@iconify/react";
 
+import { Icon } from "@iconify/react";
 import SearchButton from "./buttons/search";
 import DrawerButton from "./buttons/drawer";
 import { SiteConfigResponse } from "@/types/site-config";
@@ -22,7 +21,7 @@ interface HeaderProps {
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
-async function getSiteeConfig() {
+async function getSiteConfig() {
     const p = await fetch(`${baseUrl}/public/site-config`);
     const res = await p.json() as SiteConfigResponse;
     // console.log(res.data.header.menu);
@@ -31,7 +30,7 @@ async function getSiteeConfig() {
 }
 
 export default async function Header({ isLogin }: HeaderProps) {
-    const config = await getSiteeConfig();
+    const config = await getSiteConfig();
 
     return (
         <>

@@ -4,16 +4,14 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
-
 import {
   Divider,
   Image,
   Pagination
 } from "antd";
-import "@ant-design/v5-patch-for-react-19";
+
 import { Icon } from "@iconify/react";
 import moment from "moment";
-
 import { fetchPostList } from "@/utils/articles";
 import { PostListResponse } from "@/types/articles";
 import { SiteConfigResponse } from "@/types/site-config";
@@ -59,6 +57,8 @@ export default async function Home() {
               <Image
                 alt="fl-avatar"
                 fallback={imageFallbackPath}
+                // onError={}
+                placeholder="postCover"
                 preview={false}
                 src={post.cover_url}
                 style={{ height: 220.8 }}
@@ -93,7 +93,7 @@ export default async function Home() {
                   </div>
                 )}
 
-                <Divider type="vertical" variant="solid" />
+                {/* <Divider type="vertical" variant="solid" /> */}
 
                 {post.post_categories.length > 0 && (
                   <div className="flex items-center">

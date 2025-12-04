@@ -1,5 +1,7 @@
-
-// import React from "react";
+/*
+ * @description: 仪表盘
+ * @Server page
+ */
 import type { Metadata } from "next";
 import {
     Statistic
@@ -8,7 +10,7 @@ import {
     ArrowDownOutlined,
     ArrowUpOutlined
 } from '@ant-design/icons';
-import "@ant-design/v5-patch-for-react-19";
+
 import type { statisticsBasic } from "@/types/statistics/basic";
 import { SiteConfigResponse } from "@/types/site-config";
 
@@ -57,7 +59,9 @@ export default async function Dashboard() {
         <>
             <div className="font-semibold text-2xl">欢迎回来，{config.frontDesk.siteOwner.name}！👋</div>
 
-            <div className="statistic my-4 flex flex-wrap items-center justify-around">
+            <div className="statistic my-4 py-2 px-3 bg-white rounded-xl flex flex-wrap items-center justify-around shadow-xs hover:shadow-sm">
+                {/* <Statistic title="昨日访客" value={stats.yesterday_visitors} /> */}
+                {/* <Statistic title="昨日浏览量" value={stats.yesterday_views} /> */}
                 <Statistic title="今日访客" value={stats.today_visitors} />
                 <Statistic title="今日浏览量" value={stats.today_views} />
                 <Statistic
@@ -71,6 +75,7 @@ export default async function Dashboard() {
                 <Statistic title="本月总浏览量" value={stats.month_views} />
                 <Statistic title="年度总访问量" value={stats.year_views} />
             </div>
+
         </>
     );
 }

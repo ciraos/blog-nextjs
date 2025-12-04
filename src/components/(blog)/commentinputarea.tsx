@@ -3,7 +3,7 @@ import { useState } from "react";
 import {
     Input
 } from "antd";
-import "@ant-design/v5-patch-for-react-19";
+
 import { Icon } from "@iconify/react";
 
 const { TextArea } = Input;

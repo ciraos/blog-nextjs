@@ -10,7 +10,7 @@ import "../page-content.css";
 import {
   ConfigProvider,
 } from "antd";
-import "@ant-design/v5-patch-for-react-19";
+
 // import JiKe from "@/components/(blog)/jike";
 import Header from "@/components/header";
 import Aside from "@/components/(blog)/aside";

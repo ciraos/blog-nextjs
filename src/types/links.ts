@@ -32,7 +32,7 @@ export interface LinkItem {
     url: string;
     logo: string;
     description?: string;
-    status: string;                 //!
+    status: string;
     sort_order: number;
     skip_health_check: boolean;
     category: LinkCategoriesItem;

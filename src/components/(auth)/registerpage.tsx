@@ -13,7 +13,7 @@ import {
     Input
 } from 'antd';
 import type { DefaultOptionType } from 'antd/es/select';
-import "@ant-design/v5-patch-for-react-19";
+
 
 const formItemLayout: FormProps = {
     labelCol: {

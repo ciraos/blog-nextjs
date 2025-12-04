@@ -2,28 +2,23 @@
  * @server Page
 */
 import Link from "next/link";
-import type {
-    Metadata,
-    // ResolvingMetadata
-} from 'next';
+import type { Metadata } from 'next';
+import { MDXRemote } from "next-mdx-remote-client/rsc";
 import {
     Button,
     Divider,
-    // Typography
 } from "antd";
-import "@ant-design/v5-patch-for-react-19";
+
 import { Icon } from "@iconify/react";
 import moment from "moment";
-
-import ArticlePage from "@/components/(blog)/articlepage";
 import Comment from "@/components/(blog)/comment";
-
-const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
 type Props = {
     params: Promise<{ id: string, title: string, description: string }>;
     searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
+
+const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { id } = await params;
@@ -39,8 +34,8 @@ export default async function Post(props: { params: Promise<{ id: string }> }) {
     const { id } = await props.params;
     const res = await fetch(`${baseUrl}/public/articles/${id}`).then((res) => res.json());
     // console.log(res);
-    const created_at = moment(res.data.created_at).format('YYYY-MM-DD hh:mm:ss');
-    const updated_at = moment(res.data.updated_at).format('YYYY-MM-DD hh:mm:ss');
+    const content = res.data.content_md;
+    // console.log(content);
 
     return (
         <>
@@ -48,18 +43,15 @@ export default async function Post(props: { params: Promise<{ id: string }> }) {
                 <div className="text-2xl">{res.data.title}</div>
                 <div className="mt-3 flex items-center text-sm">
                     <span className="flex"><Icon icon="icon-park-outline:time" width={18} height={18} className="mr-1" />
-                        <span className="mr-1">创建于</span>
-                        {created_at}
-                    </span>
-                    <Divider type="vertical" variant="solid" />
+                        <span className="mr-1">创建于</span></span>
+                    {/* <Divider type="vertical" variant="solid" /> */}
                     <span className="flex"><Icon icon="icon-park-outline:time" width={18} height={18} className="mr-1" />
-                        <span className="mr-1">更新于</span>
-                        {updated_at}
-                    </span>
+                        <span className="mr-1">更新于</span></span>
                 </div>
             </div>
 
-            <ArticlePage params={{ id }} />
+            {/*<ArticlePage params={{ id }} /> */}
+            <MDXRemote source={content} />
 
             <div className="post-footer py-3 px-7 border-l-4 border-pink-400 rounded-r-xl bg-slate-50 shadow-sm hover:shadow-md">
                 <div className="post-footer-article-info">
