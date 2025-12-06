@@ -13,6 +13,7 @@ import {
 
 import type { statisticsBasic } from "@/types/statistics/basic";
 import { SiteConfigResponse } from "@/types/site-config";
+import { stat } from "fs";
 
 export const metadata: Metadata = {
     title: "仪表盘",
@@ -67,10 +68,10 @@ export default async function Dashboard() {
                 <Statistic
                     precision={2}
                     prefix={stats.today_views / stats.yesterday_visitors > 1 ? (<ArrowUpOutlined />) : (<ArrowDownOutlined />)}
-                    title="今日访客于昨日"
+                    styles={{ content: { color: stats.today_views / stats.year_views > 1 ? '#3f8600' : '#cf1322' } }}
                     suffix="%"
+                    title="今日访客于昨日"
                     value={stats.today_views / stats.yesterday_visitors}
-                    valueStyle={stats.today_views / stats.yesterday_visitors > 1 ? { color: "#3f8600" } : { color: "#cf1322" }}
                 />
                 <Statistic title="本月总浏览量" value={stats.month_views} />
                 <Statistic title="年度总访问量" value={stats.year_views} />

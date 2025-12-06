@@ -28,14 +28,10 @@ export default function LoginPage() {
                 "headers": { 'Content-Type': 'application/json' },
                 "body": JSON.stringify(values)
             });
-
             if (!aa.ok) {
                 throw new Error(`HTTP error! Status: ${aa.status}`);
             }
-
             const data = await aa.json();
-
-            // 可根据实际接口返回字段进一步细化判断条件
             if (data.success) {
                 router.push('/dashboard');
             } else {

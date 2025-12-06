@@ -27,7 +27,9 @@ async function getSiteConfig() {
 export default async function BlogLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
   const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value;
+  // console.log(token);
   const isLogin = !!token;
+  // console.log(isLogin);
   const config = await getSiteConfig();
 
   return (

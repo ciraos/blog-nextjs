@@ -30,26 +30,26 @@ export default async function Archives() {
     return (
         <>
             <h2>归档</h2>
-            <div className="">
+            <div className="timeline">
                 {posts.map((item, index) => (
-                    <Link key={index} href={item.id} className="archives">
+                    <Link key={index} href={`posts/${item.id}`} className="timeline-item">
 
-                        <div className="flex items-center">
-                            <Image
-                                alt="post-cover"
-                                className="shadow-sm hover:shadow-md"
-                                preview={false}
-                                src={item.cover_url}
-                                style={{ width: 150, height: 80 }}
-                            />
-                            <div className="ml-2">
-                                <div className="flex items-center text-xs text-slate-500">
-                                    <CalendarOutlined style={{ fontSize: 14, marginRight: 8 }} />
-                                    {moment(item.created_at).format("YYYY-MM-DD")}
-                                </div>
-                                <div className="mt-2 text-sm">{item.title}</div>
+                        <Image
+                            alt="post-cover"
+                            className="timeline-item_image"
+                            preview={false}
+                            src={item.cover_url}
+                            style={{ width: 150, height: 80 }}
+                        />
+
+                        <div className="timeline-item_content">
+                            <div className="timeline-item_date">
+                                <CalendarOutlined style={{ fontSize: 14, marginRight: 8 }} />
+                                {moment(item.created_at).format("YYYY-MM-DD")}
                             </div>
+                            <div className="timeline-item_title">{item.title}</div>
                         </div>
+
                     </Link>
                 ))}
             </div>

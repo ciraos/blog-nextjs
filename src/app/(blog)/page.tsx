@@ -73,7 +73,7 @@ export default async function Home() {
                   <Icon icon="icon-park-outline:time" width={18} height={18} className="mr-1" />
                   <span className="mr-1">创建于{post.created_at ? moment(post.created_at).format('YYYY-MM-DD') : '未知'}</span>
                 </span>
-                {/* <Divider type="vertical" variant="solid" /> */}
+                <Divider orientation="vertical" variant="solid" />
                 {/* <span className="flex items-center break-all">
                                     <Icon icon="icon-park-outline:time" width={18} height={18} className="mr-1" />
                                     <span className="mr-1">更新于{post.updated_at ? moment(post.updated_at).format('YYYY-MM-DD') : '未知'}</span>
@@ -93,7 +93,7 @@ export default async function Home() {
                   </div>
                 )}
 
-                {/* <Divider type="vertical" variant="solid" /> */}
+                {/* <Divider orientation="vertical" variant="solid" /> */}
 
                 {post.post_categories.length > 0 && (
                   <div className="flex items-center">

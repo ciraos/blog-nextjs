@@ -14,7 +14,7 @@ const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 async function getPostTags() {
     const o = await fetch(`${baseUrl}/post-categories`);
     const res = await o.json() as PostTagsResponse;
-    console.log(res.data);
+    // console.log(res.data);
     return res.data;
 }
 
