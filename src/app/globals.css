@@ -23,12 +23,6 @@ body {
 }
 
 /*! */
-hr {
-  border: 0;
-  padding: 0;
-  background: linear-gradient(to right, transparent, #d0d0d5, transparent);
-}
-
 .home-banner,
 .blog-container {
   max-width: 1200px;
@@ -424,5 +418,9 @@ aside {
 
   .post-meta {
     padding: 14px 16px;
+  }
+
+  .essay-item {
+    width: 100%;
   }
 }

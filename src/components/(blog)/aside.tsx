@@ -3,6 +3,7 @@
  * @author: ciraos
  * Server Component
 */
+import { headers } from "next/headers";
 import Link from "next/link";
 import {
     Image,
@@ -11,16 +12,32 @@ import {
 
 import { Icon } from "@iconify/react";
 import { fetchPostList } from "@/utils/articles";
+
 import { PostListResponse } from "@/types/articles";
 import { SiteConfigResponse } from "@/types/site-config";
+import { RenJianResponse } from "@/types/nsuuu/renjian";
+import { Ipv4AndIpv6InfoCheckResponse } from "@/types/nsuuu/ipv4-ipv6-info-check";
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+const nsuuUrl = process.env.NEXT_PUBLIC_NSUUU_API_URL;
+const nsuuKey = process.env.NEXT_PUBLIC_NSUUU_ADMIN_API_KEY;
 
 async function getSiteConfig() {
     const k = await fetch(`${baseUrl}/public/site-config`);
     const res = await k.json() as SiteConfigResponse;
     return res.data;
 }
+
+async function getRenJianData() {
+    const t = await fetch(`${nsuuUrl}/renjian`);
+    const res = await t.json() as RenJianResponse;
+    // console.log(res.data);
+    return res.data;
+}
+
+async function getRealIp() { };
+
+async function getUserIpvInfo() { }
 
 export default async function Aside() {
     const postData: PostListResponse = await fetchPostList();
@@ -32,6 +49,9 @@ export default async function Aside() {
         // pageSize
     } = data;
     const config = await getSiteConfig();
+    const renjian = await getRenJianData();
+    // console.log(renjian);
+    const ipvInfo = await getUserIpvInfo();
 
     if (code !== 200) {
         return <div>获取失败：{message}</div>;
@@ -67,6 +87,7 @@ export default async function Aside() {
                 <div className="aside-item">
                     <div className="aside-item-title"><Icon icon="icon-park:volume-notice" width="20" height="20" /><span className="pl-1">公告</span></div>
                     <p>欢迎来到我的博客呀！</p>
+                    <p>{ }</p>
                 </div>
 
                 <div className="aside-item">
@@ -80,7 +101,11 @@ export default async function Aside() {
                     </div>
                 </div>
 
-                <div className="aside-item"></div>
+                {/* 我在人间凑数的日子 */}
+                <div className="aside-item">
+                    <div className="aside-item-title"><Icon icon="ant-design:fire-filled" width="16" height="16" /><span className="ml-1">我在人间凑数的日子</span></div>
+                    <div className="indent-4 text-sm">{renjian}</div>
+                </div>
 
                 <div className="aside-item">
                     <div className="aside-item-title"><Icon icon="bi:clipboard-data-fill" width="14px" height="14px" style={{ color: '#48b0db' }} /><span className="pl-1">统计</span></div>

@@ -16,6 +16,7 @@ interface EssayList {
     content: string;
     address: string;
     from: string;
+    image: string[];
     aplayer: {
         id: string;
     };
