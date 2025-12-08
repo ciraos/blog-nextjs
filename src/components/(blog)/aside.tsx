@@ -3,20 +3,15 @@
  * @author: ciraos
  * Server Component
 */
-import { headers } from "next/headers";
 import Link from "next/link";
 import {
     Image,
 } from "antd";
-// import type { } from "antd";
 
 import { Icon } from "@iconify/react";
-import { fetchPostList } from "@/utils/articles";
 
-import { PostListResponse } from "@/types/articles";
 import { SiteConfigResponse } from "@/types/site-config";
 import { RenJianResponse } from "@/types/nsuuu/renjian";
-import { Ipv4AndIpv6InfoCheckResponse } from "@/types/nsuuu/ipv4-ipv6-info-check";
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 const nsuuUrl = process.env.NEXT_PUBLIC_NSUUU_API_URL;
@@ -35,32 +30,15 @@ async function getRenJianData() {
     return res.data;
 }
 
-async function getRealIp() { };
-
-async function getUserIpvInfo() { }
-
 export default async function Aside() {
-    const postData: PostListResponse = await fetchPostList();
-    const { code, message, data } = postData;
-    const { list:
-        postList,
-        // total,
-        // page,
-        // pageSize
-    } = data;
     const config = await getSiteConfig();
     const renjian = await getRenJianData();
-    // console.log(renjian);
-    const ipvInfo = await getUserIpvInfo();
-
-    if (code !== 200) {
-        return <div>获取失败：{message}</div>;
-    }
 
     return (
         <>
             <aside className="aside w-[24%] h-auto pl-4">
 
+                {/*  */}
                 <div
                     className="aside-item info h-82"
                 >
@@ -84,29 +62,26 @@ export default async function Aside() {
                     </div>
                 </div>
 
+                {/*  */}
                 <div className="aside-item">
                     <div className="aside-item-title"><Icon icon="icon-park:volume-notice" width="20" height="20" /><span className="pl-1">公告</span></div>
                     <p>欢迎来到我的博客呀！</p>
-                    <p>{ }</p>
+                    <p></p>
                 </div>
 
+                {/* 最新文章  */}
                 <div className="aside-item">
                     <div className="aside-item-title"><Icon icon="grommet-icons:article" width="20px" height="20px" /><span className="pl-1">最新文章</span></div>
-                    <div className="pr-1 flex flex-col gap-1">
-                        {postList.map((post, index) => (
-                            <Link href={`/posts/${post.id}`} key={index} className="h-6 overflow-hidden">
-                                <span className="text-sm">{post.title}</span>
-                            </Link>
-                        ))}
-                    </div>
+                    <div className="pr-1 flex flex-col gap-1"></div>
                 </div>
 
                 {/* 我在人间凑数的日子 */}
                 <div className="aside-item">
                     <div className="aside-item-title"><Icon icon="ant-design:fire-filled" width="16" height="16" /><span className="ml-1">我在人间凑数的日子</span></div>
-                    <div className="indent-4 text-sm">{renjian}</div>
+                    <div className="indent-4 text-sm break-all">{renjian}</div>
                 </div>
 
+                {/* 统计 */}
                 <div className="aside-item">
                     <div className="aside-item-title"><Icon icon="bi:clipboard-data-fill" width="14px" height="14px" style={{ color: '#48b0db' }} /><span className="pl-1">统计</span></div>
                     <div>

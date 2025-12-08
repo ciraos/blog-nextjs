@@ -1,41 +1,41 @@
 
-//!
+//! - 友链分类
 export interface LinkCategoriesResponse {
     code: number;
-    message: string;
     data: LinkCategoriesItem[]
+    message: string;
 }
 
-export interface LinkCategoriesItem {
+interface LinkCategoriesItem {
     id: number;
     name: string;
     style: string;
     description?: string;
 }
 
+//! - 友链
 export interface LinkResponse {
     code: number;
+    data: LinkData[];
     message: string;
-    data: LinkData;
 }
 
-export interface LinkData {
-    list: LinkItem[];
-    total: number;
-    page: number;
-    pageSize: number;
-}
-
-export interface LinkItem {
+interface LinkData {
     id: number;
     name: string;
     url: string;
     logo: string;
-    description?: string;
+    description: string;
     status: string;
     sort_order: number;
     skip_health_check: boolean;
     category: LinkCategoriesItem;
-    tag: null | string;
+    tag: LinkTagsItem[]
     siteshot?: string;
+}
+
+interface LinkTagsItem {
+    id: number;
+    color: string;
+    name: string;
 }

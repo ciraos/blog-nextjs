@@ -1,10 +1,11 @@
 /*
  * Server page 
 */
+import Link from "next/link";
 import type { Metadata } from "next";
 import {
     LinkCategoriesResponse,
-    LinkCategoriesItem
+    LinkResponse
 } from "@/types/links";
 
 export const metadata: Metadata = {
@@ -14,19 +15,48 @@ export const metadata: Metadata = {
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
 async function getLinkCategories() {
-    const categoryRes = await fetch(`${baseUrl}/api/public/link-categories`, {
-        "method": "GET"
-    });
-    if (!categoryRes.ok) { throw new Error('获取分类失败'); };
-    const data: LinkCategoriesResponse = await categoryRes.json();
-    const categoryIds = data.data.map((item: LinkCategoriesItem) => item.id);
-    return categoryIds;
+    try {
+        const g = await fetch(`${baseUrl}/public/link-categories`);
+        if (!g.ok) {
+            throw new Error('获取分类失败');
+        };
+        const res = await g.json() as LinkCategoriesResponse;
+        const categoryIds = res.data.map((item) => item.id);
+        // console.log(res);
+        // console.log(res.data);
+        // console.log(categoryIds);
+        return categoryIds;
+    } catch (error) {
+        console.error('获取友链分类出错:', error);
+        return [];
+    }
 }
 
-export default async function Link() {
+async function getLinks() {
+    try {
+        const categoryIds = await getLinkCategories();
+        const v = await fetch(`${baseUrl}/public/links?${categoryIds}`);
+        if (!v.ok) {
+            throw new Error('获取友链失败');
+        };
+        const res = await v.json() as LinkResponse;
+        // console.log(res);
+        return res.data
+    } catch (error) {
+        console.error('获取友链出错:', error);
+        return [];
+    }
+}
+
+export default async function LinkPage() {
+    const links = await getLinks();
+    // console.log(links);
+
     return (
         <>
             <h2>友情链接</h2>
+
+            {/* {links.map((item, index) => ())} */}
         </>
     )
 }

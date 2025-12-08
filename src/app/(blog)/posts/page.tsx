@@ -45,7 +45,7 @@ export default async function Posts() {
                         <Link href={`/posts/${post.id}`} className="post-cover w-[42%] h-full">
                             <Image
                                 alt="fl-avatar"
-                                fallback="https://cdn.staticaly.com/gh/ciraos/ciraos-static@main/img/404_1.avif"
+                                fallback="https://cdn.jsdmirror.com/gh/ciraos/ciraos-static@main/img/404_1.avif"
                                 preview={false}
                                 src={post.cover_url}
                                 style={{ height: 220.8 }}
