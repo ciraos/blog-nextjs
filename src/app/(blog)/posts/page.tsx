@@ -4,18 +4,20 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
-
 import {
     Divider,
     Image,
     Pagination
 } from "antd";
-
 import { Icon } from "@iconify/react";
 import moment from "moment";
-
 import { fetchPostList } from "@/utils/articles";
 import { PostListResponse } from "@/types/articles";
+import "animate.css";
+
+export const pageConfig = {
+    hideAside: true,
+}
 
 export const metadata: Metadata = {
     title: "所有文章",
@@ -40,7 +42,7 @@ export default async function Posts() {
         <>
             <div className="recent-posts">
                 {postList.map((post, index) => (
-                    <div key={index} style={{}} className="recent-posts-item shadow-sm">
+                    <div key={index} style={{}} className="recent-posts-item animate_animated animate__fadeInUpBig shadow-sm">
 
                         <Link href={`/posts/${post.id}`} className="post-cover w-[42%] h-full">
                             <Image

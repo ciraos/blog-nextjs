@@ -22,6 +22,10 @@ export const metadata: Metadata = {
     title: "即刻",
 };
 
+export const pageConfig = {
+    hideAside: true,
+}
+
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
 async function getEssays() {

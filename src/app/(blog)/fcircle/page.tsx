@@ -1,5 +1,9 @@
 import { Metadata } from "next";
 
+export const pageConfig = {
+    hideAside: true,
+}
+
 export const metadata: Metadata = {
     title: "朋友动态"
 };

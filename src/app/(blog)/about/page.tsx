@@ -4,6 +4,10 @@ export const metadata: Metadata = {
     title: "关于本站"
 };
 
+export const pageConfig = {
+    hideAside: true,
+}
+
 export default function About() {
     return (
         <>

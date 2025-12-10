@@ -9,6 +9,10 @@ import {
 } from "antd";
 import { PostTagsResponse } from "@/types/psottags";
 
+export const metadata: Metadata = {
+    title: "文章 | 分类",
+};
+
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
 async function getPostTags() {
@@ -18,9 +22,9 @@ async function getPostTags() {
     return res.data;
 }
 
-export const metadata: Metadata = {
-    title: "文章 | 分类",
-};
+export const pageConfig = {
+    hideAside: true,
+}
 
 export default async function Tags() {
     const tags = await getPostTags();

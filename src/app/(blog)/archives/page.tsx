@@ -21,6 +21,10 @@ export const metadata: Metadata = {
     title: "文章 | 归档",
 };
 
+export const pageConfig = {
+    hideAside: true,
+}
+
 export default async function Archives() {
     const x = await fetch(`${baseUrl}/public/articles`);
     const res = await x.json() as PostListResponse;
