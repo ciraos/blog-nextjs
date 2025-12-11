@@ -13,8 +13,10 @@ import "../page-content.css";
 import "animate.css";
 import {
   ConfigProvider,
+  FloatButton
 } from "antd";
-
+// import { CommentOutlined } from '@ant-design/icons';
+// import { AntdRegistry } from "@ant-design/nextjs-registry";
 // import JiKe from "@/components/(blog)/jike";
 import Header from "@/components/header";
 import Aside from "@/components/(blog)/aside";
@@ -59,8 +61,8 @@ export default async function BlogLayout({ children }: Readonly<{ children: Reac
           theme={{
             token: {
               borderRadius: 12,
-              colorBgContainer: '#fff',
-              colorPrimary: '#000',
+              colorBgContainer: 'lightblue',
+              colorPrimary: '#39c5bb',
             }
           }}
         >
@@ -79,7 +81,7 @@ export default async function BlogLayout({ children }: Readonly<{ children: Reac
 
             {/* content */}
             <div className="blog-container w-full my-10 mx-auto flex">
-              <div className={`blog-container-content flex-1 p-4 ${hideAside ? 'w-full' : 'w-[76%]'}`}>{children}</div>
+              <div className={`blog-container-content flex-1 p-0 ${hideAside ? 'w-full' : 'w-[76%]'}`}>{children}</div>
               {!hideAside && <Aside />}
               {/* <FloatButton.BackTop duration={450} visibilityHeight={1} /> */}
             </div>
@@ -94,6 +96,17 @@ export default async function BlogLayout({ children }: Readonly<{ children: Reac
               {/* <div>created by <Link className="pt-1 px-2 border-b-2 hover:bg-blue-400" href="https://github.com/ciraos" target="_blank">葱苓sama</Link> with <span className="animate-pulse">❤</span> at {new Date().getFullYear()}</div> */}
               <Link className="pt-1 px-2 border-b-2 hover:bg-blue-400" href="https://beian.miit.gov.cn" target="_blank">{config.ICP_NUMBER}</Link>
             </div>
+
+            {/* <FloatButton.Group
+              icon={<CommentOutlined />}
+              placement="top"
+              shape="circle"
+              trigger="hover"
+              type="primary"
+            >
+              <FloatButton />
+              <FloatButton.BackTop duration={450} visibilityHeight={1} />
+            </FloatButton.Group> */}
 
           </div>
         </ConfigProvider>
