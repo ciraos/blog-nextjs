@@ -7,12 +7,11 @@ import Link from "next/link";
 import {
     Image,
 } from "antd";
-
 import { Icon } from "@iconify/react";
-
 import { SiteConfigResponse } from "@/types/site-config";
 import { RenJianResponse } from "@/types/nsuuu/renjian";
 
+const dynamic = "force-dynamic";
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 const nsuuUrl = process.env.NEXT_PUBLIC_NSUUU_API_URL;
 const nsuuKey = process.env.NEXT_PUBLIC_NSUUU_ADMIN_API_KEY;
@@ -24,7 +23,9 @@ async function getSiteConfig() {
 }
 
 async function getRenJianData() {
-    const t = await fetch(`${nsuuUrl}/renjian`);
+    const t = await fetch(`${nsuuUrl}/renjian`, {
+        cache: "no-store",
+    });
     const res = await t.json() as RenJianResponse;
     // console.log(res.data);
     return res.data;

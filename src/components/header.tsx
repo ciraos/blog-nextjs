@@ -39,7 +39,7 @@ export default async function Header({ isLogin }: HeaderProps) {
                     <Link className="w-18 h-full text-center content-center px-1 text-md text-black" href="/">葱苓小筑</Link>
 
                     {/* menu */}
-                    <div className="menu w-[calc(100%-72px-136px)]">
+                    <div className="menu">
                         {config.header.menu.map((item, index) => (
                             <ul key={index} className="navlist hover:cursor-pointer">
                                 <li className="btli"><div>{item.title}</div>
@@ -56,7 +56,7 @@ export default async function Header({ isLogin }: HeaderProps) {
                     </div>
 
                     {/* right menu */}
-                    <div className="w-34 flex px-1 items-center gap-1.5">
+                    <div className="w-max flex px-1 items-center gap-1.5">
                         <Tooltip title="随机前往一篇文章"><Icon icon="game-icons:card-random" width={25} height={25} className="hover:cursor-pointer" /></Tooltip>
                         <SearchButton />
                         {isLogin ? (

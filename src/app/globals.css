@@ -65,6 +65,8 @@ aside {
   align-items: center;
 }
 
+/* .recent-posts-item-summaries::after {} */
+
 /*! 归档页面timeline */
 
 .timeline {
@@ -422,5 +424,13 @@ aside {
 
   .essay-item {
     width: 100%;
+  }
+
+  .comment-footer-btns {
+    flex-direction: column;
+  }
+
+  .comment-footer-submit {
+    height: 108px;
   }
 }

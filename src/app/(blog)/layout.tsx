@@ -61,8 +61,8 @@ export default async function BlogLayout({ children }: Readonly<{ children: Reac
           theme={{
             token: {
               borderRadius: 12,
-              colorBgContainer: 'lightblue',
-              colorPrimary: '#39c5bb',
+              colorBgContainer: '',
+              colorPrimary: '#1a1a1a',
             }
           }}
         >

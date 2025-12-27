@@ -1,7 +1,6 @@
 /*
  * server page 
 */
-
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
@@ -73,7 +72,7 @@ export default async function Home() {
             <div className="post-meta w-[calc(100%-344px)] py-2 px-5 flex flex-col justify-center">
               <Link href={`/posts/${post.id}`} className="post-meta-title text-2xl">{post.title}</Link>
 
-              <div className="text-sm mt-2">
+              <div className="mt-2 text-xs text-slate-600">
                 <span className="flex items-center">
                   <Icon icon="icon-park-outline:time" width={18} height={18} className="mr-1" />
                   <span className="mr-1">创建于{post.created_at ? moment(post.created_at).format('YYYY-MM-DD') : '未知'}</span>
@@ -85,9 +84,9 @@ export default async function Home() {
                 </span> */}
               </div>
 
-              <div className="text-sm m-0">{post.summaries}</div>
+              <div className="h-10 mt-1.5 mb-1 text-sm text-slate-800 break-all overflow-y-hidden">{post.summaries}</div>
 
-              <div className="flex items-center">
+              <div className="flex items-center text-sm">
                 {post.post_tags.length > 0 && (
                   <div className="flex">
                     {post.post_tags.map((tag, index) => (

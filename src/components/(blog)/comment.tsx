@@ -8,10 +8,9 @@ import {
     Input,
     Tooltip
 } from "antd";
-
 import { Icon } from "@iconify/react";
 import CommentInputArea from "./commentinputarea";
-import { CommentResponse, CommentItem } from "@/types/comments";
+import { CommentResponse } from "@/types/comments";
 
 interface CommentProps {
     id: string;
@@ -21,17 +20,17 @@ const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export default async function Comment({ id }: CommentProps) {
     let commentCount = 0;
-    let commentList: CommentItem[] = [];
     try {
-        const res: CommentResponse = await fetch(`${baseUrl}/public/comments?target_path=/posts/${id}`).then((res) => res.json());
-        commentCount = res.data?.total_with_children ?? 0;
-        commentList = res.data?.list ?? [];
+        const g = await fetch(`${baseUrl}/public/comments?target_path=/posts/${id}`);
+        const res = await g.json() as CommentResponse;
+        const commentCount = res.data.total_with_children;
+        // const content = res.data.list.map;
+        console.log(res);
+        // console.log(content);
+        console.log('本页连同回复一共有' + commentCount + '条评论。');
     } catch (error) {
-        console.error("加载评论失败", error);
+        console.error("加载评论错误:", error);
     }
-    const commentContent = commentList.map((item: CommentItem) => (
-        <div key={item.id}>{item.content_html}</div>
-    ));
 
     return (
         <>
@@ -65,8 +64,8 @@ export default async function Comment({ id }: CommentProps) {
                     <CommentInputArea />
                 </div>
 
-                <div className="w-full mt-3.5 flex gap-4">
-                    <div className="w-[calc(100%-112px)] flex gap-1.5">
+                <div className="comment-footer w-full mt-3.5 flex gap-4">
+                    <div className="comment-footer-btns w-[calc(100%-112px)] flex gap-1.5">
                         <Tooltip arrow title="输入QQ号会自动获取昵称和头像">
                             <Input prefix="昵称" placeholder="必填" />
                         </Tooltip>
@@ -75,11 +74,11 @@ export default async function Comment({ id }: CommentProps) {
                         </Tooltip>
                         <Input prefix="网址" placeholder="选填" />
                     </div>
-                    <Button className="w-28" type="primary">发送</Button>
+                    <Button className="comment-footer-submit w-28" type="primary">发送</Button>
                 </div>
 
                 <div>
-                    {/* {commentContent} */}
+
                 </div>
 
             </div>

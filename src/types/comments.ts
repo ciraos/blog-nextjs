@@ -2,8 +2,8 @@
 //!
 export interface CommentResponse {
     code: number;
-    message: string;
     data: CommentListData;
+    message: string;
 }
 
 interface CommentListData {
@@ -14,12 +14,12 @@ interface CommentListData {
     pageSize: number;
 }
 
-export interface CommentItem {
+interface CommentItem {
     id: string;
     created_at: string;
     nickname: string;
     email_md5: string;
-    avatar_url: string; // 补充字段以匹配 children 结构
+    avatar_url: string;
     content_html: string;
     is_admin_comment: boolean;
     is_anonymous: boolean;
@@ -32,12 +32,12 @@ export interface CommentItem {
     children: CommentChildren[];
 }
 
-export interface CommentChildren {
+interface CommentChildren {
     id: string;
     created_at: string;
     nickname: string;
     email_md5: string;
-    avatar_url: string; // 补充字段以匹配 children 结构
+    avatar_url: string;
     content_html: string;
     is_admin_comment: boolean;
     is_anonymous: boolean;

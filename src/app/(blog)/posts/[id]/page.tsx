@@ -33,7 +33,7 @@ export default async function Post(props: { params: Promise<{ id: string }> }) {
     const { id } = await props.params;
     const res = await fetch(`${baseUrl}/public/articles/${id}`).then((res) => res.json());
     const content = res.data.content_md;
-    // console.log(res);
+    // console.log(content);
 
     return (
         <>
