@@ -7,7 +7,7 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
-    "copy": "cp -r public .next/standalone/ && cp -r .next/static .next/standalone/.next/ && cp -r .env .next/standalone/.env && cp -r theme.json .next/standalone/theme.json",
+    "copy": "cp -r public .next/standalone/ && cp -r .next/static .next/standalone/.next/",
     "deploy": "pnpm i && pnpm build && pnpm copy && export PORT=3126 && node .next/standalone/server.js"
   },
   "dependencies": {
