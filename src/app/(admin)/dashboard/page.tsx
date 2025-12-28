@@ -10,10 +10,8 @@ import {
     ArrowDownOutlined,
     ArrowUpOutlined
 } from '@ant-design/icons';
-
 import type { statisticsBasic } from "@/types/statistics/basic";
 import { SiteConfigResponse } from "@/types/site-config";
-import { stat } from "fs";
 
 export const metadata: Metadata = {
     title: "仪表盘",

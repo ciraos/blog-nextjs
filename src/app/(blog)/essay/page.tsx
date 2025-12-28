@@ -5,11 +5,11 @@
 import { Metadata } from "next";
 import { cookies } from "next/headers";
 import {
-    Card,
+    // Card,
     Divider,
     Flex,
-    Image,
-    Masonry
+    // Image,
+    // Masonry
 } from "antd";
 import {
     CommentOutlined
@@ -21,10 +21,6 @@ import moment from "moment";
 export const metadata: Metadata = {
     title: "即刻",
 };
-
-export const pageConfig = {
-    hideAside: true,
-}
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 

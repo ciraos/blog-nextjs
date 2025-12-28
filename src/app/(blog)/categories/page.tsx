@@ -22,10 +22,6 @@ async function getPostTags() {
     return res.data;
 }
 
-export const pageConfig = {
-    hideAside: true,
-}
-
 export default async function Tags() {
     const tags = await getPostTags();
 

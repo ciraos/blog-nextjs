@@ -3,6 +3,7 @@
  * @author: ciraos
  * Server Component
 */
+import { headers } from "next/headers";
 import Link from "next/link";
 import {
     Image,
@@ -14,7 +15,7 @@ import { RenJianResponse } from "@/types/nsuuu/renjian";
 const dynamic = "force-dynamic";
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 const nsuuUrl = process.env.NEXT_PUBLIC_NSUUU_API_URL;
-const nsuuKey = process.env.NEXT_PUBLIC_NSUUU_ADMIN_API_KEY;
+// const nsuuKey = process.env.NEXT_PUBLIC_NSUUU_ADMIN_API_KEY;
 
 async function getSiteConfig() {
     const k = await fetch(`${baseUrl}/public/site-config`);
@@ -32,8 +33,12 @@ async function getRenJianData() {
 }
 
 export default async function Aside() {
+    const headerList = await headers();
+    const xff = headerList.get("x-forwarded-for");
+    const clientIp = xff ? xff.split(',')[0].trim() : '未知（开发环境）';
     const config = await getSiteConfig();
     const renjian = await getRenJianData();
+    // console.log(clientIp);
 
     return (
         <>
@@ -67,7 +72,18 @@ export default async function Aside() {
                 <div className="aside-item">
                     <div className="aside-item-title"><Icon icon="icon-park:volume-notice" width="20" height="20" /><span className="pl-1">公告</span></div>
                     <p>欢迎来到我的博客呀！</p>
-                    <p></p>
+                    <p className="mt-1.5">👋🏻我是{config.frontDesk.siteOwner.name}，一个<span className="text-blue-500 font-semibold">热爱编程</span>的技术爱好者，喜欢分享经验。😊</p>
+                    <p className="mt-1">❓有问题欢迎提问，确保内容有意义，详情请见<span className="text-purple-500 font-semibold">提问的智慧</span> 如需联系我，欢迎通过 <Link href="mailto:ciraos@yeah.net">邮箱</Link> 联系我！📧</p>
+                    <div className="my-2 mx-auto py-2 px-3 leading-6 text-center text-sm bg-slate-100 rounded-xl">
+                        嗷嗷！热烈欢迎！来自<br />
+                        <br />
+                        的铁铁，你好啊！<br />
+                        <br />
+                        你目前距博主约 公里！<br />
+                        你的网络IP为：<br />
+                        {clientIp}<br />
+                        下午好，饮茶先啦！
+                    </div>
                 </div>
 
                 {/* 最新文章  */}

@@ -1,18 +1,29 @@
-@import "tailwindcss";
+@import url('tailwindcss');
 
-/*! :root */
-/* @theme {} */
+:root {
+  --primary-color: #0a0a0a;
+  --secondary-color: #fff;
+  --accent-color: #3b82f6;
+  --border-color: #e2e8f0;
+  --shadow-color: rgba(50, 50, 93, 0.25);
+  --shadow-color-2: rgba(0, 0, 0, 0.3);
+  --timeline-dot-color: #64748b;
+  --timeline-hover-color: #3b82f6;
+  --timeline-text-color: #1e293b;
+  --aside-bg-color: #fff;
+  --body-bg-light: #f4f4f4;
+  --body-bg-dark: #0a0a0a;
+  --menu-hover-bg: #e6f4ff;
+}
 
-/*! body */
 body {
   margin: 0;
   padding: 0;
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
   scroll-behavior: smooth;
   font-family: ui-sans-serif, 'sans', InterVariable, 'Noto Sans SC', system-ui, sans-serif;
 }
 
-/*! */
 .recent-posts>.recent-posts-item:not(:first-child),
 .aside>.aside-item:not(:first-child) {
   margin-top: 12px;
@@ -22,24 +33,21 @@ body {
   flex-direction: row-reverse;
 }
 
-/*! */
 .home-banner,
 .blog-container {
   max-width: 1200px;
 }
 
-/* .recent-posts {} */
-
 .recent-posts-item {
   height: 13.8em;
   border-radius: 12px;
-  background-color: #fff;
+  background-color: var(--secondary-color);
   display: flex;
   overflow: hidden;
 }
 
 .recent-posts-item a {
-  color: #0a0a0a !important;
+  color: var(--primary-color);
 }
 
 aside {
@@ -50,7 +58,7 @@ aside {
   width: 100%;
   padding: 1rem 1.2rem;
   border-radius: 12px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  box-shadow: var(--shadow-color) 0px 6px 12px -2px, var(--shadow-color-2) 0px 3px 7px -3px;
 }
 
 .aside-item p {
@@ -65,10 +73,6 @@ aside {
   align-items: center;
 }
 
-/* .recent-posts-item-summaries::after {} */
-
-/*! 归档页面timeline */
-
 .timeline {
   position: relative;
   padding: 2rem 0;
@@ -82,7 +86,7 @@ aside {
   bottom: 0;
   left: 0;
   width: 2px;
-  background-color: #e2e8f0;
+  background-color: var(--border-color);
   transform: translateX(-50%);
 }
 
@@ -105,13 +109,13 @@ aside {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: #64748b;
+  background-color: var(--timeline-dot-color);
   transform: translate(-50%, -50%);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .timeline-item:hover::before {
-  background-color: #3b82f6;
+  background-color: var(--timeline-hover-color);
   box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
 }
 
@@ -142,29 +146,24 @@ aside {
 .timeline-item_title {
   font-size: 0.875rem;
   font-weight: 500;
-  color: #1e293b;
+  color: var(--timeline-text-color);
   margin-top: 0.5rem;
   line-height: 1.4;
   transition: color 0.3s ease;
 }
 
 .timeline-item:hover .timeline-item_title {
-  color: #3b82f6;
+  color: var(--timeline-hover-color);
 }
-
-/*! 归档页面timeline - end */
 
 .post-content {
   padding: 10px 15px;
 }
 
-/*! 顶部导航栏 */
 .menu {
   display: flex;
   justify-content: center;
 }
-
-/* .navlist {} */
 
 .navlist a {
   display: block;
@@ -174,23 +173,19 @@ aside {
   width: 100px;
   line-height: 40px;
   text-align: center;
-  /* margin: 0; */
 }
 
 .droplist {
   display: none;
-  background: #fff;
+  background: var(--secondary-color);
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid purple;
-  /* width: max-content; */
   margin: 0;
   transition: all .5s ease-in-out;
   position: absolute;
   z-index: 1;
 }
-
-/* .droplist li {} */
 
 .droplist li a {
   width: 100px;
@@ -212,7 +207,6 @@ aside {
   display: none;
 }
 
-/*! Toc */
 #toc {
   display: none;
 }
@@ -227,13 +221,13 @@ aside {
   max-width: 160px;
   max-height: 480px;
   overflow: auto;
+}
 
-  &::before {
-    display: table;
-    content: "Table of Contents";
-    color: rgba(42, 46, 54, 0.45);
-    font-weight: bold;
-  }
+#toc+ul::before {
+  display: table;
+  content: "Table of Contents";
+  color: rgba(42, 46, 54, 0.45);
+  font-weight: bold;
 }
 
 #toc+ul,
@@ -241,17 +235,18 @@ aside {
   list-style-type: none;
   font-size: 14px;
   margin: 0;
+}
 
-  >li>a {
-    text-decoration: none;
-    color: rgb(55, 65, 81);
-    font-weight: normal;
-  }
+#toc+ul>li>a,
+#toc+ul ul>li>a {
+  text-decoration: none;
+  color: rgb(55, 65, 81);
+  font-weight: normal;
 }
 
 @media (min-width: 1024px) {
   #toc+ul {
-    display: block !important;
+    display: block;
   }
 }
 
@@ -259,15 +254,12 @@ aside {
   font-family: DM Mono, Input Mono, Fira Code, monospace;
   font-size: 0.92em;
   line-height: 1.4;
-  /* margin: 0.5em 0; */
 }
 
-/* TODO: shikiji 未对纯文本样式做适配 */
 .prose .shiki.nord[lang=plaintext] :where(code) {
   color: #d8dee9ff;
 }
 
-/*! Admin Panel */
 .left-aside {
   width: 100%;
   max-width: 200px;
@@ -280,13 +272,10 @@ aside {
   bottom: 0;
   scrollbar-width: thin;
   scrollbar-gutter: stable;
-  flex: 0 0 200px
+  flex: 0 0 200px;
 }
 
-/* .left-aside-menu {} */
-
 .left-aside-menu-item {
-  /* width: 100%; */
   height: 40px;
   padding: 0 0 0 26px;
   display: flex;
@@ -299,30 +288,28 @@ aside {
 }
 
 .left-aside-menu-item:hover {
-  background-color: #e6f4ff;
+  background-color: var(--menu-hover-bg);
 }
 
-/* .left-aside-menu>.left-aside-menu-item:not(:first-child) {} */
-
-/*! dark-mode */
 @media (prefers-color-scheme: light) {
   body {
-    background-color: #f4f4f4;
+    background-color: var(--body-bg-light);
   }
 
   aside .aside-item {
-    background-color: #fff;
+    background-color: var(--aside-bg-color);
   }
 }
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #0a0a0a;
+    background-color: var(--body-bg-dark);
   }
 }
 
-/*! media */
-@media screen and (max-width:1024px) and (min-width: 769px) {}
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  /* 响应式样式 */
+}
 
 @media screen and (max-width: 768px) {
   .header-wrapper {
@@ -357,7 +344,6 @@ aside {
     display: none;
   }
 
-  /*! dashboard */
   .left-aside {
     display: none;
   }
@@ -380,7 +366,6 @@ aside {
 
   .timeline-item::before {
     top: 1rem;
-    /* 标记点位置调整为顶部 */
     transform: translateX(-50%);
   }
 
@@ -404,7 +389,7 @@ aside {
   }
 
   .recent-posts-item:nth-child(even) {
-    flex-direction: column !important;
+    flex-direction: column;
   }
 
   .post-cover,
@@ -412,10 +397,9 @@ aside {
     width: 100%;
   }
 
-  /* .post-cover {} */
-
   .post-cover img {
-    width: 403.75px !important;
+    width: 100% !important;
+    max-width: 403.75px;
   }
 
   .post-meta {

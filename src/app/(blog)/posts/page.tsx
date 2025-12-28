@@ -5,7 +5,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-    Divider,
+    // Divider,
     Image,
     Pagination
 } from "antd";
@@ -14,10 +14,6 @@ import moment from "moment";
 import { fetchPostList } from "@/utils/articles";
 import { PostListResponse } from "@/types/articles";
 import "animate.css";
-
-export const pageConfig = {
-    hideAside: true,
-}
 
 export const metadata: Metadata = {
     title: "所有文章",

@@ -13,7 +13,7 @@ import "../page-content.css";
 import "animate.css";
 import {
   ConfigProvider,
-  FloatButton
+  // FloatButton
 } from "antd";
 // import { CommentOutlined } from '@ant-design/icons';
 // import { AntdRegistry } from "@ant-design/nextjs-registry";
@@ -23,20 +23,6 @@ import Aside from "@/components/(blog)/aside";
 import { SiteConfigResponse } from "@/types/site-config";
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
-
-async function getPageConfig() {
-  const headersList = await headers();
-  const pathname = headersList.get('next-url')?.split('?')[0] || '/';
-  let modulePath = pathname === '/'
-    ? './page'
-    : `./${pathname.slice(1)}/page`;
-  try {
-    const pageModule = await import(`./${modulePath}.tsx`)
-    return pageModule.pageConfig || { hideAside: false }
-  } catch (error) {
-    return { hideAside: false }
-  }
-}
 
 async function getSiteConfig() {
   const k = await fetch(`${baseUrl}/public/site-config`);
@@ -51,8 +37,6 @@ export default async function BlogLayout({ children }: Readonly<{ children: Reac
   const isLogin = !!token;
   // console.log(isLogin);
   const config = await getSiteConfig();
-  const { hideAside } = await getPageConfig();
-  // console.log(hideAside);
 
   return (
     <html lang="zh-CN">
@@ -81,8 +65,8 @@ export default async function BlogLayout({ children }: Readonly<{ children: Reac
 
             {/* content */}
             <div className="blog-container w-full my-10 mx-auto flex">
-              <div className={`blog-container-content flex-1 p-0 ${hideAside ? 'w-full' : 'w-[76%]'}`}>{children}</div>
-              {!hideAside && <Aside />}
+              <div className="blog-container-content flex-1 p-0 w-[76%]">{children}</div>
+              <Aside />
               {/* <FloatButton.BackTop duration={450} visibilityHeight={1} /> */}
             </div>
 

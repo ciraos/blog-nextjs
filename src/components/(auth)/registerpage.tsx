@@ -1,27 +1,27 @@
 "use client";
-import { useState } from 'react';
-import Link from 'next/link';
+// import { useState } from 'react';
+// import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import {
-    AutoComplete,
+    // AutoComplete,
     Button,
-    Cascader,
+    // Cascader,
     Checkbox,
-    Col,
+    // Col,
     Form,
     Input,
-    InputNumber,
-    Row,
-    Select,
-    Space
+    // InputNumber,
+    // Row,
+    // Select,
+    // Space
 } from 'antd';
 import type {
-    CascaderProps,
+    // CascaderProps,
     FormItemProps,
     FormProps
 } from 'antd';
-import type { DefaultOptionType } from 'antd/es/select';
+// import type { DefaultOptionType } from 'antd/es/select';
 
 const formItemLayout: FormProps = {
     labelCol: {
@@ -47,53 +47,22 @@ const tailFormItemLayout: FormItemProps = {
     },
 };
 
+type RegistryForm = {
+    email: string;
+    password: string;
+    confirm: string;
+    nickname: string;
+    agreement: boolean;
+};
+
 export default function RegisterPage() {
     const router = useRouter();
     const [form] = Form.useForm();
 
-    const onFinish = (values: any) => {
+    const onFinish: FormProps<RegistryForm>['onFinish'] = (values) => {
         router.push('/login');
         console.log('Received values of form: ', values);
     };
-
-    const prefixSelector = (
-        <Form.Item name="prefix" noStyle>
-            <Select
-                style={{ width: 70 }}
-                defaultValue={'86'}
-                options={[
-                    { label: '+86', value: '86' },
-                    { label: '+87', value: '87' },
-                ]}
-            />
-        </Form.Item>
-    );
-
-    const suffixSelector = (
-        <Form.Item name="suffix" noStyle>
-            <Select
-                style={{ width: 70 }}
-                defaultValue={'USD'}
-                options={[
-                    { label: '$', value: 'USD' },
-                    { label: '¥', value: 'CNY' },
-                ]}
-            />
-        </Form.Item>
-    );
-
-    const [autoCompleteResult, setAutoCompleteResult] = useState<string[]>([]);
-
-    const onWebsiteChange = (value: string) => {
-        setAutoCompleteResult(
-            value ? ['.com', '.org', '.net'].map((domain) => `${value}${domain}`) : [],
-        );
-    };
-
-    const websiteOptions = autoCompleteResult.map<DefaultOptionType>((website) => ({
-        label: website,
-        value: website,
-    }));
 
     return (
         <>

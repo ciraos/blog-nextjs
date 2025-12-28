@@ -9,10 +9,6 @@ import {
 } from "antd";
 import { PostTagsResponse } from "@/types/psottags";
 
-export const pageConfig = {
-    hideAside: true,
-}
-
 export const metadata: Metadata = {
     title: "文章 | 标签",
 };
