@@ -1,4 +1,4 @@
-@import url('tailwindcss');
+@import "tailwindcss";
 
 :root {
   --primary-color: #0a0a0a;
@@ -16,10 +16,11 @@
   --menu-hover-bg: #e6f4ff;
 }
 
+/*! body */
 body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   scroll-behavior: smooth;
   font-family: ui-sans-serif, 'sans', InterVariable, 'Noto Sans SC', system-ui, sans-serif;
 }
@@ -47,7 +48,7 @@ body {
 }
 
 .recent-posts-item a {
-  color: var(--primary-color);
+  color: var(--primary-color) !important;
 }
 
 aside {
@@ -207,6 +208,8 @@ aside {
   display: none;
 }
 
+/*! 侧边目录 - start */
+
 #toc {
   display: none;
 }
@@ -246,19 +249,11 @@ aside {
 
 @media (min-width: 1024px) {
   #toc+ul {
-    display: block;
+    display: block !important;
   }
 }
 
-.prose .shiki {
-  font-family: DM Mono, Input Mono, Fira Code, monospace;
-  font-size: 0.92em;
-  line-height: 1.4;
-}
-
-.prose .shiki.nord[lang=plaintext] :where(code) {
-  color: #d8dee9ff;
-}
+/*! 侧边目录 - end */
 
 .left-aside {
   width: 100%;
@@ -291,6 +286,7 @@ aside {
   background-color: var(--menu-hover-bg);
 }
 
+/*! dark and light mode */
 @media (prefers-color-scheme: light) {
   body {
     background-color: var(--body-bg-light);
@@ -307,9 +303,8 @@ aside {
   }
 }
 
-@media screen and (max-width: 1024px) and (min-width: 769px) {
-  /* 响应式样式 */
-}
+/*! 响应式样式 */
+@media screen and (max-width: 1024px) and (min-width: 769px) {}
 
 @media screen and (max-width: 768px) {
   .header-wrapper {
@@ -318,7 +313,9 @@ aside {
     justify-content: space-between;
   }
 
-  .menu {
+  .menu,
+  .info,
+  .left-aside {
     display: none;
   }
 
@@ -338,14 +335,6 @@ aside {
 
   .aside {
     padding-left: 0;
-  }
-
-  .info {
-    display: none;
-  }
-
-  .left-aside {
-    display: none;
   }
 
   .right-content {
@@ -389,25 +378,22 @@ aside {
   }
 
   .recent-posts-item:nth-child(even) {
-    flex-direction: column;
+    flex-direction: column !important;
   }
 
   .post-cover,
-  .post-meta {
+  .post-meta,
+  .essay-item {
     width: 100%;
   }
 
   .post-cover img {
     width: 100% !important;
-    max-width: 403.75px;
+    max-width: 403.75px !important;
   }
 
   .post-meta {
     padding: 14px 16px;
-  }
-
-  .essay-item {
-    width: 100%;
   }
 
   .comment-footer-btns {
