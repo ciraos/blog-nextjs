@@ -17,12 +17,15 @@ const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 const nsuuUrl = process.env.NEXT_PUBLIC_NSUUU_API_URL;
 // const nsuuKey = process.env.NEXT_PUBLIC_NSUUU_ADMIN_API_KEY;
 
+//! 
 async function getSiteConfig() {
     const k = await fetch(`${baseUrl}/public/site-config`);
     const res = await k.json() as SiteConfigResponse;
+    // console.log(res.data);
     return res.data;
 }
 
+//! 
 async function getRenJianData() {
     const t = await fetch(`${nsuuUrl}/renjian`, {
         cache: "no-store",
@@ -73,7 +76,8 @@ export default async function Aside() {
                     <div className="aside-item-title"><Icon icon="icon-park:volume-notice" width="20" height="20" /><span className="pl-1">公告</span></div>
                     <p>欢迎来到我的博客呀！</p>
                     <p className="mt-1.5">👋🏻我是{config.frontDesk.siteOwner.name}，一个<span className="text-blue-500 font-semibold">热爱编程</span>的技术爱好者，喜欢分享经验。😊</p>
-                    <p className="mt-1">❓有问题欢迎提问，确保内容有意义，详情请见<span className="text-purple-500 font-semibold">提问的智慧</span> 如需联系我，欢迎通过 <Link href="mailto:ciraos@yeah.net">邮箱</Link> 联系我！📧</p>
+                    <p className="mt-1">❓有问题欢迎提问，确保内容有意义。</p>
+                    <p className="mt-0.5">📱如需联系我，欢迎通过<Link href="mailto:ciraos@yeah.net" className="mx-0.5 text-purple-500 font-semibold">邮箱</Link>联系我！📧</p>
                     <div className="my-2 mx-auto py-2 px-3 leading-6 text-center text-sm bg-slate-100 rounded-xl">
                         嗷嗷！热烈欢迎！来自<br />
                         <br />
