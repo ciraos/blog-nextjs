@@ -22,7 +22,7 @@ const imageFallback = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMIAAADDCAY
 async function getSiteConfig() {
     const k = await fetch(`${baseUrl}/public/site-config`);
     const res = await k.json() as SiteConfigResponse;
-    console.log(res);
+    // console.log(res);
     return res.data;
 }
 
