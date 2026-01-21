@@ -79,7 +79,7 @@ export default async function Home() {
                 </span> */}
               </div>
 
-              <div className="h-10 mt-1.5 mb-1 text-sm text-slate-800 break-all overflow-y-hidden">{post.summaries}</div>
+              {/* <div className="h-10 mt-1.5 mb-1 text-sm text-slate-800 break-all overflow-y-hidden">{post.summaries}</div> */}
 
               <div className="flex items-center text-sm">
                 {post.post_tags.length > 0 && (

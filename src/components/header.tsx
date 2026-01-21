@@ -9,10 +9,12 @@ import {
     Tooltip
 } from "antd";
 // import type { MenuProps } from "antd";
+import {
+    MenuOutlined
+} from "@ant-design/icons";
 
 import { Icon } from "@iconify/react";
 import SearchButton from "./buttons/search";
-import DrawerButton from "./buttons/drawer";
 import { SiteConfigResponse } from "@/types/site-config";
 
 interface HeaderProps {
@@ -64,7 +66,15 @@ export default async function Header({ isLogin }: HeaderProps) {
                         ) : (
                             <Tooltip title="登录/注册"><Button type="primary" href="/login" className="hover:cursor-pointer">登录/注册</Button></Tooltip>
                         )}
-                        <DrawerButton />
+                        <Tooltip
+                            title="菜单"
+                        >
+                            <MenuOutlined
+                                className="menu-btn"
+                                // onClick={ }
+                                style={{ fontSize: 20 }}
+                            />
+                        </Tooltip>
                     </div>
                 </div>
             </div>
