@@ -4,13 +4,12 @@
 */
 import {
   cookies,
-  headers
+  // headers
 } from "next/headers";
 import Link from "next/link";
 import NextTopLoader from "nextjs-toploader";
 import "../globals.css";
 import "../page-content.css";
-import "animate.css";
 import {
   ConfigProvider,
   // FloatButton
