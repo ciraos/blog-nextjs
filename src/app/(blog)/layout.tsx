@@ -81,7 +81,7 @@ export default async function BlogLayout({ children }: Readonly<{ children: Reac
               </div>
               {/* <div>created by <Link className="pt-1 px-2 border-b-2 hover:bg-blue-400" href="https://github.com/ciraos" target="_blank">葱苓sama</Link> with <span className="animate-pulse">❤</span> at {new Date().getFullYear()}</div> */}
               <Link className="pt-1 px-2 border-b-2 hover:bg-blue-400" href="https://beian.miit.gov.cn" target="_blank">{config.ICP_NUMBER}</Link>
-              <div>CC BY-NC-SA 4.0</div>
+              {/* <div>CC BY-NC-SA 4.0</div> */}
             </div>
 
             {/* <FloatButton.Group

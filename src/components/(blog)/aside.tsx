@@ -86,7 +86,7 @@ export default async function Aside() {
                         <br />
                         你目前距博主约 公里！<br />
                         你的网络IP为：<br />
-                        {clientIp}<br />
+                        <div className="text-md text-blue-500 font-extrabold">{clientIp}</div>
                         下午好，饮茶先啦！
                     </div>
                 </div>
