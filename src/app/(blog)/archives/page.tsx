@@ -10,7 +10,6 @@ import {
 } from "antd";
 import {
     CalendarOutlined
-
 } from "@ant-design/icons";
 import { PostListResponse } from "@/types/articles";
 import moment from "moment";
@@ -30,9 +29,9 @@ export default async function Archives() {
     return (
         <>
             <h2>归档</h2>
-            <div className="timeline">
+            <div className="">
                 {posts.map((item, index) => (
-                    <Link key={index} href={`posts/${item.id}`} className="timeline-item">
+                    <Link key={index} href={`posts/${item.id}`} className="">
 
                         <Image
                             alt="post-cover"
@@ -42,12 +41,12 @@ export default async function Archives() {
                             style={{ width: 150, height: 80 }}
                         />
 
-                        <div className="timeline-item_content">
-                            <div className="timeline-item_date">
+                        <div className="">
+                            <div className="">
                                 <CalendarOutlined style={{ fontSize: 14, marginRight: 8 }} />
                                 {moment(item.created_at).format("YYYY-MM-DD")}
                             </div>
-                            <div className="timeline-item_title">{item.title}</div>
+                            <div className="">{item.title}</div>
                         </div>
 
                     </Link>

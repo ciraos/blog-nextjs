@@ -50,9 +50,9 @@ export default async function Home() {
     <>
       <div className="recent-posts">
         {postList.map((post, index) => (
-          <div key={index} style={{}} className="recent-posts-item shadow-sm">
+          <div key={index} style={{}} className="">
 
-            <Link href={`/posts/${post.id}`} className="post-cover w-[42%] h-full">
+            <Link href={`/posts/${post.id}`} className="">
               <Image
                 alt="fl-avatar"
                 fallback={imageFallbackPath}
@@ -64,26 +64,26 @@ export default async function Home() {
               />
             </Link>
 
-            <div className="post-meta w-[calc(100%-344px)] py-2 px-5 flex flex-col justify-center">
-              <Link href={`/posts/${post.id}`} className="post-meta-title text-2xl">{post.title}</Link>
+            <div className="">
+              <Link href={`/posts/${post.id}`} className="">{post.title}</Link>
 
               <div className="mt-2 text-xs text-slate-600">
-                <span className="flex items-center">
+                <span className="">
                   <Icon icon="icon-park-outline:time" width={18} height={18} className="mr-1" />
-                  <span className="mr-1">创建于{post.created_at ? moment(post.created_at).format('YYYY-MM-DD') : '未知'}</span>
+                  <span className="">创建于{post.created_at ? moment(post.created_at).format('YYYY-MM-DD') : '未知'}</span>
                 </span>
                 {/* <Divider orientation="vertical" variant="solid" /> */}
-                {/* <span className="flex items-center break-all">
-                  <Icon icon="icon-park-outline:time" width={18} height={18} className="mr-1" />
-                  <span className="mr-1">更新于{post.updated_at ? moment(post.updated_at).format('YYYY-MM-DD') : '未知'}</span>
+                {/* <span className="">
+                  <Icon icon="icon-park-outline:time" width={18} height={18} className="" />
+                  <span className="">更新于{post.updated_at ? moment(post.updated_at).format('YYYY-MM-DD') : '未知'}</span>
                 </span> */}
               </div>
 
               {/* <div className="h-10 mt-1.5 mb-1 text-sm text-slate-800 break-all overflow-y-hidden">{post.summaries}</div> */}
 
-              <div className="flex items-center text-sm">
+              <div className="">
                 {post.post_tags.length > 0 && (
-                  <div className="flex">
+                  <div className="">
                     {post.post_tags.map((tag, index) => (
                       <span key={index} style={{ marginRight: '8px' }}>
                         #{tag.name}
@@ -95,7 +95,7 @@ export default async function Home() {
                 {/* <Divider orientation="vertical" variant="solid" /> */}
 
                 {post.post_categories.length > 0 && (
-                  <div className="flex items-center">
+                  <div className="">
                     <Icon icon="mdi:category" width="16px" height="16px" />
                     {post.post_categories.map((category) => (
                       <span key={category.id} style={{ marginRight: '8px' }}>
@@ -106,7 +106,7 @@ export default async function Home() {
                 )}
               </div>
 
-              <div className="text-sm">阅读量：{post.view_count} | 阅读时间：{post.reading_time}分钟</div>
+              <div className="">阅读量：{post.view_count} | 阅读时间：{post.reading_time}分钟</div>
 
             </div>
           </div>

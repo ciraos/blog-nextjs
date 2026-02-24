@@ -66,21 +66,21 @@ export default async function BlogLayout({ children }: Readonly<{ children: Reac
             {/* home-banner */}
 
             {/* content */}
-            <div className="blog-container w-full my-10 mx-auto flex">
-              <div className="blog-container-content flex-1 p-0 w-[76%]">{children}</div>
+            <div className="">
+              <div className="">{children}</div>
               <Aside />
               {/* <FloatButton.BackTop duration={450} visibilityHeight={1} /> */}
             </div>
 
             {/* footer */}
-            <div className="blog-footer w-full h-max py-0 content-center text-center leading-7.5">
+            <div className="">
               <div>created by
-                <Link className="px-2 border-b-2 hover:bg-blue-400" href="https://github.com/anzhiyu-c/anheyu-app" target="_blank">anheyu-app</Link>with
-                <Link className="px-2 border-b-2 hover:bg-blue-400" href="https://github.com/ciraos/blog-nextjs" target="_blank">anheyu-theme-ciraos</Link>together and&nbsp;
+                <Link className="" href="https://github.com/anzhiyu-c/anheyu-app" target="_blank">anheyu-app</Link>with
+                <Link className="" href="https://github.com/ciraos/blog-nextjs" target="_blank">anheyu-theme-ciraos</Link>together and&nbsp;
                 <span className="animate-pulse text-red-500">❤</span>.
               </div>
               {/* <div>created by <Link className="pt-1 px-2 border-b-2 hover:bg-blue-400" href="https://github.com/ciraos" target="_blank">葱苓sama</Link> with <span className="animate-pulse">❤</span> at {new Date().getFullYear()}</div> */}
-              <Link className="pt-1 px-2 border-b-2 hover:bg-blue-400" href="https://beian.miit.gov.cn" target="_blank">{config.ICP_NUMBER}</Link>
+              <Link className="" href="https://beian.miit.gov.cn" target="_blank">{config.ICP_NUMBER}</Link>
               {/* <div>CC BY-NC-SA 4.0</div> */}
             </div>
 
